@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
 import { services, serviceFamilies, type Service } from '../../data/services';
 import { locations, type Location } from '../../data/locations';
-import { coupons } from '../../data/coupons';
+import { coupons, type Coupon } from '../../data/coupons';
 import { generalFaqs } from '../../data/faqs';
+import { serviceDetails } from '../../data/serviceDetails';
 import { business } from '../../data/business';
 
 // Keyword-scored knowledge base built directly from the site's own service,
@@ -231,8 +232,54 @@ function buildFaqEntries(): KnowledgeEntry[] {
   }));
 }
 
+// Per-service FAQs from each service's detail page (pricing nuance, repair-vs-
+// replace, timelines) so the chatbot can answer paraphrased versions of
+// questions that only live on the service page, not the general FAQ list.
+// Tagged with the service's own topic so page-context boost still applies.
+function buildServiceFaqEntries(): KnowledgeEntry[] {
+  const entries: KnowledgeEntry[] = [];
+  for (const service of services) {
+    const detail = serviceDetails[service.slug];
+    if (!detail) continue;
+    detail.faqs.forEach((faq, index) => {
+      entries.push({
+        id: `service-faq:${service.slug}:${index}`,
+        topic: `service:${service.slug}`,
+        keywords: [...tokenize(faq.question), ...serviceKeywords(service)],
+        weight: 1,
+        logLabel: `Answered: "${faq.question}"`,
+        reply: () => (
+          <>
+            <p>{faq.answer}</p>
+            <a
+              href={serviceHref(service)}
+              className="mt-2 inline-flex items-center gap-1 font-semibold text-brand-blue-700 hover:text-brand-blue-800"
+            >
+              More on {service.name} &rarr;
+            </a>
+          </>
+        ),
+      });
+    });
+  }
+  return entries;
+}
+
+/** True if a coupon's `expires` (M/D/YYYY, as sourced on coupons.ts) is today or later. Coupons without an expires date are treated as always-active. */
+function isCouponActive(coupon: Coupon): boolean {
+  if (!coupon.expires) return true;
+  const parsed = new Date(coupon.expires);
+  if (Number.isNaN(parsed.getTime())) return true;
+  const endOfDay = new Date(parsed.getFullYear(), parsed.getMonth(), parsed.getDate(), 23, 59, 59);
+  return endOfDay.getTime() >= Date.now();
+}
+
+function activeCoupons(): Coupon[] {
+  return coupons.filter(isCouponActive);
+}
+
 function buildCouponEntries(): KnowledgeEntry[] {
-  return coupons.map((coupon) => ({
+  return activeCoupons().map((coupon) => ({
     id: `coupon:${coupon.slug}`,
     topic: 'coupons',
     keywords: [...tokenize(coupon.title), ...tokenize(coupon.description)],
@@ -482,10 +529,11 @@ const STATIC_ENTRIES: KnowledgeEntry[] = [
     ],
     weight: 2,
     logLabel: 'Pointed to current coupons',
-    reply: () =>
-      coupons.length > 0 ? (
+    reply: () => {
+      const active = activeCoupons();
+      return active.length > 0 ? (
         <>
-          We&rsquo;ve got {coupons.length} current offer{coupons.length === 1 ? '' : 's'}.{' '}
+          We&rsquo;ve got {active.length} current offer{active.length === 1 ? '' : 's'}.{' '}
           <a href="/coupons" className="font-semibold text-brand-blue-700 hover:text-brand-blue-800">
             See current coupons
           </a>
@@ -498,7 +546,8 @@ const STATIC_ENTRIES: KnowledgeEntry[] = [
           </a>{' '}
           for current offers, or ask your technician about available savings when you schedule.
         </>
-      ),
+      );
+    },
   },
 ];
 
@@ -510,6 +559,7 @@ export function getKnowledgeBase(): KnowledgeEntry[] {
       ...STATIC_ENTRIES,
       ...buildServiceEntries(),
       ...buildFaqEntries(),
+      ...buildServiceFaqEntries(),
       ...buildCouponEntries(),
       ...buildLocationEntries(),
       ...buildBroadServiceAreaEntries(),

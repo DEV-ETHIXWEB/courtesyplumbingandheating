@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, MotionConfig } from 'motion/react';
 import { X, Send, Phone, Mail, MessageCircle, Sparkles, CircleCheck, AlertTriangle } from 'lucide-react';
 import { business } from '../../data/business';
 import { services } from '../../data/services';
@@ -573,6 +573,12 @@ export default function Chatbot({ business: businessProp }: Props) {
   }
 
   function handleUserInput(displayText: string, matchText: string = displayText) {
+    // Guards against a message slipping in while a bot reply (and any
+    // chained action like startWizard/offerLeadCapture, queued via setTimeout
+    // in that reply's onDone) is still in flight: without this, a fast second
+    // message can get routed through the wrong handler because lead.step
+    // hasn't updated yet, silently dropping the user's answer to the wizard.
+    if (typing) return;
     pushUserMessage(displayText);
 
     const step = leadRef.current.step;
@@ -633,6 +639,7 @@ export default function Chatbot({ business: businessProp }: Props) {
                   : 'Type a question…';
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="fixed right-4 bottom-20 z-(--z-chatbot) lg:right-6 lg:bottom-6" data-chatbot-launcher>
       <AnimatePresence>
         {open && (
@@ -642,6 +649,7 @@ export default function Chatbot({ business: businessProp }: Props) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ duration: 0.22, ease: EASE }}
+            id="courtesy-chatbot-panel"
             className="mb-4 flex h-[min(600px,72vh)] w-[92vw] max-w-[400px] flex-col overflow-hidden rounded-(--radius-xl) border border-border bg-white shadow-elevated"
             role="dialog"
             aria-label={`Chat with ${business.name}`}
@@ -666,7 +674,7 @@ export default function Chatbot({ business: businessProp }: Props) {
                     </div>
                     <div className="flex items-center gap-1.5 text-xs text-white/70">
                       <span className="relative flex h-1.5 w-1.5">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 motion-reduce:hidden" />
                         <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
                       </span>
                       Usually replies in minutes
@@ -676,6 +684,8 @@ export default function Chatbot({ business: businessProp }: Props) {
                 <button
                   type="button"
                   aria-label="Close chat"
+                  aria-expanded={open}
+                  aria-controls="courtesy-chatbot-panel"
                   onClick={() => setOpen(false)}
                   className="grid h-8 w-8 place-items-center rounded-full text-white/80 transition-colors hover:bg-white/10 hover:text-white"
                 >
@@ -724,7 +734,9 @@ export default function Chatbot({ business: businessProp }: Props) {
               {typing && <TypingIndicator />}
             </div>
 
-            <div className="shrink-0 border-t border-border bg-surface-subtle px-3 py-2.5">
+            <div
+              className={`shrink-0 border-t border-border bg-surface-subtle px-3 py-2.5 ${typing ? 'pointer-events-none opacity-60' : ''}`}
+            >
               {lead.step === 'offer' ? (
                 <div className="grid grid-cols-2 gap-1.5">
                   <ActionButton label="Yes, let's do it" onClick={() => handleUserInput("Yes, let's do it")} />
@@ -790,7 +802,7 @@ export default function Chatbot({ business: businessProp }: Props) {
               <button
                 type="submit"
                 aria-label="Send message"
-                disabled={!input.trim()}
+                disabled={!input.trim() || typing}
                 className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-blue-600 text-white transition-transform active:scale-95 disabled:opacity-40"
               >
                 <Send className="h-4 w-4" />
@@ -840,6 +852,8 @@ export default function Chatbot({ business: businessProp }: Props) {
                 setUnread(0);
               }}
               aria-label="Open chat"
+              aria-expanded={open}
+              aria-controls="courtesy-chatbot-panel"
               initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.7 }}
@@ -850,7 +864,7 @@ export default function Chatbot({ business: businessProp }: Props) {
             >
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-0 animate-ping rounded-full bg-brand-blue-500/60"
+                className="pointer-events-none absolute inset-0 animate-ping rounded-full bg-brand-blue-500/60 motion-reduce:hidden"
                 style={{ animationDuration: '2.2s' }}
               />
               <span aria-hidden className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-brand-blue-300/70" />
@@ -865,5 +879,6 @@ export default function Chatbot({ business: businessProp }: Props) {
         </AnimatePresence>
       </div>
     </div>
+    </MotionConfig>
   );
 }
