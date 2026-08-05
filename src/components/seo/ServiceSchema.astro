@@ -1,0 +1,40 @@
+---
+import { business } from '../../data/business';
+import { locations } from '../../data/locations';
+
+interface Props {
+  name: string;
+  description: string;
+  serviceType: string;
+  /** URL path, e.g. /hvac/ac-repair */
+  path: string;
+}
+
+const { name, description, serviceType, path } = Astro.props;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name,
+  description,
+  serviceType,
+  url: `${siteUrl}${path}`,
+  provider: {
+    '@type': ['HVACBusiness', 'Plumber'],
+    name: business.name,
+    telephone: business.phone.href.replace('tel:', ''),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: business.address.street,
+      addressLocality: business.address.city,
+      addressRegion: business.address.state,
+      postalCode: business.address.zip,
+      addressCountry: 'US',
+    },
+  },
+  areaServed: locations.map((l) => ({ '@type': 'City', name: l.name })),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />

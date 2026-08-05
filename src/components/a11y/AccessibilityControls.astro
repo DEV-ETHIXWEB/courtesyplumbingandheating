@@ -1,0 +1,558 @@
+---
+import {
+  Accessibility,
+  Type,
+  Contrast,
+  Zap,
+  X,
+  Link2,
+  MousePointer2,
+  BookOpenText,
+  AlignJustify,
+  RotateCcw,
+  Contrast as Grayscale,
+  ImageOff,
+  PauseCircle,
+  MoveHorizontal,
+  SquareDashedMousePointer,
+} from '@lucide/astro';
+---
+
+<div class="fixed bottom-20 left-4 z-(--z-chatbot) lg:bottom-6" data-a11y-launcher>
+  <button
+    type="button"
+    aria-label="Accessibility options"
+    aria-expanded="false"
+    aria-controls="a11y-panel"
+    data-a11y-toggle
+    class="a11y-trigger"
+  >
+    <span aria-hidden="true" class="pointer-events-none absolute inset-0 animate-ping rounded-full bg-brand-blue-400/40" style="animation-duration: 2.4s"></span>
+    <Accessibility aria-hidden="true" class="a11y-trigger__icon" />
+  </button>
+
+  <div
+    id="a11y-panel"
+    class="a11y-panel absolute bottom-16 left-0 flex max-h-[calc(100vh-7rem)] w-80 flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-elevated"
+    data-a11y-panel
+  >
+    <div class="a11y-panel__header">
+      <div class="flex items-center gap-2.5">
+        <span class="flex size-8 items-center justify-center rounded-full bg-white/15 text-white">
+          <Accessibility aria-hidden="true" class="size-4" />
+        </span>
+        <div>
+          <p class="font-display text-sm font-bold leading-tight text-white">Accessibility</p>
+          <p class="text-[11px] leading-tight text-white/70">Customize how this site looks</p>
+        </div>
+      </div>
+      <button
+        type="button"
+        aria-label="Close accessibility options"
+        data-a11y-close
+        class="flex size-8 shrink-0 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/15 hover:text-white"
+      >
+        <X aria-hidden="true" class="size-4" />
+      </button>
+    </div>
+
+    <div class="min-h-0 flex-1 overflow-y-auto px-4 py-4">
+      <div class="space-y-5">
+        <div>
+          <p class="a11y-group-label">
+            <Type aria-hidden="true" class="size-3.5" />
+            Text size
+          </p>
+          <div class="grid grid-cols-3 gap-1.5" role="group" aria-label="Text size">
+            <button type="button" data-a11y-text-size="default" aria-pressed="true" class="a11y-step-btn">
+              <span class="text-xs">A</span>
+            </button>
+            <button type="button" data-a11y-text-size="large" aria-pressed="false" class="a11y-step-btn">
+              <span class="text-sm">A</span>
+            </button>
+            <button type="button" data-a11y-text-size="xlarge" aria-pressed="false" class="a11y-step-btn">
+              <span class="text-base">A</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <p class="a11y-group-label">
+            <AlignJustify aria-hidden="true" class="size-3.5" />
+            Line &amp; letter spacing
+          </p>
+          <div class="grid grid-cols-3 gap-1.5" role="group" aria-label="Reading spacing">
+            <button type="button" data-a11y-spacing="default" aria-pressed="true" class="a11y-step-btn">
+              <span class="text-xs">Off</span>
+            </button>
+            <button type="button" data-a11y-spacing="relaxed" aria-pressed="false" class="a11y-step-btn">
+              <span class="text-xs">Wide</span>
+            </button>
+            <button type="button" data-a11y-spacing="loose" aria-pressed="false" class="a11y-step-btn">
+              <span class="text-xs">Wider</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="a11y-divider"></div>
+
+        <div>
+          <p class="a11y-group-label">Text &amp; reading</p>
+          <div class="space-y-2">
+            <button type="button" data-a11y-option="underline-links" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><Link2 aria-hidden="true" class="size-4" /></span>
+              Underline links
+            </button>
+
+            <button type="button" data-a11y-option="readable-font" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><BookOpenText aria-hidden="true" class="size-4" /></span>
+              Readable font
+            </button>
+
+            <button type="button" data-a11y-option="reading-guide" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><MoveHorizontal aria-hidden="true" class="size-4" /></span>
+              Reading guide
+            </button>
+          </div>
+        </div>
+
+        <div class="a11y-divider"></div>
+
+        <div>
+          <p class="a11y-group-label">Visual</p>
+          <div class="space-y-2">
+            <button type="button" data-a11y-option="contrast" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><Contrast aria-hidden="true" class="size-4" /></span>
+              Higher contrast
+            </button>
+
+            <button type="button" data-a11y-option="grayscale" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><Grayscale aria-hidden="true" class="size-4" /></span>
+              Grayscale
+            </button>
+
+            <button type="button" data-a11y-option="hide-images" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><ImageOff aria-hidden="true" class="size-4" /></span>
+              Hide images
+            </button>
+
+            <button type="button" data-a11y-option="highlight-controls" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><SquareDashedMousePointer aria-hidden="true" class="size-4" /></span>
+              Highlight links &amp; buttons
+            </button>
+          </div>
+        </div>
+
+        <div class="a11y-divider"></div>
+
+        <div>
+          <p class="a11y-group-label">Motion &amp; input</p>
+          <div class="space-y-2">
+            <button type="button" data-a11y-option="motion" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><Zap aria-hidden="true" class="size-4" /></span>
+              Reduce motion
+            </button>
+
+            <button type="button" data-a11y-option="pause-media" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><PauseCircle aria-hidden="true" class="size-4" /></span>
+              Pause videos &amp; animations
+            </button>
+
+            <button type="button" data-a11y-option="large-cursor" aria-pressed="false" class="a11y-toggle-btn">
+              <span class="a11y-toggle-btn__icon"><MousePointer2 aria-hidden="true" class="size-4" /></span>
+              Large cursor
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-border px-4 py-3">
+      <button
+        type="button"
+        data-a11y-reset
+        class="flex w-full items-center justify-center gap-1.5 rounded-(--radius-md) border border-border px-3 py-2 text-xs font-semibold text-text-muted transition-colors hover:border-border-strong hover:bg-surface-muted hover:text-text min-h-9"
+      >
+        <RotateCcw aria-hidden="true" class="size-3.5" />
+        Reset to defaults
+      </button>
+      <p class="mt-2 text-center text-[11px] leading-snug text-text-muted">
+        Settings are saved on this device only.
+      </p>
+    </div>
+  </div>
+
+  <div class="a11y-reading-guide" data-a11y-reading-guide-el aria-hidden="true"></div>
+</div>
+
+<style>
+  .a11y-trigger {
+    position: relative;
+    display: flex;
+    size: 3.25rem;
+    width: 3.25rem;
+    height: 3.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    color: var(--color-brand-blue-100);
+    background: linear-gradient(155deg, var(--color-brand-blue-600) 0%, var(--color-brand-blue-800) 65%, var(--color-brand-navy) 100%);
+    box-shadow:
+      inset 0 1.5px 1.5px rgba(255, 255, 255, 0.25),
+      inset 0 -6px 10px -4px rgba(0, 0, 0, 0.35),
+      0 10px 22px -8px rgba(10, 46, 77, 0.55),
+      0 2px 8px -2px rgba(10, 46, 77, 0.35);
+    transition:
+      transform 250ms var(--ease-out-quart),
+      box-shadow 250ms var(--ease-out-quart);
+  }
+
+  .a11y-trigger:hover {
+    transform: translateY(-2px) scale(1.04);
+    color: white;
+  }
+
+  .a11y-trigger__icon {
+    position: relative;
+    size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
+    transition: transform 250ms var(--ease-out-quart);
+  }
+
+  .a11y-trigger:hover .a11y-trigger__icon {
+    transform: scale(1.08);
+  }
+
+  .a11y-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.875rem 1rem;
+    background: linear-gradient(120deg, var(--color-brand-blue-700) 0%, var(--color-brand-navy) 100%);
+  }
+
+  .a11y-divider {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .a11y-toggle-btn__icon {
+    display: flex;
+    size: 1.75rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-muted);
+    color: var(--color-text-muted);
+    transition:
+      background-color 150ms var(--ease-out-quart),
+      color 150ms var(--ease-out-quart);
+  }
+
+  .a11y-toggle-btn[aria-pressed='true'] .a11y-toggle-btn__icon {
+    background: var(--color-brand-blue-600);
+    color: white;
+  }
+
+  .a11y-group-label {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 0.375rem;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+  }
+
+  .a11y-toggle-btn {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    padding: 0.625rem 0.75rem;
+    text-align: left;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text);
+    min-height: 2.75rem;
+    transition:
+      background-color 150ms var(--ease-out-quart),
+      border-color 150ms var(--ease-out-quart),
+      color 150ms var(--ease-out-quart);
+  }
+
+  .a11y-toggle-btn:hover {
+    background: var(--color-brand-blue-50);
+  }
+
+  .a11y-toggle-btn[aria-pressed='true'] {
+    border-color: var(--color-brand-blue-600);
+    background: var(--color-brand-blue-50);
+    color: var(--color-brand-blue-700);
+  }
+
+  .a11y-step-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    padding: 0.5rem 0.25rem;
+    min-height: 2.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    transition:
+      background-color 150ms var(--ease-out-quart),
+      border-color 150ms var(--ease-out-quart),
+      color 150ms var(--ease-out-quart);
+  }
+
+  .a11y-step-btn:hover {
+    background: var(--color-brand-blue-50);
+  }
+
+  .a11y-step-btn[aria-pressed='true'] {
+    border-color: var(--color-brand-blue-600);
+    background: var(--color-brand-blue-600);
+    color: white;
+  }
+
+  .a11y-reading-guide {
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 2.5rem;
+    background: rgb(219 63 67 / 0.12);
+    border-top: 2px solid var(--color-brand-red-500);
+    border-bottom: 2px solid var(--color-brand-red-500);
+    pointer-events: none;
+    z-index: var(--z-chatbot);
+  }
+
+  .a11y-reading-guide[data-active='true'] {
+    display: block;
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'courtesy-a11y-prefs';
+
+  type TextSize = 'default' | 'large' | 'xlarge';
+  type Spacing = 'default' | 'relaxed' | 'loose';
+
+  type ToggleKey =
+    | 'contrast'
+    | 'motion'
+    | 'underlineLinks'
+    | 'readableFont'
+    | 'largeCursor'
+    | 'grayscale'
+    | 'hideImages'
+    | 'highlightControls'
+    | 'pauseMedia'
+    | 'readingGuide';
+
+  type Prefs = {
+    textSize: TextSize;
+    spacing: Spacing;
+  } & Record<ToggleKey, boolean>;
+
+  const DEFAULTS: Prefs = {
+    textSize: 'default',
+    spacing: 'default',
+    contrast: false,
+    motion: false,
+    underlineLinks: false,
+    readableFont: false,
+    largeCursor: false,
+    grayscale: false,
+    hideImages: false,
+    highlightControls: false,
+    pauseMedia: false,
+    readingGuide: false,
+  };
+
+  const TOGGLE_ATTR_MAP: Record<ToggleKey, { attr: string; value: string }> = {
+    contrast: { attr: 'data-contrast', value: 'high' },
+    motion: { attr: 'data-motion', value: 'reduced' },
+    underlineLinks: { attr: 'data-underline-links', value: 'true' },
+    readableFont: { attr: 'data-readable-font', value: 'true' },
+    largeCursor: { attr: 'data-large-cursor', value: 'true' },
+    grayscale: { attr: 'data-grayscale', value: 'true' },
+    hideImages: { attr: 'data-hide-images', value: 'true' },
+    highlightControls: { attr: 'data-highlight-controls', value: 'true' },
+    pauseMedia: { attr: 'data-pause-media', value: 'true' },
+    readingGuide: { attr: 'data-reading-guide', value: 'true' },
+  };
+
+  const OPTION_KEY_MAP: Record<string, ToggleKey> = {
+    contrast: 'contrast',
+    motion: 'motion',
+    'underline-links': 'underlineLinks',
+    'readable-font': 'readableFont',
+    'large-cursor': 'largeCursor',
+    grayscale: 'grayscale',
+    'hide-images': 'hideImages',
+    'highlight-controls': 'highlightControls',
+    'pause-media': 'pauseMedia',
+    'reading-guide': 'readingGuide',
+  };
+
+  function readPrefs(): Prefs {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return { ...DEFAULTS };
+      return { ...DEFAULTS, ...(JSON.parse(raw) as Partial<Prefs>) };
+    } catch {
+      return { ...DEFAULTS };
+    }
+  }
+
+  function writePrefs(prefs: Prefs) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+    } catch {
+      /* storage unavailable; preferences apply for this page only */
+    }
+  }
+
+  function setMediaPlayback(pause: boolean) {
+    document.querySelectorAll<HTMLVideoElement | HTMLAudioElement>('video, audio').forEach((el) => {
+      if (pause) {
+        if (!el.paused) {
+          el.dataset.a11yWasPlaying = 'true';
+          el.pause();
+        }
+      } else if (el.dataset.a11yWasPlaying === 'true') {
+        delete el.dataset.a11yWasPlaying;
+        el.play().catch(() => {});
+      }
+    });
+  }
+
+  function applyPrefs(prefs: Prefs) {
+    const root = document.documentElement;
+
+    if (prefs.textSize === 'default') root.removeAttribute('data-text-size');
+    else root.setAttribute('data-text-size', prefs.textSize);
+    document.querySelectorAll<HTMLButtonElement>('[data-a11y-text-size]').forEach((btn) => {
+      btn.setAttribute('aria-pressed', String(btn.dataset.a11yTextSize === prefs.textSize));
+    });
+
+    if (prefs.spacing === 'default') root.removeAttribute('data-spacing');
+    else root.setAttribute('data-spacing', prefs.spacing);
+    document.querySelectorAll<HTMLButtonElement>('[data-a11y-spacing]').forEach((btn) => {
+      btn.setAttribute('aria-pressed', String(btn.dataset.a11ySpacing === prefs.spacing));
+    });
+
+    (Object.keys(TOGGLE_ATTR_MAP) as ToggleKey[]).forEach((key) => {
+      const { attr, value } = TOGGLE_ATTR_MAP[key];
+      if (prefs[key]) root.setAttribute(attr, value);
+      else root.removeAttribute(attr);
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('[data-a11y-option]').forEach((btn) => {
+      const mapped = OPTION_KEY_MAP[btn.dataset.a11yOption ?? ''];
+      if (mapped) btn.setAttribute('aria-pressed', String(prefs[mapped]));
+    });
+
+    setMediaPlayback(prefs.pauseMedia);
+
+    const guide = document.querySelector<HTMLElement>('[data-a11y-reading-guide-el]');
+    if (guide) guide.dataset.active = String(prefs.readingGuide);
+  }
+
+  function initReadingGuide() {
+    const guide = document.querySelector<HTMLElement>('[data-a11y-reading-guide-el]');
+    if (!guide) return;
+    document.addEventListener('mousemove', (e) => {
+      if (guide.dataset.active !== 'true') return;
+      guide.style.top = `${e.clientY - 20}px`;
+    });
+  }
+
+  function initA11y() {
+    const toggle = document.querySelector<HTMLButtonElement>('[data-a11y-toggle]');
+    const panel = document.querySelector<HTMLElement>('[data-a11y-panel]');
+    const closeBtn = document.querySelector<HTMLButtonElement>('[data-a11y-close]');
+    if (!toggle || !panel) return;
+    if (panel.dataset.a11yBound === 'true') return;
+    panel.dataset.a11yBound = 'true';
+
+    let prefs = readPrefs();
+    applyPrefs(prefs);
+    initReadingGuide();
+
+    const setOpen = (open: boolean) => {
+      if (open) panel.dataset.open = 'true';
+      else delete panel.dataset.open;
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setOpen(panel.dataset.open !== 'true');
+    });
+
+    closeBtn?.addEventListener('click', () => {
+      setOpen(false);
+      toggle.focus();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && panel.dataset.open === 'true') {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (panel.dataset.open === 'true' && !panel.contains(e.target as Node)) setOpen(false);
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('[data-a11y-text-size]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        prefs = { ...prefs, textSize: btn.dataset.a11yTextSize as TextSize };
+        applyPrefs(prefs);
+        writePrefs(prefs);
+      });
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('[data-a11y-spacing]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        prefs = { ...prefs, spacing: btn.dataset.a11ySpacing as Spacing };
+        applyPrefs(prefs);
+        writePrefs(prefs);
+      });
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('[data-a11y-option]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const mapped = OPTION_KEY_MAP[btn.dataset.a11yOption ?? ''];
+        if (!mapped) return;
+        prefs = { ...prefs, [mapped]: !prefs[mapped] };
+        applyPrefs(prefs);
+        writePrefs(prefs);
+      });
+    });
+
+    document.querySelector<HTMLButtonElement>('[data-a11y-reset]')?.addEventListener('click', () => {
+      prefs = { ...DEFAULTS };
+      applyPrefs(prefs);
+      writePrefs(prefs);
+    });
+  }
+
+  initA11y();
+  document.addEventListener('astro:page-load', initA11y);
+</script>

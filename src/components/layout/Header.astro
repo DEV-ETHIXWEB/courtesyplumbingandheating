@@ -1,0 +1,72 @@
+---
+import { Menu } from '@lucide/astro';
+import { Image } from 'astro:assets';
+import logo from '../../assets/logo-courtesy.webp';
+import UtilityBar from './UtilityBar.astro';
+import MegaMenu from './MegaMenu.astro';
+import MobileMenu from './MobileMenu.astro';
+import PhoneButton from '../ui/PhoneButton.astro';
+import Button from '../ui/Button.astro';
+---
+
+<header class="sticky top-0 z-(--z-header) bg-white/95 backdrop-blur-sm border-b border-border">
+  <UtilityBar />
+
+  <div class="mx-auto flex w-full max-w-(--container-max) items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+    <a href="/" class="flex shrink-0 items-center" aria-label="Courtesy Plumbing & Heating home">
+      <Image
+        src={logo}
+        alt="Courtesy Plumbing & Heating"
+        width={220}
+        height={76}
+        class="h-10 w-auto sm:h-12"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </a>
+
+    <MegaMenu />
+
+    <div class="hidden xl:flex items-center gap-1">
+      <a href="/service-area" class="whitespace-nowrap rounded-(--radius-sm) px-3 py-2 text-sm font-semibold text-text hover:text-brand-blue-700 hover:bg-brand-blue-50 transition-colors">
+        Service Areas
+      </a>
+      <a href="/coupons" class="whitespace-nowrap rounded-(--radius-sm) px-3 py-2 text-sm font-semibold text-text hover:text-brand-blue-700 hover:bg-brand-blue-50 transition-colors">
+        Specials
+      </a>
+      <a href="/about" class="whitespace-nowrap rounded-(--radius-sm) px-3 py-2 text-sm font-semibold text-text hover:text-brand-blue-700 hover:bg-brand-blue-50 transition-colors">
+        About
+      </a>
+    </div>
+
+    <div class="flex shrink-0 items-center gap-2">
+      <PhoneButton variant="secondary" location="header" class="hidden xl:inline-flex whitespace-nowrap" />
+      <a
+        href={`tel:+17196795479`}
+        aria-label="Call Courtesy Plumbing & Heating"
+        class="hidden lg:flex xl:hidden size-11 items-center justify-center rounded-(--radius-md) border-2 border-brand-blue-600 text-brand-blue-700 hover:bg-brand-blue-50"
+        data-analytics-event="phone_click"
+        data-analytics-location="header_icon"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384Z" />
+        </svg>
+      </a>
+      <Button href="/contact" variant="primary" class="hidden sm:inline-flex whitespace-nowrap !px-4 lg:!px-5">
+        Schedule Service
+      </Button>
+      <button
+        type="button"
+        class="flex size-11 items-center justify-center rounded-(--radius-md) text-text hover:bg-surface-muted lg:hidden"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-mobile-menu-open
+      >
+        <Menu aria-hidden="true" class="size-6" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<MobileMenu />

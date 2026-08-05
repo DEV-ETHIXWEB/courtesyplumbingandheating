@@ -1,0 +1,21 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import ServiceAreaMap from '../location/ServiceAreaMap.tsx';
+import { locations } from '../../data/locations';
+---
+
+<Section id="service-area" bg="subtle">
+  <Container>
+    <SectionHeading
+      eyebrow="Castle Rock & Denver Metro"
+      title="Proudly Serving Your Neighborhood"
+      description="Explore our service area below. Select any city to see how Courtesy can help."
+    />
+
+    <div class="mt-10" data-reveal>
+      <ServiceAreaMap locations={locations} client:visible />
+    </div>
+  </Container>
+</Section>

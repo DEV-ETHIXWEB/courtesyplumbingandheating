@@ -1,0 +1,51 @@
+---
+import { Phone } from '@lucide/astro';
+import { business } from '../../data/business';
+
+interface Props {
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'text';
+  size?: 'md' | 'lg';
+  class?: string;
+  /** Analytics: identifies where the click happened for phone_click event */
+  location: string;
+}
+
+const { variant = 'primary', size = 'md', class: className = '', location } = Astro.props;
+
+// No unconditional display utility in `base`: see Button.astro for why.
+const base =
+  'items-center justify-center gap-2 font-semibold rounded-(--radius-md) transition-all duration-200 ease-(--ease-out-quart) min-h-11 focus-visible:outline-2 focus-visible:outline-offset-2';
+const defaultDisplay = 'inline-flex';
+
+const variants = {
+  primary: 'bg-brand-red-600 text-white hover:bg-brand-red-700 shadow-card hover:shadow-card-hover',
+  secondary: 'bg-white text-brand-blue-700 border-2 border-brand-blue-600 hover:bg-brand-blue-50',
+  outline:
+    'border-2 border-white/40 bg-white/10 backdrop-blur-md shadow-[0_1px_0_0_rgba(255,255,255,0.25)_inset,0_8px_24px_-8px_rgba(0,0,0,0.45)] hover:bg-white/20 hover:border-white/60',
+  ghost: 'bg-transparent hover:bg-black/5',
+  text: 'bg-transparent underline-offset-4 hover:underline',
+};
+
+const sizes = {
+  md: 'px-5 py-2.5 text-sm sm:text-base',
+  lg: 'px-7 py-3.5 text-base sm:text-lg',
+};
+
+const hasCustomDisplay = /(?:^|\s)(hidden|flex|inline-flex|inline-block|inline|block|grid|contents)(?:\s|$|:)/.test(
+  className
+) || /[a-z]+:(hidden|flex|inline-flex|inline-block|inline|block|grid|contents)(?:\s|$)/.test(className);
+
+const classes = [base, !hasCustomDisplay && defaultDisplay, variants[variant], sizes[size], className]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<a
+  href={business.phone.href}
+  class={classes}
+  data-analytics-event="phone_click"
+  data-analytics-location={location}
+>
+  <Phone aria-hidden="true" class="size-5 shrink-0" />
+  <span>Call {business.phone.display}</span>
+</a>

@@ -1,0 +1,62 @@
+---
+import { Plus } from '@lucide/astro';
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQ[];
+  class?: string;
+}
+
+const { items, class: className = '' } = Astro.props;
+---
+
+<div class:list={['divide-y divide-border rounded-(--radius-lg) border border-border bg-surface', className]}>
+  {items.map((item, i) => (
+    <details class="faq-item group" data-reveal name={`faq-${Math.random()}`}>
+      <summary class="faq-summary flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-display text-base font-bold text-text sm:p-6">
+        <span>{item.question}</span>
+        <Plus aria-hidden="true" class="faq-icon size-5 shrink-0 text-brand-blue-600 transition-transform duration-300 ease-(--ease-out-quart) group-open:rotate-45" />
+      </summary>
+      <div class="faq-content px-5 pb-5 sm:px-6 sm:pb-6">
+        <p class="text-sm leading-relaxed text-text-muted sm:text-base">{item.answer}</p>
+      </div>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-summary:focus-visible {
+    outline: 2px solid var(--color-brand-blue-600);
+    outline-offset: -2px;
+    border-radius: var(--radius-sm);
+  }
+
+  .faq-content {
+    animation: faq-slide-down 300ms var(--ease-out-quart);
+  }
+
+  @keyframes faq-slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .faq-content {
+      animation: none;
+    }
+  }
+</style>

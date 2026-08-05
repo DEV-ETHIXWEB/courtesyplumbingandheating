@@ -1,0 +1,34 @@
+---
+import { business } from '../../data/business';
+
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  author: string;
+  path: string;
+  image?: string;
+}
+
+const { title, description, date, author, path, image } = Astro.props;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: date.toISOString(),
+  dateModified: date.toISOString(),
+  author: { '@type': 'Organization', name: author },
+  publisher: {
+    '@type': 'Organization',
+    name: business.name,
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/favicon.svg` },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}${path}` },
+  ...(image ? { image: `${siteUrl}${image}` } : {}),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />

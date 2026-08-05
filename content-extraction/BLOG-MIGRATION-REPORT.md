@@ -1,0 +1,80 @@
+# Blog Migration Report
+
+Migrated 23 posts, skipped 50.
+
+## Migrated
+- [2024-12-23] **5 Benefits of a Tankless Water Heater for Your Castle Rock Home** (`5-benefits-of-a-tankless-water-heater-for-your-castle-rock-home`) — Water Heaters
+- [2024-09-16] **5 Eco-Friendly Plumbing Solutions for Your Home** (`5-eco-friendly-plumbing-solutions-for-your-home`) — Heating
+- [2024-06-10] **5 Signs It's Time to Replace Your Water Heater** (`5-signs-its-time-to-replace-your-water-heater`) — Water Heaters
+- [2024-02-26] **A Comprehensive Look: Understanding the Four Fundamental Categories of HVAC Systems** (`a-comprehensive-look-understanding-the-four-fundamental-categories-of-hvac-systems`) — Heating
+- [2024-11-04] **Best Practices for Maintaining Plumbing in Older Federal Heights Homes** (`best-practices-for-maintaining-plumbing-in-older-federal-heights-homes`) — Plumbing
+- [2023-12-15] **Boilers vs. Furnaces: Unraveling the Distinctions** (`boilers-vs-furnaces-unraveling-the-distinctions`) — Heating
+- [2023-10-13] **Common Signs Your Castle Rock Home Needs a New Water Heater** (`common-signs-your-castle-rock-home-needs-a-new-water-heater`) — Water Heaters
+- [2025-02-24] **Comparing Gas vs. Electric Furnaces: Which is Right for You?** (`comparing-gas-vs-electric-furnaces-which-is-right-for-you`) — Heating
+- [2023-11-03] **Dealing with Unpleasant Sewage Smells at Home: Causes, Effects, and Solutions** (`dealing-with-unpleasant-sewage-smells-at-home-causes-effects-and-solutions`) — Home Tips
+- [2023-12-08] **Decoding the Lifespan Enigma: Is a Two-Decade Run Possible for Your Water Heater?** (`decoding-the-lifespan-enigma-is-a-two-decade-run-possible-for-your-water-heater`) — Water Heaters
+- [2023-09-29] **Denver's Climate and Your HVAC System: A Match Made in Comfort** (`fe1yn2jp8dcm6vu1xl91kshpsfjjl8`) — Home Tips
+- [2024-11-25] **DIY Tips for Preventing Clogged Drains: Do’s & Don’ts** (`diy-tips-for-preventing-clogged-drains-dos-and-donts`) — Heating
+- [2024-12-30] **Do You Need a Water Softener? Signs Hard Water is Hurting Your Home** (`do-you-need-a-water-softener-signs-hard-water-is-hurting-your-home`) — Heating
+- [2024-06-03] **Eco-Friendly Plumbing Solutions: How to Save Water and Energy** (`eco-friendly-plumbing-solutions-how-to-save-water-and-energy`) — Plumbing
+- [2024-09-30] **Emergency Plumbing Tips for Colorado Homeowners** (`emergency-plumbing-tips-for-colorado-homeowners`) — Seasonal Tips
+- [2024-04-29] **Emergency Plumbing: What Colorado Residents Need to Know** (`emergency-plumbing-what-colorado-residents-need-to-know`) — Seasonal Tips
+- [2024-02-12] **Exploring Energy Efficiency in HVAC Systems: A Guide to Sustainable Comfort** (`exploring-energy-efficiency-in-hvac-systems-a-guide-to-sustainable-comfort`) — Heating
+- [2023-11-10] **Exploring Sewer Liners: Pros and Cons for Your Plumbing Needs** (`exploring-sewer-liners-pros-and-cons-for-your-plumbing-and-heating-needs`) — Sewer & Drains
+- [2024-04-08] **Finding Your HVAC Intake: A Guide to Improving Indoor Air Quality** (`finding-your-hvac-intake-a-guide-to-improving-indoor-air-quality`) — Heating
+- [2024-10-28] **Furnace Troubleshooting: Common Problems and How to Fix Them** (`furnace-troubleshooting-common-problems-and-how-to-fix-them`) — Heating
+- [2024-07-29] **Green Plumbing and Heating: Sustainable Practices for Your Home** (`green-plumbing-and-heating-sustainable-practices-for-your-home`) — Heating
+- [2023-11-17] **Handling a Leaking Water Heater in Colorado** (`handling-a-leaking-water-heater-in-colorado`) — Water Heaters
+- [2024-05-27] **Heating System Efficiency: Tips for Lowering Your Energy Bills** (`heating-system-efficiency-tips-for-lowering-your-energy-bills`) — Heating
+
+## Skipped
+- how-heat-pumps-work-your-comprehensive-guide.md: destination already exists
+- how-to-choose-the-right-furnace-for-your-home.md: destination already exists
+- how-to-improve-indoor-air-quality-during-heating-season.md: destination already exists
+- how-to-improve-indoor-air-quality-in-castle-rock-with-hvac-upgrades.md: destination already exists
+- how-to-prepare-your-ac-for-warmer-weather-spring-hvac-maintenance-tips.md: destination already exists
+- how-to-prepare-your-plumbing-for-winter.md: destination already exists
+- how-to-protect-your-plumbing-system-during-extended-vacations.md: destination already exists
+- how-to-reduce-your-homes-carbon-footprint-through-smart-heating.md: destination already exists
+- how-to-spot-the-early-signs-of-a-plumbing-leak.md: destination already exists
+- how-to-troubleshoot-common-thermostat-problems.md: destination already exists
+- how-to-unclog-a-drain-without-chemicals.md: destination already exists
+- keeping-warm-in-denver-the-importance-of-furnace-maintenance.md: destination already exists
+- keeping-your-sewer-lines-root-free-tips-from-courtesy-plumbing-amp-heating.md: destination already exists
+- maintaining-peak-performance-the-importance-of-changing-your-furnace-filter.md: destination already exists
+- navigating-bathroom-remodels-plumbing-considerations-and-trends.md: destination already exists
+- navigating-common-plumbing-problems-in-denver-what-you-need-to-know.md: destination already exists
+- navigating-power-outages-a-guide-to-keeping-your-castle-rock-home-warm-with-courtesy-plumbing-amp-heating.md: destination already exists
+- new-year-new-beginnings-a-homeowners-guide-to-preparing-your-home.md: destination already exists
+- pre-winter-furnace-preparation-in-colorado-what-you-need-to-know.md: destination already exists
+- preventing-tree-root-intrusion-in-sewer-lines-a-comprehensive-guide.md: destination already exists
+- seasonal-plumbing-tips-for-colorado-winters-ykbb2-dl26j.md: destination already exists
+- signs-of-a-failing-air-conditioning-system.md: destination already exists
+- signs-your-furnace-needs-repair-or-replacement.md: destination already exists
+- signs-your-plumbing-needs-an-upgrade.md: destination already exists
+- smart-home-integration-how-to-make-your-heating-and-plumbing-systems-smarter.md: destination already exists
+- summer-tips-for-plumbing-and-heating-systems.md: destination already exists
+- tackling-frozen-pipes-unveiling-the-dangers-prevention-tactics-and-remedies.md: destination already exists
+- the-benefits-of-tankless-water-heaters-for-colorado-homes.md: destination already exists
+- the-benefits-of-zoned-heating-systems-for-your-home.md: destination already exists
+- tips-for-reducing-heating-costs-during-the-winter-months.md: destination already exists
+- top-5-air-conditioning-myths-debunked.md: destination already exists
+- top-5-signs-your-boiler-needs-maintenance.md: destination already exists
+- understanding-energy-efficient-heating-options-for-castle-rock-homes.md: destination already exists
+- understanding-the-wonders-of-reverse-osmosis-water.md: destination already exists
+- understanding-why-your-furnace-fan-keeps-running.md: destination already exists
+- understanding-your-homes-plumbing-system-a-beginners-guide.md: destination already exists
+- unlocking-the-power-of-hydro-jetting-transforming-sewer-line-maintenance.md: destination already exists
+- untangling-the-mystery-of-orangeburg-pipe-the-compelling-case-for-replacement.md: destination already exists
+- water-heater-replacement-cost-in-colorado-a-homeowners-guide.md: destination already exists
+- what-colorado-homeowners-need-to-know-about-new-water-heater-regulations.md: destination already exists
+- when-should-you-replace-vs-repair-your-furnace.md: destination already exists
+- when-to-call-a-plumber-diy-fixes-vs-professional-repairs.md: destination already exists
+- why-annual-furnace-maintenance-is-a-must-for-castle-rock-residents.md: destination already exists
+- why-is-my-furnace-blowing-cold-air-troubleshooting-common-issues.md: destination already exists
+- why-isnt-my-furnace-heating-troubleshooting-tips-and-solutions.md: destination already exists
+- why-sediment-buildup-is-bad-for-your-water-heater.md: destination already exists
+- why-you-shouldnt-ignore-leaky-faucets.md: destination already exists
+- why-your-air-conditioner-is-blowing-warm-air-and-how-to-address-it.md: destination already exists
+- winter-plumbing-prep-avoiding-frozen-and-burst-pipes.md: destination already exists
+- winter-warriors-a-guide-to-staying-ahead-of-freezing-temperatures-in-colorado.md: destination already exists

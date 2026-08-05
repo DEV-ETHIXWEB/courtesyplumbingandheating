@@ -1,0 +1,32 @@
+---
+import { Award, Clock, DollarSign, ShieldCheck, BadgeCheck } from '@lucide/astro';
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import Reveal from '../ui/Reveal.astro';
+import IconBadge from '../ui/IconBadge.astro';
+import { business } from '../../data/business';
+
+const points = [
+  { icon: Award, label: `${business.yearsInBusiness} Years`, sub: 'Serving Colorado' },
+  { icon: Clock, label: '24/7 Service', sub: 'Emergencies welcome' },
+  { icon: DollarSign, label: 'No Trip Fees', sub: 'Transparent pricing' },
+  { icon: ShieldCheck, label: 'Licensed', sub: `#${business.license.plumbing}` },
+  { icon: BadgeCheck, label: 'Upfront Pricing', sub: 'No surprises' },
+];
+---
+
+<Section spacing="compact" bg="subtle">
+  <Container>
+    <Reveal as="ul" class="grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5" step={50}>
+      {points.map(({ icon: Icon, label, sub }) => (
+        <li class="flex items-center gap-3" data-reveal>
+          <IconBadge icon={Icon} tone="blue" size="sm" />
+          <div>
+            <p class="text-sm font-bold text-text leading-tight">{label}</p>
+            <p class="text-xs text-text-muted leading-tight">{sub}</p>
+          </div>
+        </li>
+      ))}
+    </Reveal>
+  </Container>
+</Section>

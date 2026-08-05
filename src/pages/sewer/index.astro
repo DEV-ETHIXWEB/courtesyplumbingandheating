@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import Section from '../../components/ui/Section.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Button from '../../components/ui/Button.astro';
+import PhoneButton from '../../components/ui/PhoneButton.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Reveal from '../../components/ui/Reveal.astro';
+import IconBadge from '../../components/ui/IconBadge.astro';
+import ServiceCard from '../../components/services/ServiceCard.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
+import FAQSchema from '../../components/seo/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+import EmergencyCTA from '../../components/home/EmergencyCTA.astro';
+import TrustStrip from '../../components/home/TrustStrip.astro';
+import { GitBranch } from '@lucide/astro';
+import { serviceFamilies, getServicesByFamily } from '../../data/services';
+
+const family = serviceFamilies.sewer;
+const allServices = getServicesByFamily('sewer');
+
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Sewer & Drains' }];
+
+const faqs = [
+  { question: 'How do I know if I have a sewer line problem?', answer: 'Multiple drains backing up at once, sewage odors in the yard or basement, and gurgling toilets are common signs of a main sewer line issue rather than a simple clog.' },
+  { question: 'Do you use camera inspection before recommending repairs?', answer: 'Yes, we use camera inspection to see exactly what’s happening inside the line so any repair recommendation is based on what we actually find, not guesswork.' },
+  { question: 'Can you avoid digging up my whole yard?', answer: 'In many cases, yes. Trenchless methods like pipe lining and pipe bursting can repair sewer lines with minimal excavation, though the right method depends on your pipe’s condition.' },
+  { question: 'Do you offer emergency sewer service?', answer: 'Yes, Courtesy offers 24/7 emergency sewer and drain service throughout Castle Rock and the Denver Metro area.' },
+];
+
+const title = 'Sewer & Drain Services in Castle Rock & Denver Metro, CO';
+const description = 'Sewer repair, hydro jetting, trenchless repair, and camera inspection. Licensed, 24/7 emergency service, no trip fees.';
+---
+
+<BaseLayout title={title} description={description} canonical="/sewer">
+  <BreadcrumbSchema items={breadcrumbItems} />
+  <FAQSchema items={faqs} />
+
+  <Section spacing="compact" bg="navy" class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.06]" aria-hidden="true" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+    <Container class="relative">
+      <Breadcrumb items={breadcrumbItems} class="mb-6 [&_a]:text-text-inverse-muted [&_a:hover]:text-white [&_span]:text-white" />
+      <div class="max-w-2xl" data-reveal>
+        <IconBadge icon={GitBranch} tone="white" size="lg" />
+        <h1 class="mt-5 text-balance font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
+          Sewer &amp; Drain Services
+        </h1>
+        <p class="mt-5 max-w-xl text-balance text-lg leading-relaxed text-text-inverse-muted">
+          {family.description} Licensed technicians, transparent pricing, and 24/7 availability throughout Castle Rock and the Denver Metro area.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <Button href="/contact" variant="secondary" size="lg" showArrow>Schedule Service</Button>
+          <PhoneButton variant="outline" size="lg" location="sewer_hub_hero" class="text-white" />
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <TrustStrip />
+
+  <Section>
+    <Container>
+      <SectionHeading eyebrow="Sewer & Drain" title="Line Repair, Cleaning & Inspection" align="left" />
+      <Reveal as="div" class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" step={60}>
+        {allServices.map((service) => <ServiceCard service={service} family="sewer" />)}
+      </Reveal>
+    </Container>
+  </Section>
+
+  <Section bg="subtle">
+    <Container>
+      <SectionHeading eyebrow="FAQs" title="Sewer & Drain Questions" align="left" />
+      <div class="mt-8 max-w-3xl">
+        <FAQAccordion items={faqs} />
+      </div>
+    </Container>
+  </Section>
+
+  <EmergencyCTA />
+</BaseLayout>

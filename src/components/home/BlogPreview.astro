@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import { ArrowRight, Calendar } from '@lucide/astro';
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import Reveal from '../ui/Reveal.astro';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+---
+
+{posts.length > 0 && (
+  <Section>
+    <Container>
+      <div class="flex flex-wrap items-end justify-between gap-3" data-reveal>
+        <h2 class="font-display text-3xl font-extrabold tracking-tight text-text sm:text-4xl">
+          From the Blog
+        </h2>
+        <a href="/blog" class="inline-flex items-center gap-1 py-1.5 text-sm font-semibold text-brand-blue-700 hover:text-brand-blue-800">
+          Visit the blog
+          <ArrowRight aria-hidden="true" class="size-4" />
+        </a>
+      </div>
+
+      <Reveal as="div" class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3" step={70}>
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} data-reveal class="card-elevated group flex flex-col p-5">
+            {post.data.category && (
+              <span class="w-fit rounded-full bg-brand-blue-50 px-2.5 py-0.5 text-xs font-semibold text-brand-blue-700">
+                {post.data.category}
+              </span>
+            )}
+            <h3 class="mt-3 font-display text-base font-bold text-text group-hover:text-brand-blue-700">
+              {post.data.title}
+            </h3>
+            <p class="mt-2 flex-1 text-sm text-text-muted line-clamp-2">{post.data.description}</p>
+            <div class="mt-4 flex items-center gap-1.5 text-xs text-text-muted">
+              <Calendar aria-hidden="true" class="size-3.5" />
+              <time datetime={post.data.date.toISOString()}>{dateFormatter.format(post.data.date)}</time>
+            </div>
+          </a>
+        ))}
+      </Reveal>
+    </Container>
+  </Section>
+)}

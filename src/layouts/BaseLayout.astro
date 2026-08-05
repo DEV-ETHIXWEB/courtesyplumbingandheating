@@ -1,0 +1,70 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import SEOHead from '../components/seo/SEOHead.astro';
+import StructuredData from '../components/seo/StructuredData.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import MobileActionBar from '../components/layout/MobileActionBar.astro';
+import StickyCouponRail from '../components/layout/StickyCouponRail.astro';
+import Analytics from '../components/analytics/Analytics.astro';
+import AccessibilityControls from '../components/a11y/AccessibilityControls.astro';
+import Chatbot from '../components/chat/Chatbot.tsx';
+import { business } from '../data/business';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  /** Suppress the mobile sticky action bar (rarely needed) */
+  hideMobileBar?: boolean;
+}
+
+const { title, description, canonical, ogImage, noindex, hideMobileBar = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <script is:inline>
+      // Set synchronously, before paint: the reveal CSS gate only hides
+      // [data-reveal] content when html.js is present, so a visitor with
+      // JS disabled (this script never runs) simply keeps full visibility.
+      document.documentElement.classList.add('js');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f5fa8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <SEOHead title={title} description={description} canonical={canonical} ogImage={ogImage} noindex={noindex} />
+    <StructuredData />
+    <Analytics />
+    <slot name="head" />
+  </head>
+  <body class:list={['min-h-screen flex flex-col', { 'pb-[calc(4rem+env(safe-area-inset-bottom))] lg:pb-0': !hideMobileBar }]}>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <Header />
+
+    <main id="main-content" class="flex-1">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <StickyCouponRail />
+    {!hideMobileBar && <MobileActionBar />}
+
+    <AccessibilityControls />
+    <Chatbot
+      client:idle
+      business={{ phoneDisplay: business.phone.display, phoneHref: business.phone.href }}
+    />
+
+    <script>
+      import '../scripts/reveal.ts';
+    </script>
+  </body>
+</html>

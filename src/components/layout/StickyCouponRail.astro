@@ -1,0 +1,313 @@
+---
+import { Tag, X, ArrowRight } from '@lucide/astro';
+import { coupons } from '../../data/coupons';
+
+// Lead with the single best offer (highest flat-dollar or featured amount)
+const headline = coupons.find((c) => c.featured) ?? coupons[0];
+---
+
+{headline && (
+  <div class="scr-root" data-sticky-coupon-rail>
+    <button
+      type="button"
+      class="scr-tab"
+      aria-expanded="false"
+      aria-controls="sticky-coupon-panel"
+      data-sticky-coupon-toggle
+    >
+      <span class="scr-tab-icon">
+        <Tag aria-hidden="true" class="size-4" />
+      </span>
+      <span class="scr-tab-label">Coupons</span>
+      {coupons.length > 0 && <span class="scr-tab-count">{coupons.length}</span>}
+    </button>
+
+    <div id="sticky-coupon-panel" class="scr-panel" data-sticky-coupon-panel>
+      <button
+        type="button"
+        class="scr-panel-close"
+        aria-label="Close specials panel"
+        data-sticky-coupon-close
+      >
+        <X aria-hidden="true" class="size-4" />
+      </button>
+
+      <p class="scr-eyebrow">Limited-Time Special</p>
+      <p class="scr-amount">
+        {headline.amount.startsWith('$') ? (
+          <>
+            <span class="scr-currency">$</span>
+            {headline.amount.replace(/^\$/, '')}
+          </>
+        ) : (
+          headline.amount
+        )}
+        {headline.amountSuffix && <span class="scr-suffix">{headline.amountSuffix}</span>}
+      </p>
+      <p class="scr-title">{headline.title}</p>
+      <p class="scr-desc">{headline.description}</p>
+      {headline.expires && <p class="scr-expires">Expires {headline.expires}</p>}
+
+      <a href="/coupons" class="scr-cta">
+        View All Specials
+        <ArrowRight aria-hidden="true" class="size-4" />
+      </a>
+    </div>
+  </div>
+)}
+
+<style>
+  .scr-root {
+    display: none;
+  }
+
+  /* Authoritative here (not via a Tailwind "hidden lg:block" utility pair) so this
+     component's own scoped stylesheet can't lose a cascade/specificity tie against
+     itself once Astro attaches its scoping attribute to .scr-root. */
+  @media (min-width: 1024px) {
+    .scr-root {
+      display: block;
+      position: fixed;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 25;
+    }
+  }
+
+  .scr-tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1.25rem 0.75rem 1.375rem 1rem;
+    border-radius: 0 1.5rem 1.5rem 0;
+    background: linear-gradient(165deg, var(--color-brand-red-500) 0%, var(--color-brand-red-700) 55%, var(--color-brand-red-800) 100%);
+    border: 1px solid rgb(255 255 255 / 0.18);
+    border-left: none;
+    box-shadow: 0 1px 0 0 rgb(255 255 255 / 0.25) inset;
+    transition: padding-left 220ms var(--ease-out-quart), box-shadow 220ms var(--ease-out-quart);
+  }
+
+  /* Hover feedback grows the tab further INTO the page (more left padding),
+     never shifts it away from the viewport edge — sliding it right would
+     expose empty page background in the gap it leaves behind. */
+  .scr-tab:hover {
+    padding-left: 1.5rem;
+    box-shadow: 0 1px 0 0 rgb(255 255 255 / 0.25) inset, 6px 0 16px -6px rgb(194 42 46 / 0.4);
+  }
+
+  .scr-tab:focus-visible {
+    outline: 2px solid white;
+    outline-offset: -4px;
+  }
+
+  .scr-tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.16);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.3);
+    color: white;
+  }
+
+  .scr-tab-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: white;
+    font-size: 0.8125rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .scr-tab-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.25rem;
+    border-radius: 9999px;
+    background: rgb(255 255 255 / 0.22);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.35);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+
+  .scr-panel {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    /* Scale-from-left-edge only (no horizontal translate): the panel's left
+       edge stays pinned flush to the viewport at all times, opening/closing,
+       so there is never a frame where empty background shows through. */
+    transform: translateY(-50%) scaleX(0.96);
+    transform-origin: left center;
+    width: 17.5rem;
+    padding: 1.5rem;
+    border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+    border: 1px solid var(--color-border);
+    border-left: none;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-elevated);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms var(--ease-out-quart), transform 220ms var(--ease-out-quart), visibility 220ms var(--ease-out-quart);
+  }
+
+  .scr-root[data-open='true'] .scr-panel {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scaleX(1);
+  }
+
+  .scr-root[data-open='true'] .scr-tab {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .scr-panel-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    color: var(--color-text-muted);
+    transition: background-color 160ms var(--ease-out-quart);
+  }
+
+  .scr-panel-close:hover {
+    background: var(--color-surface-muted);
+  }
+
+  .scr-eyebrow {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-brand-red-600);
+  }
+
+  .scr-amount {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: flex-end;
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--color-brand-navy);
+  }
+
+  .scr-currency {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-brand-blue-600);
+    margin-right: 0.125rem;
+  }
+
+  .scr-suffix {
+    margin-left: 0.375rem;
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--color-brand-red-600);
+  }
+
+  .scr-title {
+    margin-top: 0.375rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .scr-desc {
+    margin-top: 0.375rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+
+  .scr-expires {
+    margin-top: 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-brand-red-600);
+  }
+
+  .scr-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 1.125rem;
+    min-height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--color-brand-blue-600);
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 180ms var(--ease-out-quart);
+  }
+
+  .scr-cta:hover {
+    background: var(--color-brand-blue-700);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scr-tab,
+    .scr-panel {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  function initStickyCouponRail() {
+    const root = document.querySelector<HTMLElement>('[data-sticky-coupon-rail]');
+    if (!root || root.dataset.bound === 'true') return;
+    root.dataset.bound = 'true';
+
+    const toggle = root.querySelector<HTMLButtonElement>('[data-sticky-coupon-toggle]');
+    const closeBtn = root.querySelector<HTMLButtonElement>('[data-sticky-coupon-close]');
+    if (!toggle || !closeBtn) return;
+
+    const open = () => {
+      root.dataset.open = 'true';
+      toggle.setAttribute('aria-expanded', 'true');
+      closeBtn.focus();
+    };
+    const close = () => {
+      delete root.dataset.open;
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.focus();
+    };
+
+    toggle.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') close();
+    });
+    document.addEventListener('click', (e) => {
+      if (root.dataset.open === 'true' && !root.contains(e.target as Node)) close();
+    });
+  }
+
+  initStickyCouponRail();
+  document.addEventListener('astro:page-load', initStickyCouponRail);
+</script>

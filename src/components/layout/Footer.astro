@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import { MapPin, Mail, Clock, ShieldCheck } from '@lucide/astro';
+import logo from '../../assets/logo-courtesy.webp';
+import { business } from '../../data/business';
+import { footerNav } from '../../data/navigation';
+import { locations } from '../../data/locations';
+import PhoneButton from '../ui/PhoneButton.astro';
+
+const currentYear = new Date().getFullYear();
+const featuredLocations = locations.slice(0, 12);
+---
+
+<footer class="border-t border-white/10 bg-brand-navy text-text-inverse-muted">
+  <div class="mx-auto w-full max-w-(--container-max) px-4 py-14 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-10 lg:grid-cols-5">
+      <div class="col-span-2 lg:col-span-2">
+        <a href="/" class="inline-flex items-center" aria-label="Courtesy Plumbing & Heating home">
+          <Image src={logo} alt="Courtesy Plumbing & Heating" width={200} height={69} class="h-11 w-auto brightness-0 invert" />
+        </a>
+        <p class="mt-4 max-w-sm text-sm leading-relaxed">
+          Licensed plumbing, heating, and cooling service for Castle Rock and the Denver Metro area.
+          Transparent pricing, no trip fees, available 24/7.
+        </p>
+
+        <div class="mt-5 space-y-2.5 text-sm">
+          <a href={business.phone.href} class="flex items-center gap-2.5 py-1 font-semibold text-white hover:text-brand-blue-200" data-analytics-event="phone_click" data-analytics-location="footer">
+            <Clock aria-hidden="true" class="size-4 shrink-0 text-brand-blue-300" />
+            {business.phone.display}
+          </a>
+          <a href={business.email.href} class="flex items-center gap-2.5 py-1 hover:text-white">
+            <Mail aria-hidden="true" class="size-4 shrink-0 text-brand-blue-300" />
+            {business.email.display}
+          </a>
+          <p class="flex items-start gap-2.5">
+            <MapPin aria-hidden="true" class="size-4 shrink-0 text-brand-blue-300 mt-0.5" />
+            {business.address.full}
+          </p>
+          <p class="flex items-center gap-2.5">
+            <ShieldCheck aria-hidden="true" class="size-4 shrink-0 text-brand-blue-300" />
+            License #{business.license.plumbing}
+          </p>
+        </div>
+
+        <div class="mt-5">
+          <PhoneButton variant="primary" location="footer" />
+        </div>
+      </div>
+
+      <nav aria-label="Services">
+        <h2 class="font-display text-sm font-bold uppercase tracking-wide text-white">Services</h2>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          {footerNav.services.map((link) => (
+            <li><a href={link.href} class="inline-block py-1 hover:text-white transition-colors">{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-label="Company">
+        <h2 class="font-display text-sm font-bold uppercase tracking-wide text-white">Company</h2>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          {footerNav.company.map((link) => (
+            <li><a href={link.href} class="inline-block py-1 hover:text-white transition-colors">{link.label}</a></li>
+          ))}
+        </ul>
+        <h2 class="mt-6 font-display text-sm font-bold uppercase tracking-wide text-white">Offers</h2>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          {footerNav.offers.map((link) => (
+            <li><a href={link.href} class="inline-block py-1 hover:text-white transition-colors">{link.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <nav aria-label="Service areas">
+        <h2 class="font-display text-sm font-bold uppercase tracking-wide text-white">Service Areas</h2>
+        <ul class="mt-4 grid grid-cols-2 gap-x-3 gap-y-2.5 text-sm">
+          {featuredLocations.map((loc) => (
+            <li><a href={loc.hasPage ? `/service-area/${loc.slug}` : '/service-area'} class="inline-block py-1 hover:text-white transition-colors">{loc.name}</a></li>
+          ))}
+        </ul>
+        <a href="/service-area" class="mt-3 inline-block py-1 text-sm font-semibold text-brand-blue-300 hover:text-white">
+          See all service areas
+        </a>
+      </nav>
+    </div>
+
+    <div class="mt-12 flex flex-col-reverse items-center gap-4 border-t border-white/10 pt-6 sm:flex-row sm:justify-between">
+      <p class="text-xs text-text-inverse-muted/80">
+        &copy; {currentYear} {business.name}. All rights reserved.
+      </p>
+      <div class="flex items-center gap-4">
+        <a href={business.social.facebook} class="text-text-inverse-muted hover:text-white" aria-label="Courtesy Plumbing & Heating on Facebook">
+          <svg aria-hidden="true" viewBox="0 0 24 24" class="size-5" fill="currentColor">
+            <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/>
+          </svg>
+        </a>
+        {footerNav.legal.map((link) => (
+          <a href={link.href} class="text-xs hover:text-white">{link.label}</a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

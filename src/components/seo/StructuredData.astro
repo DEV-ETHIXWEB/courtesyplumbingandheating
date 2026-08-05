@@ -1,0 +1,36 @@
+---
+import { business } from '../../data/business';
+import { locations } from '../../data/locations';
+
+// LocalBusiness/HVACBusiness/Plumber structured data using only verified facts.
+// No aggregateRating/review properties are included: no verified review data exists.
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': ['HVACBusiness', 'Plumber'],
+  name: business.name,
+  telephone: business.phone.href.replace('tel:', ''),
+  email: business.email.display,
+  url: siteUrl,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: business.address.street,
+    addressLocality: business.address.city,
+    addressRegion: business.address.state,
+    postalCode: business.address.zip,
+    addressCountry: 'US',
+  },
+  areaServed: locations.map((l) => ({ '@type': 'City', name: l.name })),
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [
+      'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',
+    ],
+    opens: '00:00',
+    closes: '23:59',
+  },
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} is:inline />

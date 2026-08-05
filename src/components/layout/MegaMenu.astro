@@ -1,0 +1,153 @@
+---
+import { ChevronDown, ArrowRight } from '@lucide/astro';
+import { megaMenuGroups } from '../../data/navigation';
+---
+
+<div class="hidden lg:flex items-center gap-1">
+  {megaMenuGroups.map((group, i) => (
+    <div class="relative" data-mega-menu-item>
+      <button
+        type="button"
+        class="flex items-center gap-1 whitespace-nowrap rounded-(--radius-sm) px-2.5 py-2 text-sm font-semibold text-text hover:text-brand-blue-700 hover:bg-brand-blue-50 transition-colors xl:px-3"
+        aria-expanded="false"
+        aria-controls={`mega-panel-${i}`}
+        data-mega-trigger
+      >
+        {group.label}
+        <ChevronDown aria-hidden="true" class="size-4 transition-transform duration-200 data-open:rotate-180" />
+      </button>
+
+      <div
+        id={`mega-panel-${i}`}
+        class="mega-panel absolute left-1/2 top-full z-(--z-mega-menu) w-[36rem] rounded-(--radius-lg) border border-border bg-white shadow-elevated"
+        data-mega-panel
+      >
+        <div class="p-6">
+          <div class="mb-4 flex items-center justify-between border-b border-border pb-4">
+            <div>
+              <p class="font-display text-lg font-bold text-text">{group.label}</p>
+              <p class="text-sm text-text-muted">{group.description}</p>
+            </div>
+            <a
+              href={group.href}
+              class="inline-flex shrink-0 items-center gap-1 py-1.5 text-sm font-semibold text-brand-blue-700 hover:text-brand-blue-800"
+            >
+              View all
+              <ArrowRight aria-hidden="true" class="size-4" />
+            </a>
+          </div>
+          <ul class="grid grid-cols-2 gap-x-6 gap-y-1">
+            {group.items.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="block rounded-(--radius-sm) px-2 py-1.5 text-sm text-text-muted hover:bg-brand-blue-50 hover:text-brand-blue-700 transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<script>
+  function initMegaMenu() {
+    const items = document.querySelectorAll<HTMLElement>('[data-mega-menu-item]');
+
+    items.forEach((item) => {
+      // Guard against double-binding (script runs immediately AND on astro:page-load).
+      if (item.dataset.megaBound === 'true') return;
+      item.dataset.megaBound = 'true';
+
+      const trigger = item.querySelector<HTMLButtonElement>('[data-mega-trigger]');
+      const panel = item.querySelector<HTMLElement>('[data-mega-panel]');
+      if (!trigger || !panel) return;
+
+      let closeTimeout: ReturnType<typeof setTimeout> | null = null;
+
+      const open = () => {
+        if (closeTimeout) clearTimeout(closeTimeout);
+        closeAllExcept(item);
+        trigger.setAttribute('aria-expanded', 'true');
+        trigger.dataset.open = 'true';
+        panel.dataset.open = 'true';
+      };
+
+      const close = () => {
+        // "Pinned" marks a panel deliberately opened by click, so an incidental
+        // mouseleave cannot close what the user explicitly opened.
+        delete item.dataset.megaPinned;
+        trigger.setAttribute('aria-expanded', 'false');
+        delete trigger.dataset.open;
+        delete panel.dataset.open;
+      };
+
+      const scheduleClose = () => {
+        if (item.dataset.megaPinned === 'true') return;
+        closeTimeout = setTimeout(close, 150);
+      };
+
+      // Hover is a pointer-only enhancement; touch and keyboard use click/focus.
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        item.addEventListener('mouseenter', open);
+        item.addEventListener('mouseleave', scheduleClose);
+      }
+      trigger.addEventListener('focus', open);
+
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Keep this click from reaching the document-level outside-click handler,
+        // which would immediately re-close the panel we just opened.
+        e.stopPropagation();
+        if (closeTimeout) clearTimeout(closeTimeout);
+        if (item.dataset.megaPinned === 'true') {
+          close();
+        } else {
+          open();
+          item.dataset.megaPinned = 'true';
+        }
+      });
+
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          close();
+          trigger.focus();
+        }
+      });
+    });
+
+    function closeItem(item: HTMLElement) {
+      const trigger = item.querySelector<HTMLButtonElement>('[data-mega-trigger]');
+      const panel = item.querySelector<HTMLElement>('[data-mega-panel]');
+      if (!trigger || !panel) return;
+      delete item.dataset.megaPinned;
+      trigger.setAttribute('aria-expanded', 'false');
+      delete trigger.dataset.open;
+      delete panel.dataset.open;
+    }
+
+    function closeAllExcept(current: Element) {
+      items.forEach((item) => {
+        if (item === current) return;
+        closeItem(item);
+      });
+    }
+
+    if (document.body.dataset.megaOutsideBound !== 'true') {
+      document.body.dataset.megaOutsideBound = 'true';
+      document.addEventListener('click', (e) => {
+        const target = e.target as Node;
+        document.querySelectorAll<HTMLElement>('[data-mega-menu-item]').forEach((item) => {
+          if (!item.contains(target)) closeItem(item);
+        });
+      });
+    }
+  }
+
+  initMegaMenu();
+  document.addEventListener('astro:page-load', initMegaMenu);
+</script>

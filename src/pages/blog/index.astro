@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import Section from '../../components/ui/Section.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Eyebrow from '../../components/ui/Eyebrow.astro';
+import Reveal from '../../components/ui/Reveal.astro';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+import { Calendar } from '@lucide/astro';
+
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Blog' }];
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const categories = [...new Set(posts.map((p) => p.data.category).filter(Boolean))].sort();
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+const title = 'Plumbing & HVAC Tips Blog';
+const description = 'Practical plumbing, heating, and cooling tips for Castle Rock and Denver Metro homeowners from Courtesy Plumbing & Heating.';
+---
+
+<BaseLayout title={title} description={description} canonical="/blog">
+  <BreadcrumbSchema items={breadcrumbItems} />
+
+  <Section spacing="compact" bg="navy" class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.06]" aria-hidden="true" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+    <Container class="relative">
+      <Breadcrumb items={breadcrumbItems} class="mb-6 [&_a]:text-text-inverse-muted [&_a:hover]:text-white [&_span]:text-white" />
+      <div class="max-w-2xl" data-reveal>
+        <Eyebrow tone="dark">Homeowner Resources</Eyebrow>
+        <h1 class="mt-5 text-balance font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
+          Plumbing &amp; HVAC Tips
+        </h1>
+        <p class="mt-5 max-w-xl text-balance text-lg leading-relaxed text-text-inverse-muted">
+          Practical advice for Castle Rock and Denver Metro homeowners, from seasonal maintenance to troubleshooting common problems.
+        </p>
+      </div>
+    </Container>
+  </Section>
+
+  <Section>
+    <Container>
+      {categories.length > 0 && (
+        <div class="mb-10 flex flex-wrap gap-2" data-reveal>
+          {categories.map((cat) => (
+            <span class="inline-flex items-center rounded-full border border-border bg-surface-subtle px-3.5 py-1.5 text-sm font-medium text-text-muted">
+              {cat}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <Reveal as="div" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" step={50}>
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} data-reveal class="card-elevated group flex flex-col p-6">
+            {post.data.category && (
+              <span class="w-fit rounded-full bg-brand-blue-50 px-2.5 py-0.5 text-xs font-semibold text-brand-blue-700">
+                {post.data.category}
+              </span>
+            )}
+            <h2 class="mt-3 font-display text-lg font-bold leading-snug text-text group-hover:text-brand-blue-700">
+              {post.data.title}
+            </h2>
+            <p class="mt-2.5 flex-1 text-sm leading-relaxed text-text-muted line-clamp-3">{post.data.description}</p>
+            <div class="mt-5 flex items-center gap-1.5 text-xs text-text-muted">
+              <Calendar aria-hidden="true" class="size-3.5" />
+              <time datetime={post.data.date.toISOString()}>{dateFormatter.format(post.data.date)}</time>
+            </div>
+          </a>
+        ))}
+      </Reveal>
+    </Container>
+  </Section>
+</BaseLayout>

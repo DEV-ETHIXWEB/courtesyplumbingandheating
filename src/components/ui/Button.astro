@@ -1,0 +1,83 @@
+---
+import { ArrowRight, type AstroComponent } from '@lucide/astro';
+
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'emergency';
+  size?: 'md' | 'lg';
+  class?: string;
+  icon?: AstroComponent;
+  showArrow?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  icon: Icon,
+  showArrow = false,
+  type = 'button',
+  ariaLabel,
+} = Astro.props;
+
+// No unconditional display utility here: callers control visibility/display
+// (e.g. "hidden sm:inline-flex") via `class`, which would otherwise lose the
+// cascade to a hardcoded "inline-flex" of equal specificity in this string.
+const base =
+  'group items-center justify-center gap-2 font-semibold rounded-(--radius-md) transition-all duration-300 ease-(--ease-out-quart) focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-50 disabled:pointer-events-none min-h-11 active:scale-[0.97]';
+const defaultDisplay = 'inline-flex';
+
+const variants = {
+  primary:
+    'bg-brand-blue-600 text-white shadow-[0_1px_0_0_rgba(255,255,255,0.2)_inset,0_6px_16px_-6px_rgba(15,95,168,0.5)] hover:bg-brand-blue-700 hover:-translate-y-0.5 hover:shadow-[0_1px_0_0_rgba(255,255,255,0.25)_inset,0_10px_22px_-6px_rgba(15,95,168,0.6)] active:bg-brand-blue-800',
+  secondary:
+    'bg-white text-brand-blue-700 border-2 border-brand-blue-600 shadow-card hover:-translate-y-0.5 hover:bg-brand-blue-50 hover:shadow-card-hover',
+  outline:
+    'bg-transparent text-text border-2 border-border-strong hover:border-brand-blue-600 hover:text-brand-blue-700',
+  ghost: 'bg-transparent text-brand-blue-700 hover:bg-brand-blue-50',
+  emergency:
+    'bg-brand-red-600 text-white shadow-[0_1px_0_0_rgba(255,255,255,0.2)_inset,0_6px_16px_-6px_rgba(194,42,46,0.5)] hover:bg-brand-red-700 hover:-translate-y-0.5 hover:shadow-[0_1px_0_0_rgba(255,255,255,0.25)_inset,0_10px_22px_-6px_rgba(194,42,46,0.6)] active:bg-brand-red-800',
+};
+
+const sizes = {
+  md: 'px-5 py-2.5 text-sm sm:text-base',
+  lg: 'px-7 py-3.5 text-base sm:text-lg',
+};
+
+// Only fall back to the default display utility if the caller hasn't specified
+// their own (e.g. "hidden sm:inline-flex"): avoids two equal-specificity
+// display utilities competing on cascade/source order.
+const hasCustomDisplay = /(?:^|\s)(hidden|flex|inline-flex|inline-block|inline|block|grid|contents)(?:\s|$|:)/.test(
+  className
+) || /[a-z]+:(hidden|flex|inline-flex|inline-block|inline|block|grid|contents)(?:\s|$)/.test(className);
+
+const classes = [
+  base,
+  !hasCustomDisplay && defaultDisplay,
+  variants[variant],
+  sizes[size],
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  type={!href ? type : undefined}
+  class={classes}
+  aria-label={ariaLabel}
+>
+  {Icon && <Icon aria-hidden="true" class="size-5 shrink-0" />}
+  <slot />
+  {showArrow && (
+    <ArrowRight
+      aria-hidden="true"
+      class="size-4 shrink-0 transition-transform duration-200 ease-(--ease-out-quart) group-hover:translate-x-1"
+    />
+  )}
+</Tag>

@@ -1,0 +1,160 @@
+---
+import { Image } from 'astro:assets';
+import { Star } from '@lucide/astro';
+import googleBadge from '../../assets/badges/google-review-badge.webp';
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import { testimonials, ratingSummary } from '../../data/testimonials';
+import { business } from '../../data/business';
+
+// Duplicate the list so the CSS marquee can loop seamlessly at -50%.
+const loopedTestimonials = [...testimonials, ...testimonials];
+---
+
+<Section bg="subtle">
+  <Container>
+    <SectionHeading
+      eyebrow="5-Star Rated Service"
+      title="Customer Satisfaction Is Our Top Priority"
+      description="We don't just fix pipes. We show up on time, explain what's wrong, and clean up after ourselves. Here's what Colorado homeowners say."
+    />
+
+    {testimonials.length > 0 && (
+      <div class="mx-auto mt-10 flex items-center justify-center gap-3" data-reveal>
+        <span class="font-display text-4xl font-extrabold text-text">{ratingSummary.average}</span>
+        <div class="flex flex-col gap-1">
+          <div class="flex gap-0.5 text-brand-red-500" aria-hidden="true">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star class="size-4 fill-current" />
+            ))}
+          </div>
+          <span class="text-xs text-text-muted">{ratingSummary.count} Google reviews</span>
+        </div>
+      </div>
+    )}
+  </Container>
+
+  {testimonials.length > 0 ? (
+    <div class="review-marquee" data-reveal>
+      <div class="review-marquee__track">
+        {loopedTestimonials.map((t, i) => (
+          <figure class="review-card" aria-hidden={i >= testimonials.length ? 'true' : undefined}>
+            {t.rating && (
+              <div class="flex gap-0.5 text-brand-red-500" aria-label={`${t.rating} out of 5 stars`}>
+                {Array.from({ length: t.rating }).map(() => (
+                  <Star aria-hidden="true" class="size-4 fill-current" />
+                ))}
+              </div>
+            )}
+            <blockquote class="mt-3 line-clamp-6 text-sm leading-relaxed text-text-muted">
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+            <figcaption class="mt-3 text-sm font-semibold text-text">
+              {t.author}{t.location && `, ${t.location}`}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  ) : (
+    <Container>
+      <div class="card-elevated mx-auto mt-10 max-w-md bg-white p-8 text-center" data-reveal>
+        <p class="text-text-muted">
+          We're gathering our latest reviews for display here. In the meantime, see what customers
+          are saying directly on Google.
+        </p>
+        <a
+          href={business.social.google}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-5 inline-block transition-opacity hover:opacity-90"
+        >
+          <Image src={googleBadge} alt="Leave Courtesy Plumbing & Heating a review on Google" width={280} height={94} class="h-14 w-auto mx-auto" />
+        </a>
+      </div>
+    </Container>
+  )}
+</Section>
+
+<style>
+  .review-marquee {
+    width: 100%;
+    /* Reserve real vertical room so a hover-lifted card's full border+shadow
+       renders inside this box instead of being clipped by it. The horizontal
+       fade mask still needs this element's overflow hidden for the marquee
+       loop, so the fix is padding the box itself, not the track (padding on
+       the track alone doesn't grow this parent's own clip boundary). */
+    /* Desired visible gap above the marquee (48px) plus the 20px padding
+       reserved below for hover-lift clipping room, minus that same 20px
+       cancelled back out on top: net = 48px clear space before the cards.
+       Set directly here (not via a Tailwind "mt-*" utility on the element)
+       because this rule's margin-top would otherwise silently override a
+       separately-applied utility of the same physical property. */
+    margin-top: 3rem;
+    margin-bottom: -1.25rem;
+    padding-block: 1.25rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .review-marquee__track {
+    display: flex;
+    width: max-content;
+    gap: 1.25rem;
+    padding-inline: 1.25rem;
+    animation: review-scroll 60s linear infinite;
+  }
+
+  .review-marquee:hover .review-marquee__track {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .review-marquee__track {
+      animation: none;
+      overflow-x: auto;
+    }
+  }
+
+  @keyframes review-scroll {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .review-card {
+    display: flex;
+    flex: 0 0 320px;
+    flex-direction: column;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    padding: 1.25rem;
+    transition:
+      transform 300ms var(--ease-out-quart),
+      box-shadow 300ms var(--ease-out-quart),
+      border-color 300ms var(--ease-out-quart);
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-brand-blue-300);
+    box-shadow:
+      0 0 0 1px var(--color-brand-blue-200),
+      0 8px 20px -8px rgb(15 95 168 / 0.28);
+    z-index: 1;
+  }
+
+  .line-clamp-6 {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

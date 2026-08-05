@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import Section from '../../components/ui/Section.astro';
+import Breadcrumb from '../../components/ui/Breadcrumb.astro';
+import Button from '../../components/ui/Button.astro';
+import PhoneButton from '../../components/ui/PhoneButton.astro';
+import Eyebrow from '../../components/ui/Eyebrow.astro';
+import IconBadge from '../../components/ui/IconBadge.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import Reveal from '../../components/ui/Reveal.astro';
+import FAQAccordion from '../../components/ui/FAQAccordion.astro';
+import ServiceCard from '../../components/services/ServiceCard.astro';
+import FAQSchema from '../../components/seo/FAQSchema.astro';
+import BreadcrumbSchema from '../../components/seo/BreadcrumbSchema.astro';
+import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import EmergencyCTA from '../../components/home/EmergencyCTA.astro';
+import { CheckCircle2, AlertTriangle, Zap, MapPin } from '@lucide/astro';
+import { services, serviceFamilies, getServicesByFamily, type ServiceFamily } from '../../data/services';
+import { serviceDetails } from '../../data/serviceDetails';
+import { getIconComponent } from '../../lib/icons';
+import { locations } from '../../data/locations';
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { family: service.family, service: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const family = service.family as ServiceFamily;
+const familyInfo = serviceFamilies[family];
+const detail = serviceDetails[service.slug];
+const Icon = getIconComponent(service.icon);
+
+const relatedServices = (detail?.related ?? [])
+  .map((ref) => {
+    const [refFamily, refSlug] = ref.split('/');
+    return services.find((s) => s.family === refFamily && s.slug === refSlug);
+  })
+  .filter((s): s is NonNullable<typeof s> => Boolean(s));
+
+const otherFamilyServices = getServicesByFamily(family)
+  .filter((s) => s.slug !== service.slug)
+  .slice(0, 3);
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: familyInfo.name, href: `/${family}` },
+  { label: service.name },
+];
+
+const title = `${service.name} in Castle Rock & Denver Metro, CO`;
+const description = `${service.description} Licensed, 24/7 availability, no trip fees. Serving Castle Rock and the Denver Metro area.`;
+---
+
+<BaseLayout title={title} description={description} canonical={`/${family}/${service.slug}`}>
+  <BreadcrumbSchema items={breadcrumbItems} />
+  <ServiceSchema
+    name={service.name}
+    description={service.description}
+    serviceType={service.name}
+    path={`/${family}/${service.slug}`}
+  />
+  {detail?.faqs && detail.faqs.length > 0 && <FAQSchema items={detail.faqs} />}
+
+  <Section spacing="compact" bg="navy" class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.06]" aria-hidden="true" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+    <Container class="relative">
+      <Breadcrumb items={breadcrumbItems} class="mb-6 [&_a]:text-text-inverse-muted [&_a:hover]:text-white [&_span]:text-white" />
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div class="max-w-2xl" data-reveal>
+          <div class="flex items-center gap-4">
+            <IconBadge icon={Icon} tone="white" size="lg" />
+            {service.emergency && (
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-red-500/15 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-red-200 ring-1 ring-inset ring-brand-red-400/30">
+                <Zap aria-hidden="true" class="size-3.5 fill-current" />
+                24/7 Emergency Service
+              </span>
+            )}
+          </div>
+          <h1 class="mt-5 text-balance font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
+            {service.name} in Castle Rock &amp; Denver Metro
+          </h1>
+          <p class="mt-5 max-w-xl text-balance text-lg leading-relaxed text-text-inverse-muted">
+            {detail?.intro ?? service.description}
+          </p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button href="/contact" variant="secondary" size="lg" showArrow>Schedule Service</Button>
+            <PhoneButton variant="outline" size="lg" location={`service_hero_${service.slug}`} class="text-white" />
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  {detail && (
+    <Section>
+      <Container>
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+          <div class="lg:col-span-2">
+            {detail.signs.length > 0 && (
+              <div data-reveal>
+                <Eyebrow>Signs You Need This Service</Eyebrow>
+                <h2 class="mt-4 font-display text-2xl font-bold text-text sm:text-3xl">
+                  Common Signs of {service.name} Problems
+                </h2>
+                <ul class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                  {detail.signs.map((sign) => (
+                    <li class="flex items-start gap-2.5 rounded-(--radius-md) border border-border bg-surface-subtle p-3.5 text-sm text-text">
+                      <AlertTriangle aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-brand-red-600" />
+                      {sign}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {detail.process.length > 0 && (
+              <div class="mt-14" data-reveal>
+                <Eyebrow>Our Process</Eyebrow>
+                <h2 class="mt-4 font-display text-2xl font-bold text-text sm:text-3xl">
+                  How We Handle {service.name}
+                </h2>
+                <ol class="mt-6 space-y-5">
+                  {detail.process.map((step, i) => (
+                    <li class="flex gap-4">
+                      <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-brand-blue-600 font-display text-sm font-bold text-white">
+                        {i + 1}
+                      </span>
+                      <div>
+                        <p class="font-display text-base font-bold text-text">{step.title}</p>
+                        <p class="mt-1 text-sm leading-relaxed text-text-muted">{step.description}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            )}
+
+            {detail.faqs.length > 0 && (
+              <div class="mt-14" data-reveal>
+                <Eyebrow>FAQs</Eyebrow>
+                <h2 class="mt-4 font-display text-2xl font-bold text-text sm:text-3xl">
+                  {service.name} Questions, Answered
+                </h2>
+                <div class="mt-6">
+                  <FAQAccordion items={detail.faqs} />
+                </div>
+              </div>
+            )}
+          </div>
+
+          <aside class="lg:col-span-1">
+            <div class="sticky top-24 flex flex-col gap-6">
+              <div class="card-elevated p-6" data-reveal>
+                <h2 class="font-display text-lg font-bold text-text">Why Choose Courtesy</h2>
+                <ul class="mt-4 space-y-3">
+                  {detail.benefits.map((benefit) => (
+                    <li class="flex items-start gap-2.5 text-sm text-text">
+                      <CheckCircle2 aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-brand-blue-600" />
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+                <div class="mt-6 flex flex-col gap-3">
+                  <Button href="/contact" variant="primary" showArrow class="w-full">Schedule Service</Button>
+                  <PhoneButton variant="secondary" location={`service_sidebar_${service.slug}`} class="w-full" />
+                </div>
+              </div>
+
+              {otherFamilyServices.length > 0 && (
+                <div class="card-elevated p-6" data-reveal>
+                  <h2 class="font-display text-lg font-bold text-text">More {familyInfo.name}</h2>
+                  <ul class="mt-4 space-y-1">
+                    {otherFamilyServices.map((s) => (
+                      <li>
+                        <a href={`/${family}/${s.slug}`} class="block rounded-(--radius-sm) px-2.5 py-2 text-sm text-text-muted transition-colors hover:bg-brand-blue-50 hover:text-brand-blue-700">
+                          {s.name}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                  <a href={`/${family}`} class="mt-3 inline-block text-sm font-semibold text-brand-blue-700 hover:text-brand-blue-800">
+                    View all {familyInfo.name.toLowerCase()} services →
+                  </a>
+                </div>
+              )}
+            </div>
+          </aside>
+        </div>
+      </Container>
+    </Section>
+  )}
+
+  {relatedServices.length > 0 && (
+    <Section bg="subtle">
+      <Container>
+        <SectionHeading
+          eyebrow="Related Services"
+          title="You Might Also Need"
+          align="left"
+        />
+        <Reveal as="div" class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" step={70}>
+          {relatedServices.map((s) => (
+            <ServiceCard service={s} family={s.family} />
+          ))}
+        </Reveal>
+      </Container>
+    </Section>
+  )}
+
+  <Section>
+    <Container>
+      <SectionHeading
+        eyebrow="Service Area"
+        title={`${service.name} Throughout Castle Rock & Denver Metro`}
+        description={`Courtesy provides ${service.name.toLowerCase()} to homeowners across ${locations.length}+ communities in the Denver metro area.`}
+        align="left"
+      />
+      <div class="mt-8 flex flex-wrap gap-2" data-reveal>
+        {locations.slice(0, 14).map((loc) => (
+          <a
+            href={loc.hasPage ? `/service-area/${loc.slug}` : '/service-area'}
+            class="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-3.5 py-2 text-sm font-medium text-text-muted transition-colors hover:border-brand-blue-300 hover:bg-brand-blue-50 hover:text-brand-blue-700"
+          >
+            <MapPin aria-hidden="true" class="size-3.5" />
+            {loc.name}
+          </a>
+        ))}
+        <a href="/service-area" class="inline-flex items-center gap-1.5 rounded-full bg-brand-blue-600 px-3.5 py-2 text-sm font-semibold text-white hover:bg-brand-blue-700">
+          View all areas
+        </a>
+      </div>
+    </Container>
+  </Section>
+
+  <EmergencyCTA />
+</BaseLayout>

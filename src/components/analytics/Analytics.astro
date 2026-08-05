@@ -1,0 +1,49 @@
+---
+// Google Tag Manager container. GTM then manages GA4, Google Ads, Meta, and
+// CallRail from within the container, so no other vendor scripts belong here.
+// Set PUBLIC_GTM_ID in the environment to activate; absent it, nothing loads.
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
+---
+
+{
+  gtmId && (
+    <script is:inline define:vars={{ gtmId }}>
+      window.dataLayer = window.dataLayer || [];
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', gtmId);
+    </script>
+  )
+}
+
+<script>
+  // Delegated tracking for declaratively-marked elements. Any element with
+  // data-analytics-event pushes that event on click, with its location label.
+  function initAnalytics() {
+    if (document.body.dataset.analyticsBound === 'true') return;
+    document.body.dataset.analyticsBound = 'true';
+
+    document.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement | null)?.closest<HTMLElement>('[data-analytics-event]');
+      if (!target) return;
+      const event = target.dataset.analyticsEvent;
+      if (!event) return;
+      const w = window as unknown as { dataLayer?: Record<string, unknown>[] };
+      w.dataLayer = w.dataLayer || [];
+      w.dataLayer.push({
+        event,
+        link_location: target.dataset.analyticsLocation || undefined,
+      });
+    });
+  }
+
+  initAnalytics();
+  document.addEventListener('astro:page-load', initAnalytics);
+</script>

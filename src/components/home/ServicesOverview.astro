@@ -1,0 +1,203 @@
+---
+import { ArrowRight, Zap } from '@lucide/astro';
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+import Reveal from '../ui/Reveal.astro';
+import ServiceCard from '../services/ServiceCard.astro';
+import { serviceFamilies, getServicesByFamily } from '../../data/services';
+import { getIconComponent } from '../../lib/icons';
+
+const families = (['plumbing', 'hvac', 'sewer'] as const).map((key, index) => ({
+  key,
+  info: serviceFamilies[key],
+  featured: getServicesByFamily(key).slice(0, 4),
+  active: index === 0,
+}));
+---
+
+<Section id="services">
+  <Container>
+    <SectionHeading
+      eyebrow="Plumbing, Heating, Cooling & Sewer"
+      title="Everything Your Home Needs, One Trusted Team"
+      description="From a dripping faucet to a full furnace replacement, Courtesy handles plumbing, heating, cooling, and sewer work throughout Castle Rock and Denver Metro."
+    />
+
+    <div class="service-tabs mt-12" data-reveal>
+      <div class="grid gap-3 sm:grid-cols-3" role="tablist" aria-label="Service categories">
+        {families.map(({ key, info, active }) => {
+          const FamilyIcon = getIconComponent(info.icon);
+          return (
+            <button
+              type="button"
+              role="tab"
+              id={`tab-${key}`}
+              aria-controls={`panel-${key}`}
+              aria-selected={active ? 'true' : 'false'}
+              data-service-tab={key}
+              class="service-tab group"
+              data-active={active ? 'true' : 'false'}
+            >
+              <span class="service-tab__icon">
+                <FamilyIcon aria-hidden="true" class="size-5" />
+              </span>
+              <span class="flex-1 text-left">
+                <span class="block font-display text-base font-bold text-text">{info.name}</span>
+                <span class="service-tab__desc mt-0.5 block text-xs leading-snug text-text-muted">
+                  {info.description}
+                </span>
+              </span>
+              <ArrowRight aria-hidden="true" class="service-tab__arrow size-4 shrink-0 text-neutral-300" />
+            </button>
+          );
+        })}
+      </div>
+
+      {families.map(({ key, info, featured, active }) => (
+        <div
+          id={`panel-${key}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${key}`}
+          data-service-panel={key}
+          class="service-panel"
+          data-active={active ? 'true' : 'false'}
+        >
+          <div class="mb-5 mt-8 flex items-center justify-between gap-3">
+            <p class="text-sm text-text-muted">
+              Showing popular {info.name.toLowerCase()} services
+            </p>
+            <a
+              href={`/${info.slug}`}
+              class="inline-flex items-center gap-1 py-1.5 text-sm font-semibold text-brand-blue-700 hover:text-brand-blue-800"
+            >
+              View all {info.name.toLowerCase()} services
+              <ArrowRight aria-hidden="true" class="size-4" />
+            </a>
+          </div>
+
+          <Reveal as="div" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" step={60}>
+            {featured.map((service) => (
+              <div class="relative">
+                {service.emergency && (
+                  <span class="pointer-events-none absolute -right-2 -top-2 z-10 inline-flex items-center gap-1 rounded-full bg-brand-red-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white shadow-card">
+                    <Zap aria-hidden="true" class="size-2.5 fill-current" />
+                    24/7
+                  </span>
+                )}
+                <ServiceCard service={service} family={key} />
+              </div>
+            ))}
+          </Reveal>
+        </div>
+      ))}
+    </div>
+  </Container>
+</Section>
+
+<style>
+  .service-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    padding: 1rem 1.125rem;
+    text-align: left;
+    transition:
+      border-color 250ms var(--ease-out-quart),
+      background-color 250ms var(--ease-out-quart),
+      box-shadow 250ms var(--ease-out-quart);
+  }
+
+  .service-tab:hover {
+    border-color: var(--color-brand-blue-300);
+  }
+
+  .service-tab[data-active='true'] {
+    border-color: var(--color-brand-blue-600);
+    background: var(--color-brand-blue-50);
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.4) inset;
+  }
+
+  .service-tab__icon {
+    display: flex;
+    size: 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: var(--color-surface-muted);
+    color: var(--color-text-muted);
+    transition:
+      background-color 250ms var(--ease-out-quart),
+      color 250ms var(--ease-out-quart);
+  }
+
+  .service-tab[data-active='true'] .service-tab__icon {
+    background: var(--color-brand-blue-600);
+    color: white;
+  }
+
+  .service-tab__arrow {
+    transition:
+      transform 250ms var(--ease-out-quart),
+      color 250ms var(--ease-out-quart);
+  }
+
+  .service-tab[data-active='true'] .service-tab__arrow {
+    color: var(--color-brand-blue-600);
+    transform: translateX(2px);
+  }
+
+  /* No-JS / JS-not-yet-initialized: every panel stays visible, stacked,
+     so content is never hidden without a script guaranteed to unhide it. */
+  .service-panel + .service-panel {
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  html.js .service-panel[data-active='false'] {
+    display: none;
+  }
+
+  html.js .service-panel + .service-panel {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+  }
+</style>
+
+<script>
+  function initServiceTabs(): void {
+    const tabs = document.querySelectorAll<HTMLButtonElement>('[data-service-tab]');
+    if (!tabs.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const key = tab.dataset.serviceTab;
+
+        tabs.forEach((t) => {
+          const isActive = t === tab;
+          t.dataset.active = String(isActive);
+          t.setAttribute('aria-selected', String(isActive));
+        });
+
+        document.querySelectorAll<HTMLElement>('[data-service-panel]').forEach((panel) => {
+          panel.dataset.active = String(panel.dataset.servicePanel === key);
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceTabs, { once: true });
+  } else {
+    initServiceTabs();
+  }
+  document.addEventListener('astro:page-load', initServiceTabs);
+</script>

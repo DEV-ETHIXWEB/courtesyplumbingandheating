@@ -1,0 +1,401 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---------------------------------------------------------------------
+   * BRAND COLORS — derived from the real Courtesy logo (blue script +
+   * red swoosh). Tints/shades generated around those two anchor hues.
+   * ------------------------------------------------------------------- */
+  --color-brand-blue-50: #eef6fd;
+  --color-brand-blue-100: #d7eafa;
+  --color-brand-blue-200: #b3d7f5;
+  --color-brand-blue-300: #82bcec;
+  --color-brand-blue-400: #4998de;
+  --color-brand-blue-500: #1f79c9;
+  --color-brand-blue-600: #0f5fa8;
+  --color-brand-blue-700: #0d4c87;
+  --color-brand-blue-800: #0f4070;
+  --color-brand-blue-900: #11365d;
+  --color-brand-blue-950: #0a213c;
+
+  --color-brand-red-50: #fdf0f0;
+  --color-brand-red-100: #fbdcdd;
+  --color-brand-red-200: #f8c0c1;
+  --color-brand-red-300: #f19698;
+  --color-brand-red-400: #e76669;
+  --color-brand-red-500: #db3f43;
+  --color-brand-red-600: #c22a2e;
+  --color-brand-red-700: #a12124;
+  --color-brand-red-800: #841f22;
+  --color-brand-red-900: #6f1f21;
+  --color-brand-red-950: #3c0d0e;
+
+  --color-brand-navy: #0a2e4d;
+
+  /* Neutrals — slightly warm gray, reads friendlier than cool slate for a
+     home-service brand */
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f8f8f7;
+  --color-neutral-100: #f1f0ee;
+  --color-neutral-200: #e3e1dd;
+  --color-neutral-300: #cbc8c1;
+  --color-neutral-400: #a6a29a;
+  --color-neutral-500: #817d74;
+  --color-neutral-600: #625f58;
+  --color-neutral-700: #4a4842;
+  --color-neutral-800: #34322e;
+  --color-neutral-900: #201f1c;
+  --color-neutral-950: #131210;
+
+  /* Semantic surface / text roles */
+  --color-surface: var(--color-neutral-0);
+  --color-surface-subtle: var(--color-neutral-50);
+  --color-surface-muted: var(--color-neutral-100);
+  --color-surface-inverse: var(--color-brand-navy);
+
+  --color-text: var(--color-neutral-900);
+  --color-text-muted: var(--color-neutral-600);
+  --color-text-inverse: var(--color-neutral-0);
+  --color-text-inverse-muted: var(--color-neutral-200);
+
+  --color-border: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+
+  --color-success: #1a7f4b;
+  --color-warning: #b5680a;
+  --color-emergency: var(--color-brand-red-600);
+
+  /* ---------------------------------------------------------------------
+   * TYPOGRAPHY — trustworthy American home-service brand: a confident,
+   * highly-legible humanist sans for everything. No script/display font
+   * needed in UI type; the logo itself carries the "personality" mark.
+   * ------------------------------------------------------------------- */
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* ---------------------------------------------------------------------
+   * RADII — tasteful rounded corners, not pill-everything
+   * ------------------------------------------------------------------- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* ---------------------------------------------------------------------
+   * SHADOWS — soft, controlled depth
+   * ------------------------------------------------------------------- */
+  --shadow-card: 0 1px 2px 0 rgb(20 20 18 / 0.04), 0 1px 3px 0 rgb(20 20 18 / 0.06);
+  --shadow-card-hover: 0 4px 12px -2px rgb(20 20 18 / 0.08), 0 2px 6px -2px rgb(20 20 18 / 0.06);
+  --shadow-elevated: 0 12px 32px -8px rgb(20 20 18 / 0.16), 0 4px 12px -4px rgb(20 20 18 / 0.08);
+
+  /* ---------------------------------------------------------------------
+   * CONTAINER WIDTHS
+   * ------------------------------------------------------------------- */
+  --container-max: 80rem; /* 1280px */
+
+  /* ---------------------------------------------------------------------
+   * TRANSITIONS
+   * ------------------------------------------------------------------- */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* ---------------------------------------------------------------------
+   * Z-INDEX SCALE
+   * ------------------------------------------------------------------- */
+  --z-header: 40;
+  --z-mega-menu: 45;
+  --z-mobile-menu: 50;
+  --z-mobile-bar: 30;
+  --z-chatbot: 55;
+  --z-skip-link: 60;
+
+  /* ---------------------------------------------------------------------
+   * ANIMATIONS
+   * ------------------------------------------------------------------- */
+  --animate-ping-slow: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes ping-slow {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    75%,
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  /* Visible focus indicator for all interactive elements — WCAG 2.2 AA */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-blue-600);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-brand-blue-200);
+    color: var(--color-brand-navy);
+  }
+}
+
+@layer components {
+  /* Mega-menu panel: closed/open handled by one pair of rules rather than
+     competing utility classes of equal specificity. */
+  .mega-panel {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-50%) translateY(0.5rem);
+    transition:
+      opacity 200ms var(--ease-out-quart),
+      transform 200ms var(--ease-out-quart),
+      visibility 200ms var(--ease-out-quart);
+  }
+
+  .mega-panel[data-open='true'] {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Mobile menu drawer: same deterministic open/closed pairing. */
+  .mobile-menu {
+    display: none;
+  }
+
+  .mobile-menu[data-open='true'] {
+    display: flex;
+  }
+
+  /* The chatbot launcher and accessibility button both float above the mobile
+     menu's z-index, so they'd otherwise sit on top of the open drawer and cover
+     nav items. Hide them for the duration the menu is open. */
+  body[data-mobile-menu-open='true'] :is([data-chatbot-launcher], [data-a11y-launcher]) {
+    display: none !important;
+  }
+
+  /* Accessibility options panel. */
+  .a11y-panel {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.97);
+    transform-origin: bottom left;
+    transition:
+      opacity 180ms var(--ease-out-quart),
+      transform 180ms var(--ease-out-quart),
+      visibility 180ms var(--ease-out-quart);
+  }
+
+  .a11y-panel[data-open='true'] {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  /* Mobile menu service-group accordion panels. */
+  .mobile-accordion-panel {
+    display: none;
+  }
+
+  .mobile-accordion-panel[data-open='true'] {
+    display: block;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    z-index: var(--z-skip-link);
+    background: var(--color-brand-blue-700);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    transition: top 150ms var(--ease-out-quart);
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .card-elevated {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+    transition:
+      transform 300ms var(--ease-out-quart),
+      box-shadow 300ms var(--ease-out-quart),
+      border-color 300ms var(--ease-out-quart);
+  }
+
+  .card-elevated:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-border-strong);
+  }
+}
+
+/* ------------------------------------------------------------------
+   Scroll-reveal gate (see src/scripts/reveal.ts + ui/Reveal.astro).
+   Content only hides once we KNOW js + IntersectionObserver will run
+   (html.js set synchronously in BaseLayout's head, .io-ready set right
+   before the observer is wired up). Without both, [data-reveal] content
+   stays fully visible so no-JS visitors and crawlers never see it blank.
+------------------------------------------------------------------ */
+@media (prefers-reduced-motion: no-preference) {
+  html.js.io-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 700ms var(--ease-out-quart),
+      transform 700ms var(--ease-out-quart);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  html.js.io-ready [data-reveal].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  html.js.io-ready [data-reveal='scale'] {
+    transform: scale(0.94);
+  }
+  html.js.io-ready [data-reveal='scale'].is-revealed {
+    transform: scale(1);
+  }
+  html.js.io-ready [data-reveal='left'] {
+    transform: translateX(-24px);
+  }
+  html.js.io-ready [data-reveal='left'].is-revealed {
+    transform: translateX(0);
+  }
+  html.js.io-ready [data-reveal='right'] {
+    transform: translateX(24px);
+  }
+  html.js.io-ready [data-reveal='right'].is-revealed {
+    transform: translateX(0);
+  }
+}
+
+/* Reduced-motion / large-text / high-contrast user controls
+   (see AccessibilityControls component) */
+:root[data-motion='reduced'] *,
+:root[data-motion='reduced'] *::before,
+:root[data-motion='reduced'] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+:root[data-text-size='large'] {
+  font-size: 112.5%;
+}
+
+:root[data-text-size='xlarge'] {
+  font-size: 125%;
+}
+
+:root[data-contrast='high'] {
+  --color-text: #000000;
+  --color-text-muted: #1a1a1a;
+  --color-border: #444444;
+  --color-brand-blue-600: #063d6e;
+}
+
+:root[data-spacing='relaxed'] body {
+  letter-spacing: 0.02em;
+  word-spacing: 0.12em;
+  line-height: 1.7;
+}
+
+:root[data-spacing='loose'] body {
+  letter-spacing: 0.04em;
+  word-spacing: 0.2em;
+  line-height: 1.9;
+}
+
+:root[data-underline-links='true'] a {
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+}
+
+:root[data-readable-font='true'] body {
+  font-family: Verdana, 'Trebuchet MS', Tahoma, sans-serif;
+}
+
+:root[data-large-cursor='true'] {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l14 8-6 2 4 7-3 2-4-7-4 5V2z' fill='%230a2e4d' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E")
+      2 2,
+    auto;
+}
+
+:root[data-large-cursor='true'] a,
+:root[data-large-cursor='true'] button {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l14 8-6 2 4 7-3 2-4-7-4 5V2z' fill='%23c22a2e' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E")
+      2 2,
+    pointer;
+}
+
+:root[data-grayscale='true'] {
+  filter: grayscale(1);
+}
+
+:root[data-hide-images='true'] img,
+:root[data-hide-images='true'] video,
+:root[data-hide-images='true'] picture {
+  visibility: hidden;
+}
+
+:root[data-highlight-controls='true'] a,
+:root[data-highlight-controls='true'] button {
+  outline: 2px dashed var(--color-brand-blue-500) !important;
+  outline-offset: 2px;
+  background-color: rgb(255 235 59 / 0.15);
+}

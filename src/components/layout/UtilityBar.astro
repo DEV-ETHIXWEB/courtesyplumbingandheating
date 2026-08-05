@@ -1,0 +1,32 @@
+---
+import { ShieldCheck, Clock, DollarSign } from '@lucide/astro';
+import { business } from '../../data/business';
+
+const items = [
+  { icon: Clock, label: '24/7 Emergency Service' },
+  { icon: DollarSign, label: 'Transparent Pricing' },
+  { icon: ShieldCheck, label: 'No Trip Fees' },
+];
+---
+
+<div class="bg-brand-navy text-text-inverse-muted text-xs sm:text-sm">
+  <div class="mx-auto flex w-full max-w-(--container-max) items-center justify-between gap-4 px-4 py-2 sm:px-6 lg:px-8">
+    <ul class="hidden sm:flex items-center gap-5 overflow-hidden">
+      {items.map(({ icon: Icon, label }) => (
+        <li class="flex items-center gap-1.5 whitespace-nowrap">
+          <Icon aria-hidden="true" class="size-3.5 text-brand-blue-300" />
+          <span>{label}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="sm:hidden font-medium text-white">24/7 Emergency Service</p>
+    <a
+      href={business.phone.href}
+      class="inline-block py-1 font-semibold text-white hover:text-brand-blue-200 transition-colors whitespace-nowrap"
+      data-analytics-event="phone_click"
+      data-analytics-location="utility_bar"
+    >
+      {business.phone.display}
+    </a>
+  </div>
+</div>

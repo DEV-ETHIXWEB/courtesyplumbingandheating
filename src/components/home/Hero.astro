@@ -1,0 +1,111 @@
+---
+import { Image } from 'astro:assets';
+import { Clock, ShieldCheck, Award } from '@lucide/astro';
+import heroPoster from '../../assets/photos/cappadocia-hero-poster.jpg';
+import Button from '../ui/Button.astro';
+import PhoneButton from '../ui/PhoneButton.astro';
+import { business } from '../../data/business';
+
+const trustPoints = [
+  { icon: Clock, label: '24/7 Emergency Service' },
+  { icon: Award, label: `${business.yearsInBusiness} Years Serving Colorado` },
+  { icon: ShieldCheck, label: 'No Trip Fees' },
+];
+---
+
+<section class="relative overflow-hidden bg-neutral-950">
+  <div class="absolute inset-0">
+    <Image
+      src={heroPoster}
+      alt=""
+      width={1920}
+      height={1013}
+      class="absolute inset-0 size-full object-cover object-center"
+      loading="eager"
+      fetchpriority="high"
+      data-hero-poster
+    />
+    <video
+      class="absolute inset-0 size-full object-cover object-center opacity-0 transition-opacity duration-700"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      poster={heroPoster.src}
+      data-hero-video
+      aria-hidden="true"
+    >
+      <source data-src="/videos/hero-cappadocia-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
+      <source data-src="/videos/hero-cappadocia.webm" type="video/webm" media="(min-width: 768px)" />
+      <source data-src="/videos/hero-cappadocia.mp4" type="video/mp4" media="(min-width: 768px)" />
+    </video>
+  </div>
+
+  <div class="relative mx-auto w-full max-w-(--container-max) px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
+    <div class="max-w-2xl" data-reveal>
+      <span class="inline-flex items-center gap-2 rounded-full border border-brand-red-400/40 bg-brand-red-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-red-200 backdrop-blur-sm">
+        <span class="relative flex size-2">
+          <span class="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-brand-red-400 opacity-75 motion-reduce:hidden"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-brand-red-400"></span>
+        </span>
+        24/7 Emergency Service
+      </span>
+
+      <h1 class="mt-6 text-balance font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.75)] sm:text-5xl lg:text-6xl">
+        Plumbing, Heating &amp; Cooling <span class="text-brand-blue-300">Done With Courtesy.</span>
+      </h1>
+
+      <p class="mt-6 max-w-xl text-balance text-lg leading-relaxed text-white/90 drop-shadow-[0_1px_10px_rgba(0,0,0,0.75)] sm:text-xl">
+        Licensed, local, and available around the clock. Courtesy keeps Castle Rock and Denver
+        Metro homes comfortable with transparent pricing and no trip fees.
+      </p>
+
+      <div class="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+        <Button href="/contact" variant="primary" size="lg" showArrow>
+          Schedule Service
+        </Button>
+        <PhoneButton variant="outline" size="lg" location="hero" class="text-white" />
+      </div>
+
+      <ul class="mt-9 flex flex-wrap gap-x-8 gap-y-3">
+        {trustPoints.map(({ icon: Icon, label }) => (
+          <li class="flex items-center gap-2 text-sm font-medium text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.75)]">
+            <Icon aria-hidden="true" class="size-4 text-brand-blue-300" />
+            {label}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  const video = document.querySelector<HTMLVideoElement>('[data-hero-video]');
+  if (video) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const connection = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } })
+      .connection;
+    const saveData = Boolean(connection?.saveData);
+    const slowLink = connection?.effectiveType ? /^2g|slow-2g$/.test(connection.effectiveType) : false;
+
+    if (!reduceMotion && !saveData && !slowLink) {
+      for (const source of video.querySelectorAll<HTMLSourceElement>('source[data-src]')) {
+        source.src = source.dataset.src as string;
+      }
+
+      video.addEventListener(
+        'canplay',
+        () => {
+          video.classList.remove('opacity-0');
+        },
+        { once: true },
+      );
+
+      video.load();
+      video.play().catch(() => {
+        // Autoplay blocked or load failed: poster image underneath stays visible.
+      });
+    }
+  }
+</script>

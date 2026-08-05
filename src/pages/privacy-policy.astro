@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/ui/Container.astro';
+import Section from '../components/ui/Section.astro';
+import Breadcrumb from '../components/ui/Breadcrumb.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import { business } from '../data/business';
+
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Privacy Policy' }];
+
+const title = 'Privacy Policy';
+const description = 'Privacy policy for Courtesy Plumbing & Heating, covering how we collect, use, and protect your personal information.';
+---
+
+<BaseLayout title={title} description={description} canonical="/privacy-policy" noindex>
+  <BreadcrumbSchema items={breadcrumbItems} />
+
+  <Section spacing="compact">
+    <Container>
+      <Breadcrumb items={breadcrumbItems} class="mb-6" />
+      <h1 class="font-display text-3xl font-extrabold tracking-tight text-text sm:text-4xl">Privacy Policy</h1>
+      <p class="mt-2 text-sm text-text-muted">Last updated: May 16, 2024</p>
+    </Container>
+  </Section>
+
+  <Section spacing="compact">
+    <Container>
+      <div class="prose-legal mx-auto max-w-3xl space-y-8 text-text-muted">
+        <p>
+          This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your
+          information when You use the Service (courtesyplumbingandheating.com) and tells You about Your privacy
+          rights and how the law protects You.
+        </p>
+        <p>
+          We use Your personal data to provide and improve the Service. By using the Service, You agree to the
+          collection and use of information in accordance with this Privacy Policy.
+        </p>
+
+        <div>
+          <h2 class="font-display text-xl font-bold text-text">Interpretation and Definitions</h2>
+          <p class="mt-3">
+            Words with capitalized initial letters have meanings defined under the following conditions. These
+            definitions have the same meaning regardless of whether they appear in singular or plural.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-bold text-text">Types of Data Collected</h2>
+          <h3 class="mt-4 font-display text-base font-bold text-text">Personal Data</h3>
+          <p class="mt-2">
+            While using Our Service, We may ask You to provide Us with certain personally identifiable information
+            that can be used to contact or identify You, including but not limited to Your email address, first
+            and last name, phone number, and address.
+          </p>
+          <h3 class="mt-4 font-display text-base font-bold text-text">Usage Data</h3>
+          <p class="mt-2">
+            Usage Data is collected automatically when using the Service, and may include information such as
+            Your device's IP address, browser type, pages visited, time and date of Your visit, and other
+            diagnostic data.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-bold text-text">Use of Your Personal Data</h2>
+          <p class="mt-3">
+            The Company may use Personal Data to provide and maintain the Service, manage Your account, contact
+            You regarding service requests or updates, and for other legitimate business purposes.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-bold text-text">Sharing of Your Personal Information</h2>
+          <p class="mt-3">
+            We may share Your personal information in the following situations: with service providers, in
+            connection with a business transfer, with affiliates, with business partners, or with Your consent.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-bold text-text">Retention and Security of Your Data</h2>
+          <p class="mt-3">
+            The Company will retain Your Personal Data only for as long as necessary for the purposes set out in
+            this Privacy Policy. The security of Your Personal Data is important to Us, but no method of
+            transmission over the Internet is 100% secure.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-bold text-text">Children's Privacy</h2>
+          <p class="mt-3">
+            Our Service does not address anyone under the age of 13. We do not knowingly collect personally
+            identifiable information from anyone under the age of 13.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-bold text-text">Changes to This Privacy Policy</h2>
+          <p class="mt-3">
+            We may update Our Privacy Policy from time to time. We will notify You of any changes by posting the
+            new Privacy Policy on this page and updating the "Last updated" date.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-display text-xl font-bold text-text">Contact Us</h2>
+          <p class="mt-3">
+            If you have any questions about this Privacy Policy, You can contact us:
+          </p>
+          <ul class="mt-3 space-y-1">
+            <li>By email: <a href={business.email.href} class="font-semibold text-brand-blue-700 hover:text-brand-blue-800">{business.email.display}</a></li>
+            <li>By visiting our <a href="/contact" class="font-semibold text-brand-blue-700 hover:text-brand-blue-800">contact page</a></li>
+            <li>By mail: {business.address.full}</li>
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </Section>
+</BaseLayout>

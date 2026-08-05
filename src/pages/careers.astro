@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/ui/Container.astro';
+import Section from '../components/ui/Section.astro';
+import Breadcrumb from '../components/ui/Breadcrumb.astro';
+import Button from '../components/ui/Button.astro';
+import PhoneButton from '../components/ui/PhoneButton.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Reveal from '../components/ui/Reveal.astro';
+import IconBadge from '../components/ui/IconBadge.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import {
+  Briefcase, PiggyBank, Palmtree, CalendarHeart, HeartPulse, Smile, TrendingUp, Flag, Mail,
+} from '@lucide/astro';
+import { business } from '../data/business';
+
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Careers' }];
+
+const benefits = [
+  { icon: PiggyBank, label: 'Competitive Pay With Bonus' },
+  { icon: Palmtree, label: 'Paid Vacation' },
+  { icon: CalendarHeart, label: '6 Paid Holidays + 2 Floating Holidays' },
+  { icon: HeartPulse, label: 'Company-Paid Employee Health Insurance' },
+  { icon: Smile, label: 'Dental Insurance' },
+  { icon: PiggyBank, label: 'Safe Harbor 401(k) Retirement Plan' },
+  { icon: TrendingUp, label: 'Advancement Opportunities' },
+  { icon: Flag, label: 'Proud to Employ Veterans' },
+];
+
+const openRoles = [
+  { title: 'Certified HVAC Service Technician', description: 'Diagnose and repair heating and cooling systems for residential and commercial customers throughout Castle Rock and Denver Metro.' },
+  { title: 'Experienced Plumber', description: 'Handle plumbing repair, installation, and service calls with a focus on quality workmanship and customer courtesy.' },
+  { title: 'Apprentice', description: 'Learn the trade alongside licensed technicians and plumbers, with a clear path for growth and advancement.' },
+];
+
+const title = 'Careers — Join Courtesy Plumbing & Heating';
+const description = 'Courtesy Plumbing & Heating is hiring certified HVAC technicians, experienced plumbers, and apprentices in Castle Rock, CO. Competitive pay and full benefits.';
+---
+
+<BaseLayout title={title} description={description} canonical="/careers">
+  <BreadcrumbSchema items={breadcrumbItems} />
+
+  <Section spacing="compact" bg="navy" class="relative overflow-hidden">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.06]" aria-hidden="true" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 28px 28px;"></div>
+    <Container class="relative">
+      <Breadcrumb items={breadcrumbItems} class="mb-6 [&_a]:text-text-inverse-muted [&_a:hover]:text-white [&_span]:text-white" />
+      <div class="max-w-2xl" data-reveal>
+        <IconBadge icon={Briefcase} tone="white" size="lg" />
+        <h1 class="mt-5 text-balance font-display text-3xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-4xl md:text-5xl">
+          Work For Courtesy Plumbing &amp; Heating
+        </h1>
+        <p class="mt-5 max-w-xl text-balance text-lg leading-relaxed text-text-inverse-muted">
+          We're always seeking qualified applicants. Now hiring certified HVAC service technicians, experienced
+          plumbers, and apprentices in Castle Rock and the Denver Metro area.
+        </p>
+        <div class="mt-8">
+          <PhoneButton variant="outline" size="lg" location="careers_hero" class="text-white" />
+        </div>
+      </div>
+    </Container>
+  </Section>
+
+  <Section>
+    <Container>
+      <SectionHeading eyebrow="Open Roles" title="Now Hiring" align="left" />
+      <Reveal as="div" class="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3" step={70}>
+        {openRoles.map((role) => (
+          <div class="card-elevated p-6" data-reveal>
+            <h3 class="font-display text-base font-bold text-text">{role.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-text-muted">{role.description}</p>
+          </div>
+        ))}
+      </Reveal>
+    </Container>
+  </Section>
+
+  <Section bg="subtle">
+    <Container>
+      <SectionHeading eyebrow="Why Work Here" title="Benefits We Offer" align="left" />
+      <Reveal as="ul" class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" step={50}>
+        {benefits.map((b) => (
+          <li class="flex items-center gap-3 rounded-(--radius-lg) border border-border bg-surface p-4" data-reveal>
+            <IconBadge icon={b.icon} tone="blue" size="sm" />
+            <span class="text-sm font-semibold text-text">{b.label}</span>
+          </li>
+        ))}
+      </Reveal>
+    </Container>
+  </Section>
+
+  <Section>
+    <Container>
+      <div class="card-elevated mx-auto flex max-w-2xl flex-col items-center gap-4 p-10 text-center" data-reveal>
+        <IconBadge icon={Mail} tone="navy" size="lg" />
+        <h2 class="font-display text-2xl font-bold text-text">How to Apply</h2>
+        <p class="text-text-muted">
+          Applicants can visit our Castle Rock office to pick up an application. A five-year driving record is
+          required. Your application is completely confidential and used only for internal hiring purposes.
+        </p>
+        <div class="mt-2 flex flex-col gap-3 sm:flex-row">
+          <Button href={`mailto:${business.email.display}?subject=Job%20Application`} variant="primary" showArrow>
+            Email Us About a Role
+          </Button>
+          <PhoneButton variant="secondary" location="careers_apply" />
+        </div>
+        <p class="text-sm text-text-muted">{business.address.full}</p>
+      </div>
+    </Container>
+  </Section>
+</BaseLayout>

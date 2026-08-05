@@ -1,0 +1,32 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+import type { Service } from '../../data/services';
+import { getIconComponent } from '../../lib/icons';
+import IconBadge from '../ui/IconBadge.astro';
+
+interface Props {
+  service: Service;
+  family: string;
+}
+
+const { service, family } = Astro.props;
+const Icon = getIconComponent(service.icon);
+---
+
+<a
+  href={`/${family}/${service.slug}`}
+  data-reveal
+  class="card-elevated group relative flex flex-col gap-3 p-5 hover:border-brand-blue-300/60"
+>
+  <div class="flex items-start justify-between">
+    <IconBadge icon={Icon} tone="blue" size="sm" />
+    <ArrowUpRight
+      aria-hidden="true"
+      class="size-5 text-neutral-300 transition-all duration-300 ease-(--ease-out-quart) group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-blue-600"
+    />
+  </div>
+  <div>
+    <h3 class="font-display text-base font-bold text-text">{service.name}</h3>
+    <p class="mt-1.5 text-sm leading-relaxed text-text-muted">{service.description}</p>
+  </div>
+</a>

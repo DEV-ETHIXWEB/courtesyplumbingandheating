@@ -1,0 +1,29 @@
+---
+interface Props {
+  class?: string;
+  id?: string;
+  /** Background surface treatment */
+  bg?: 'default' | 'subtle' | 'muted' | 'navy';
+  /** Vertical padding scale */
+  spacing?: 'default' | 'compact' | 'none';
+}
+
+const { class: className = '', id, bg = 'default', spacing = 'default' } = Astro.props;
+
+const bgClass = {
+  default: 'bg-surface',
+  subtle: 'bg-surface-subtle',
+  muted: 'bg-surface-muted',
+  navy: 'bg-surface-inverse text-text-inverse',
+}[bg];
+
+const spacingClass = {
+  default: 'py-14 sm:py-20 lg:py-24',
+  compact: 'py-8 sm:py-12 lg:py-14',
+  none: '',
+}[spacing];
+---
+
+<section id={id} class:list={[bgClass, spacingClass, className]}>
+  <slot />
+</section>

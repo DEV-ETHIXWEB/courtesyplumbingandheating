@@ -1,0 +1,36 @@
+---
+import type { AstroComponent } from '@lucide/astro';
+
+interface Props {
+  variant?: 'blue' | 'red' | 'neutral' | 'inverse';
+  class?: string;
+  icon?: AstroComponent;
+}
+
+const { variant = 'neutral', class: className = '', icon: Icon } = Astro.props;
+
+const variants = {
+  blue: 'bg-brand-blue-50 text-brand-blue-700',
+  red: 'bg-brand-red-50 text-brand-red-700',
+  neutral: 'bg-surface-muted text-text-muted',
+  inverse: 'bg-white/10 text-white',
+};
+
+const hasCustomDisplay = /(?:^|\s)(hidden|flex|inline-flex|inline-block|inline|block|grid|contents)(?:\s|$|:)/.test(
+  className
+) || /[a-z]+:(hidden|flex|inline-flex|inline-block|inline|block|grid|contents)(?:\s|$)/.test(className);
+
+const classes = [
+  'items-center gap-1.5 rounded-full px-3 py-1 text-xs sm:text-sm font-semibold',
+  !hasCustomDisplay && 'inline-flex',
+  variants[variant],
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+<span class={classes}>
+  {Icon && <Icon aria-hidden="true" class="size-3.5 shrink-0" />}
+  <slot />
+</span>

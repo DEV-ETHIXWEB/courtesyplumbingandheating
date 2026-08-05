@@ -1,0 +1,151 @@
+---
+import { Tag, Wallet, PhoneCall, CheckCircle2 } from '@lucide/astro';
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import Button from '../ui/Button.astro';
+import Reveal from '../ui/Reveal.astro';
+import { coupons } from '../../data/coupons';
+import { business } from '../../data/business';
+
+const financingPoints = [
+  'No interest options available on approved credit',
+  'Get pre-qualified in minutes, no obligation',
+  'Spread the cost of a new system over time',
+];
+---
+
+<Section id="offers">
+  <Container>
+    <Reveal as="div" class="grid grid-cols-1 gap-6 lg:grid-cols-2" step={80}>
+      <div class="offer-ticket" data-reveal>
+        <div class="offer-ticket__notch offer-ticket__notch--left" aria-hidden="true"></div>
+        <div class="offer-ticket__notch offer-ticket__notch--right" aria-hidden="true"></div>
+
+        <div class="flex flex-col p-6 sm:p-8">
+          <div class="flex items-center gap-3">
+            <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-red-50 text-brand-red-600">
+              <Tag aria-hidden="true" class="size-5" />
+            </span>
+            <h2 class="font-display text-2xl font-bold text-text">Save On Your Next Service</h2>
+          </div>
+
+          {coupons.length > 0 ? (
+            <ul class="mt-5 space-y-3">
+              {coupons.slice(0, 3).map((c) => (
+                <li class="flex items-center gap-3 rounded-(--radius-md) border border-border p-4">
+                  <span class="shrink-0 font-display text-lg font-extrabold text-brand-navy">
+                    {c.amount}{c.amountSuffix && <span class="ml-0.5 text-xs font-bold text-brand-red-600">{c.amountSuffix}</span>}
+                  </span>
+                  <span class="min-w-0">
+                    <p class="truncate font-bold text-text">{c.title}</p>
+                    <p class="mt-0.5 truncate text-sm text-text-muted">{c.description}</p>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div class="mt-5 flex-1 rounded-(--radius-md) border border-dashed border-border-strong bg-surface-subtle p-4">
+              <p class="text-sm leading-relaxed text-text-muted">
+                Current specials are being updated. Call and we'll walk you through the best
+                option for your service, plus any current promotions.
+              </p>
+            </div>
+          )}
+
+          <div class="offer-ticket__divider" aria-hidden="true"></div>
+
+          <div class="flex flex-wrap items-center gap-3">
+            <Button href="/coupons" variant="secondary" showArrow>
+              View Specials &amp; Coupons
+            </Button>
+            <a
+              href={business.phone.href}
+              class="inline-flex items-center gap-1.5 text-sm font-semibold text-text-muted hover:text-brand-red-600"
+              data-analytics-event="phone_click"
+              data-analytics-location="offers_coupon_card"
+            >
+              <PhoneCall aria-hidden="true" class="size-4" />
+              or call {business.phone.display}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-elevated flex flex-col p-6 sm:p-8" data-reveal>
+        <div class="flex items-center gap-3">
+          <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-brand-blue-50 text-brand-blue-700">
+            <Wallet aria-hidden="true" class="size-5" />
+          </span>
+          <h2 class="font-display text-2xl font-bold text-text">Flexible Financing</h2>
+        </div>
+
+        <p class="mt-4 text-text-muted">
+          Need a new furnace, AC, or water heater but not ready to pay all at once? Courtesy
+          offers financing options to help spread the cost of larger projects.
+        </p>
+
+        <ul class="mt-5 flex-1 space-y-2.5">
+          {financingPoints.map((point) => (
+            <li class="flex items-start gap-2.5 text-sm text-text">
+              <CheckCircle2 aria-hidden="true" class="mt-0.5 size-4 shrink-0 text-brand-blue-600" />
+              {point}
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-6">
+          <Button href="/financing" variant="secondary" showArrow>
+            Explore Financing
+          </Button>
+        </div>
+      </div>
+    </Reveal>
+  </Container>
+</Section>
+
+<style>
+  .offer-ticket {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card);
+    transition:
+      transform 300ms var(--ease-out-quart),
+      box-shadow 300ms var(--ease-out-quart),
+      border-color 300ms var(--ease-out-quart);
+  }
+
+  .offer-ticket:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-border-strong);
+  }
+
+  .offer-ticket__notch {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: translateY(-50%);
+    border-radius: 9999px;
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+  }
+
+  .offer-ticket__notch--left {
+    left: -0.8125rem;
+  }
+
+  .offer-ticket__notch--right {
+    right: -0.8125rem;
+  }
+
+  .offer-ticket__divider {
+    margin: 1.5rem 0;
+    border-top: 1px dashed var(--color-border-strong);
+  }
+</style>

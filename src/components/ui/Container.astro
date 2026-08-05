@@ -1,0 +1,12 @@
+---
+type Props = {
+  class?: string;
+  as?: keyof HTMLElementTagNameMap;
+};
+
+const { class: className = '', as: Tag = 'div' }: Props = Astro.props;
+---
+
+<Tag class:list={['mx-auto w-full max-w-(--container-max) px-4 sm:px-6 lg:px-8', className]}>
+  <slot />
+</Tag>
