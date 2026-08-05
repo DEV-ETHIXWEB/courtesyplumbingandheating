@@ -33,13 +33,13 @@ import {
 
   <div
     id="a11y-panel"
-    class="a11y-panel absolute bottom-16 left-0 flex max-h-[calc(100vh-7rem)] w-80 flex-col overflow-hidden rounded-2xl border border-border bg-white shadow-elevated"
+    class="a11y-panel absolute bottom-16 left-0 flex max-h-[calc(100vh-7rem)] w-[23rem] flex-col overflow-hidden rounded-3xl border border-border bg-white shadow-elevated"
     data-a11y-panel
   >
     <div class="a11y-panel__header">
-      <div class="flex items-center gap-2.5">
-        <span class="flex size-8 items-center justify-center rounded-full bg-white/15 text-white">
-          <Accessibility aria-hidden="true" class="size-4" />
+      <div class="flex items-center gap-3">
+        <span class="flex size-9 items-center justify-center rounded-2xl bg-white/15 text-white ring-1 ring-inset ring-white/20">
+          <Accessibility aria-hidden="true" class="size-[18px]" />
         </span>
         <div>
           <p class="font-display text-sm font-bold leading-tight text-white">Accessibility</p>
@@ -58,120 +58,108 @@ import {
 
     <div class="min-h-0 flex-1 overflow-y-auto px-4 py-4">
       <div class="space-y-5">
-        <div>
-          <p class="a11y-group-label">
-            <Type aria-hidden="true" class="size-3.5" />
-            Text size
-          </p>
-          <div class="grid grid-cols-3 gap-1.5" role="group" aria-label="Text size">
-            <button type="button" data-a11y-text-size="default" aria-pressed="true" class="a11y-step-btn">
-              <span class="text-xs">A</span>
-            </button>
-            <button type="button" data-a11y-text-size="large" aria-pressed="false" class="a11y-step-btn">
-              <span class="text-sm">A</span>
-            </button>
-            <button type="button" data-a11y-text-size="xlarge" aria-pressed="false" class="a11y-step-btn">
-              <span class="text-base">A</span>
-            </button>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <p class="a11y-group-label">
+              <Type aria-hidden="true" class="size-3.5" />
+              Text size
+            </p>
+            <div class="grid grid-cols-3 gap-1.5" role="group" aria-label="Text size">
+              <button type="button" data-a11y-text-size="default" aria-pressed="true" class="a11y-step-btn">
+                <span class="text-xs">A</span>
+              </button>
+              <button type="button" data-a11y-text-size="large" aria-pressed="false" class="a11y-step-btn">
+                <span class="text-sm">A</span>
+              </button>
+              <button type="button" data-a11y-text-size="xlarge" aria-pressed="false" class="a11y-step-btn">
+                <span class="text-base">A</span>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <p class="a11y-group-label">
-            <AlignJustify aria-hidden="true" class="size-3.5" />
-            Line &amp; letter spacing
-          </p>
-          <div class="grid grid-cols-3 gap-1.5" role="group" aria-label="Reading spacing">
-            <button type="button" data-a11y-spacing="default" aria-pressed="true" class="a11y-step-btn">
-              <span class="text-xs">Off</span>
-            </button>
-            <button type="button" data-a11y-spacing="relaxed" aria-pressed="false" class="a11y-step-btn">
-              <span class="text-xs">Wide</span>
-            </button>
-            <button type="button" data-a11y-spacing="loose" aria-pressed="false" class="a11y-step-btn">
-              <span class="text-xs">Wider</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="a11y-divider"></div>
-
-        <div>
-          <p class="a11y-group-label">Text &amp; reading</p>
-          <div class="space-y-2">
-            <button type="button" data-a11y-option="underline-links" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><Link2 aria-hidden="true" class="size-4" /></span>
-              Underline links
-            </button>
-
-            <button type="button" data-a11y-option="readable-font" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><BookOpenText aria-hidden="true" class="size-4" /></span>
-              Readable font
-            </button>
-
-            <button type="button" data-a11y-option="reading-guide" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><MoveHorizontal aria-hidden="true" class="size-4" /></span>
-              Reading guide
-            </button>
+          <div>
+            <p class="a11y-group-label">
+              <AlignJustify aria-hidden="true" class="size-3.5" />
+              Spacing
+            </p>
+            <div class="grid grid-cols-3 gap-1.5" role="group" aria-label="Reading spacing">
+              <button type="button" data-a11y-spacing="default" aria-pressed="true" class="a11y-step-btn">
+                <span class="text-[11px]">Off</span>
+              </button>
+              <button type="button" data-a11y-spacing="relaxed" aria-pressed="false" class="a11y-step-btn">
+                <span class="text-[11px]">Wide</span>
+              </button>
+              <button type="button" data-a11y-spacing="loose" aria-pressed="false" class="a11y-step-btn">
+                <span class="text-[11px]">Wider</span>
+              </button>
+            </div>
           </div>
         </div>
 
         <div class="a11y-divider"></div>
 
         <div>
-          <p class="a11y-group-label">Visual</p>
-          <div class="space-y-2">
-            <button type="button" data-a11y-option="contrast" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><Contrast aria-hidden="true" class="size-4" /></span>
-              Higher contrast
+          <p class="a11y-group-label">Quick toggles</p>
+          <div class="grid grid-cols-4 gap-2" role="group" aria-label="Accessibility toggles">
+            <button type="button" data-a11y-option="underline-links" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><Link2 aria-hidden="true" /></span>
+              <span class="a11y-tile__label">Underline links</span>
             </button>
 
-            <button type="button" data-a11y-option="grayscale" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><Grayscale aria-hidden="true" class="size-4" /></span>
-              Grayscale
+            <button type="button" data-a11y-option="readable-font" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><BookOpenText aria-hidden="true" /></span>
+              <span class="a11y-tile__label">Readable font</span>
             </button>
 
-            <button type="button" data-a11y-option="hide-images" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><ImageOff aria-hidden="true" class="size-4" /></span>
-              Hide images
+            <button type="button" data-a11y-option="reading-guide" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><MoveHorizontal aria-hidden="true" /></span>
+              <span class="a11y-tile__label">Reading guide</span>
             </button>
 
-            <button type="button" data-a11y-option="highlight-controls" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><SquareDashedMousePointer aria-hidden="true" class="size-4" /></span>
-              Highlight links &amp; buttons
-            </button>
-          </div>
-        </div>
-
-        <div class="a11y-divider"></div>
-
-        <div>
-          <p class="a11y-group-label">Motion &amp; input</p>
-          <div class="space-y-2">
-            <button type="button" data-a11y-option="motion" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><Zap aria-hidden="true" class="size-4" /></span>
-              Reduce motion
+            <button type="button" data-a11y-option="contrast" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><Contrast aria-hidden="true" /></span>
+              <span class="a11y-tile__label">High contrast</span>
             </button>
 
-            <button type="button" data-a11y-option="pause-media" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><PauseCircle aria-hidden="true" class="size-4" /></span>
-              Pause videos &amp; animations
+            <button type="button" data-a11y-option="grayscale" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><Grayscale aria-hidden="true" /></span>
+              <span class="a11y-tile__label">Grayscale</span>
             </button>
 
-            <button type="button" data-a11y-option="large-cursor" aria-pressed="false" class="a11y-toggle-btn">
-              <span class="a11y-toggle-btn__icon"><MousePointer2 aria-hidden="true" class="size-4" /></span>
-              Large cursor
+            <button type="button" data-a11y-option="hide-images" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><ImageOff aria-hidden="true" /></span>
+              <span class="a11y-tile__label">Hide images</span>
+            </button>
+
+            <button type="button" data-a11y-option="highlight-controls" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><SquareDashedMousePointer aria-hidden="true" /></span>
+              <span class="a11y-tile__label">Highlight links</span>
+            </button>
+
+            <button type="button" data-a11y-option="motion" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><Zap aria-hidden="true" /></span>
+              <span class="a11y-tile__label">Reduce motion</span>
+            </button>
+
+            <button type="button" data-a11y-option="pause-media" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><PauseCircle aria-hidden="true" /></span>
+              <span class="a11y-tile__label">Pause media</span>
+            </button>
+
+            <button type="button" data-a11y-option="large-cursor" aria-pressed="false" class="a11y-tile">
+              <span class="a11y-tile__icon"><MousePointer2 aria-hidden="true" /></span>
+              <span class="a11y-tile__label">Large cursor</span>
             </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="border-t border-border px-4 py-3">
+    <div class="border-t border-border bg-surface-subtle px-4 py-3">
       <button
         type="button"
         data-a11y-reset
-        class="flex w-full items-center justify-center gap-1.5 rounded-(--radius-md) border border-border px-3 py-2 text-xs font-semibold text-text-muted transition-colors hover:border-border-strong hover:bg-surface-muted hover:text-text min-h-9"
+        class="flex w-full items-center justify-center gap-1.5 rounded-(--radius-md) border border-border bg-white px-3 py-2 text-xs font-semibold text-text-muted transition-colors hover:border-border-strong hover:bg-surface-muted hover:text-text min-h-9"
       >
         <RotateCcw aria-hidden="true" class="size-3.5" />
         Reset to defaults
@@ -238,27 +226,6 @@ import {
     border-top: 1px solid var(--color-border);
   }
 
-  .a11y-toggle-btn__icon {
-    display: flex;
-    size: 1.75rem;
-    width: 1.75rem;
-    height: 1.75rem;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-sm);
-    background: var(--color-surface-muted);
-    color: var(--color-text-muted);
-    transition:
-      background-color 150ms var(--ease-out-quart),
-      color 150ms var(--ease-out-quart);
-  }
-
-  .a11y-toggle-btn[aria-pressed='true'] .a11y-toggle-btn__icon {
-    background: var(--color-brand-blue-600);
-    color: white;
-  }
-
   .a11y-group-label {
     display: flex;
     align-items: center;
@@ -271,32 +238,74 @@ import {
     color: var(--color-text-muted);
   }
 
-  .a11y-toggle-btn {
+  .a11y-tile {
     display: flex;
-    width: 100%;
+    flex-direction: column;
     align-items: center;
-    gap: 0.625rem;
-    border-radius: var(--radius-md);
+    justify-content: center;
+    gap: 0.4rem;
+    border-radius: var(--radius-lg);
     border: 1px solid var(--color-border);
-    padding: 0.625rem 0.75rem;
-    text-align: left;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--color-text);
-    min-height: 2.75rem;
+    background: white;
+    padding: 0.625rem 0.375rem;
+    min-height: 4.75rem;
+    text-align: center;
     transition:
-      background-color 150ms var(--ease-out-quart),
-      border-color 150ms var(--ease-out-quart),
-      color 150ms var(--ease-out-quart);
+      background-color 200ms var(--ease-out-quart),
+      border-color 200ms var(--ease-out-quart),
+      transform 200ms var(--ease-out-quart),
+      box-shadow 200ms var(--ease-out-quart);
   }
 
-  .a11y-toggle-btn:hover {
+  .a11y-tile:hover {
+    border-color: var(--color-brand-blue-300);
     background: var(--color-brand-blue-50);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px -8px rgba(15, 95, 168, 0.35);
   }
 
-  .a11y-toggle-btn[aria-pressed='true'] {
+  .a11y-tile__icon {
+    display: flex;
+    size: 1.875rem;
+    width: 1.875rem;
+    height: 1.875rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: var(--color-surface-muted);
+    color: var(--color-text-muted);
+    transition:
+      background-color 200ms var(--ease-out-quart),
+      color 200ms var(--ease-out-quart),
+      transform 200ms var(--ease-out-quart);
+  }
+
+  .a11y-tile__icon :global(svg) {
+    size: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .a11y-tile__label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--color-text);
+  }
+
+  .a11y-tile[aria-pressed='true'] {
     border-color: var(--color-brand-blue-600);
     background: var(--color-brand-blue-50);
+  }
+
+  .a11y-tile[aria-pressed='true'] .a11y-tile__icon {
+    background: linear-gradient(155deg, var(--color-brand-blue-600) 0%, var(--color-brand-blue-800) 100%);
+    color: white;
+    transform: scale(1.05);
+  }
+
+  .a11y-tile[aria-pressed='true'] .a11y-tile__label {
     color: var(--color-brand-blue-700);
   }
 
