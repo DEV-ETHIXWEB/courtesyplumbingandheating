@@ -2,7 +2,7 @@
 
 @theme {
   /* ---------------------------------------------------------------------
-   * BRAND COLORS — derived from the real Courtesy logo (blue script +
+   * BRAND COLORS - derived from the real Courtesy logo (blue script +
    * red swoosh). Tints/shades generated around those two anchor hues.
    * ------------------------------------------------------------------- */
   --color-brand-blue-50: #eef6fd;
@@ -31,7 +31,7 @@
 
   --color-brand-navy: #0a2e4d;
 
-  /* Neutrals — slightly warm gray, reads friendlier than cool slate for a
+  /* Neutrals - slightly warm gray, reads friendlier than cool slate for a
      home-service brand */
   --color-neutral-0: #ffffff;
   --color-neutral-50: #f8f8f7;
@@ -65,17 +65,17 @@
   --color-emergency: var(--color-brand-red-600);
 
   /* ---------------------------------------------------------------------
-   * TYPOGRAPHY — trustworthy American home-service brand: a confident,
+   * TYPOGRAPHY - trustworthy American home-service brand: a confident,
    * highly-legible humanist sans for everything. No script/display font
    * needed in UI type; the logo itself carries the "personality" mark.
    * ------------------------------------------------------------------- */
   --font-sans:
-    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-display:
-    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 
   /* ---------------------------------------------------------------------
-   * RADII — tasteful rounded corners, not pill-everything
+   * RADII - tasteful rounded corners, not pill-everything
    * ------------------------------------------------------------------- */
   --radius-sm: 0.375rem;
   --radius-md: 0.625rem;
@@ -83,7 +83,7 @@
   --radius-xl: 1.5rem;
 
   /* ---------------------------------------------------------------------
-   * SHADOWS — soft, controlled depth
+   * SHADOWS - soft, controlled depth
    * ------------------------------------------------------------------- */
   --shadow-card: 0 1px 2px 0 rgb(20 20 18 / 0.04), 0 1px 3px 0 rgb(20 20 18 / 0.06);
   --shadow-card-hover: 0 4px 12px -2px rgb(20 20 18 / 0.08), 0 2px 6px -2px rgb(20 20 18 / 0.06);
@@ -169,7 +169,7 @@
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
-  /* Visible focus indicator for all interactive elements — WCAG 2.2 AA */
+  /* Visible focus indicator for all interactive elements - WCAG 2.2 AA */
   :focus-visible {
     outline: 2px solid var(--color-brand-blue-600);
     outline-offset: 2px;

@@ -1,5 +1,5 @@
 ---
-title: "Understanding Your Home's Plumbing System: A Beginner's Guide — Courtesy Plumbing & Heating"
+title: "Understanding Your Home's Plumbing System: A Beginner's Guide - Courtesy Plumbing & Heating"
 description: "Your home's plumbing system is one of its most vital components, ensuring clean water flows in and wastewater flows out. Despite its importance, many homeowners aren't familiar with how their plumbing works or how to identify potential issues before they escalate. At Courtesy Plumbing & Heating, we believe an informed homeowner is an empowered one."
 date: 2025-01-13
 author: "Courtesy Plumbing & Heating"
@@ -21,7 +21,7 @@ The water supply system delivers clean water to your home. This water typically 
 - **Shut-off valve:** Allows you to turn off the water supply in case of an emergency.
 - **Pipes and fixtures:** Deliver water to faucets, appliances, and other outlets.
 
-**Tip:** Locate your main shut-off valve—it's crucial in the event of a leak or burst pipe.
+**Tip:** Locate your main shut-off valve - it's crucial in the event of a leak or burst pipe.
 
 ### 2. Drainage System
 
@@ -32,7 +32,7 @@ The drainage system removes wastewater from your home and directs it to a munici
 - **Traps:** U-shaped pipes under sinks that prevent sewer gases from entering your home.
 - **Vents:** Pipes that allow air to circulate and ensure proper drainage flow.
 
-**Tip:** Never pour grease or non-biodegradable items down your drains—they can clog your system.
+**Tip:** Never pour grease or non-biodegradable items down your drains - they can clog your system.
 
 ### 3. Water Heater
 

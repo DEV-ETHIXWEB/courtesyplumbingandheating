@@ -1,5 +1,5 @@
 ---
-title: "Smart Home Integration: How to Make Your Heating and Plumbing Systems Smarter — Courtesy Plumbing & Heating"
+title: "Smart Home Integration: How to Make Your Heating and Plumbing Systems Smarter - Courtesy Plumbing & Heating"
 description: "In today's digital age, smart home technology is revolutionizing the way we manage and interact with our living spaces. From lighting to security systems, almost every aspect of our homes can be optimized for efficiency and convenience. Heating and plumbing systems are no exception. Integrating smart technology into these essential home functions can lead to significant energy savings, increased comfort, and enhanced control. Here's how you can make your heating and plumbing systems smarter."
 date: 2024-07-15
 author: "Courtesy Plumbing & Heating"

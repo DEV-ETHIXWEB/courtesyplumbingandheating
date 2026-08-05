@@ -1,5 +1,5 @@
 ---
-title: "\"Preventing Tree Root Intrusion in Sewer Lines: A Comprehensive Guide — Courtesy Plumbing & Heating\""
+title: "\"Preventing Tree Root Intrusion in Sewer Lines: A Comprehensive Guide - Courtesy Plumbing & Heating\""
 description: Tree roots infiltrating sewer lines can be a persistent and costly problem, posing a significant threat to your plumbing infrastructure. In this blog post, we will delve into the reasons behind tree root intrusion and explore effective methods to prevent and eliminate this issue.
 date: 2023-11-24
 author: "Courtesy Plumbing & Heating"
@@ -49,4 +49,4 @@ Tree roots infiltrating sewer lines can be a persistent plumbing issue, causing 
 - No phone number or pricing mentioned in body text.
 
 ## Note on duplication
-Thematically overlaps significantly with "keeping-your-sewer-lines-root-free-tips-from-courtesy-plumbing-amp-heating.html" — see that file's note. This is the more detailed/technical of the two ("comprehensive guide" listing 5 removal methods and 5 prevention steps vs. the shorter Courtesy-branded piece).
+Thematically overlaps significantly with "keeping-your-sewer-lines-root-free-tips-from-courtesy-plumbing-amp-heating.html" - see that file's note. This is the more detailed/technical of the two ("comprehensive guide" listing 5 removal methods and 5 prevention steps vs. the shorter Courtesy-branded piece).

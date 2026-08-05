@@ -1,5 +1,5 @@
 ---
-title: Understanding Why Your Furnace Fan Keeps Running — Courtesy Plumbing & Heating
+title: Understanding Why Your Furnace Fan Keeps Running - Courtesy Plumbing & Heating
 description: "Are you noticing that your furnace fan seems to be running constantly, even when your home has reached the desired temperature? It can be concerning when your HVAC system doesn't behave as expected, especially during colder months. At Courtesy Plumbing and Heating in Castle Rock, Colorado, we understand the importance of a properly functioning furnace."
 date: 2024-03-11
 author: "Courtesy Plumbing & Heating"

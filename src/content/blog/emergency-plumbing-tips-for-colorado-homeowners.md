@@ -81,4 +81,4 @@ The best way to avoid plumbing emergencies is through routine maintenance. Sched
 - **Drain and flush your water heater** annually to remove sediment buildup.
 
 Plumbing emergencies can be stressful, but with the right knowledge and quick action, you can minimize damage and protect your home. For any plumbing emergency in Castle Rock or the surrounding areas, **Courtesy Plumbing & Heating** is here to help. Our experienced technicians are just a phone call away, ready to assist you in your time of need.
-Don’t wait until it’s too late—reach out to us for professional emergency plumbing services or schedule a routine maintenance check today!
+Don’t wait until it’s too late - reach out to us for professional emergency plumbing services or schedule a routine maintenance check today!

@@ -1,5 +1,5 @@
 ---
-title: Signs Your Furnace Needs Repair or Replacement — Courtesy Plumbing & Heating
+title: Signs Your Furnace Needs Repair or Replacement - Courtesy Plumbing & Heating
 description: "'As the cold weather sets in, your furnace becomes one of the most crucial appliances in your home. Ensuring it's in optimal condition is vital for maintaining comfort and safety. But how do you know when it's time for a repair or when it's more cost-effective to replace your furnace? Here are some signs to watch for that indicate your furnace may need professional attention.'"
 date: 2024-08-06
 author: "Courtesy Plumbing & Heating"

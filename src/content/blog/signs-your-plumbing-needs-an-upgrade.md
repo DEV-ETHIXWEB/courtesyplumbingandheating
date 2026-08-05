@@ -1,5 +1,5 @@
 ---
-title: Signs Your Plumbing Needs an Upgrade — Courtesy Plumbing & Heating
+title: Signs Your Plumbing Needs an Upgrade - Courtesy Plumbing & Heating
 description: As a homeowner, maintaining your plumbing system is crucial for the overall health of your home. Over time, plumbing systems can wear out, become outdated, or fail to meet the demands of modern living. Recognizing the signs that your plumbing needs an upgrade can save you from costly repairs and potential water damage. Here are key indicators that it might be time to consider upgrading your plumbing system.
 date: 2024-07-08
 author: "Courtesy Plumbing & Heating"

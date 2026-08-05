@@ -1,5 +1,5 @@
 ---
-title: "\"Keeping Warm in Denver: The Importance of Furnace Maintenance — Courtesy Plumbing & Heating\""
+title: "\"Keeping Warm in Denver: The Importance of Furnace Maintenance - Courtesy Plumbing & Heating\""
 description: "'As a Denver resident, you're undoubtedly familiar with the city's breathtaking landscapes and vibrant culture. However, you're also aware that Denver's winters can be harsh, with freezing temperatures and snowfall that make a well-functioning furnace a necessity. To ensure your home stays warm and c' # NOTE: source og:description is truncated mid-word in the original HTML (Squarespace truncation bug), meta name=description tag is empty on this page."
 date: 2023-09-22
 author: "Courtesy Plumbing & Heating"

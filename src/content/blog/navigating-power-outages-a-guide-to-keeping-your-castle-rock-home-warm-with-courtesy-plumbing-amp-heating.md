@@ -1,5 +1,5 @@
 ---
-title: "\"Navigating Power Outages: A Guide to Keeping Your Castle Rock Home Warm with Courtesy Plumbing & Heating — Courtesy Plumbing & Heating\""
+title: "\"Navigating Power Outages: A Guide to Keeping Your Castle Rock Home Warm with Courtesy Plumbing & Heating - Courtesy Plumbing & Heating\""
 description: "Power outages are an inevitable part of life, and when they happen, it's crucial to ensure that your home remains warm and comfortable. Courtesy Plumbing & Heating in Castle Rock, Colorado, understands the challenges that come with winter weather and power disruptions. In this blog, we'll explore practical tips and solutions to help you keep your home heated during a power outage, ensuring your family's safety and comfort."
 date: 2024-01-29
 author: "Courtesy Plumbing & Heating"

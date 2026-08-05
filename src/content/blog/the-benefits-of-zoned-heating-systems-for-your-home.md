@@ -1,5 +1,5 @@
 ---
-title: The Benefits of Zoned Heating Systems for Your Home — Courtesy Plumbing & Heating
+title: The Benefits of Zoned Heating Systems for Your Home - Courtesy Plumbing & Heating
 description: "As Castle Rock homeowners know, Colorado's weather can be unpredictable. One day you're enjoying mild temperatures, and the next, you're cranking up the heat to combat a sudden cold snap. If you've ever struggled with uneven heating in different areas of your home or wasted energy heating unused rooms, a zoned heating system could be the perfect solution."
 date: 2025-02-10
 author: "Courtesy Plumbing & Heating"
@@ -47,7 +47,7 @@ Zoned heating pairs seamlessly with smart thermostats, giving you remote control
 
 Because zoned systems reduce the workload on your furnace, they can help extend the lifespan of your heating equipment. Instead of constantly running at full capacity to heat your entire home, your system operates more efficiently by only heating designated zones when necessary.
 
-Less strain on your furnace means fewer repairs, lower maintenance costs, and a longer-lasting system—a win-win for homeowners.
+Less strain on your furnace means fewer repairs, lower maintenance costs, and a longer-lasting system - a win-win for homeowners.
 
 ### 5. Perfect for Multi-Story and Large Homes
 

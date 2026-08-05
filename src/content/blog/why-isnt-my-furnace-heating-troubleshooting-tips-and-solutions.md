@@ -1,5 +1,5 @@
 ---
-title: "Why Isn't My Furnace Heating? Troubleshooting Tips and Solutions — Courtesy Plumbing & Heating"
+title: "Why Isn't My Furnace Heating? Troubleshooting Tips and Solutions - Courtesy Plumbing & Heating"
 description: "During the cold winter months, a malfunctioning furnace can be a major inconvenience. If you've ever found yourself asking, 'Why isn't my furnace heating?' don't worry – you're not alone. In this blog post, we'll explore some common reasons why your furnace might not be working correctly and offer tips and solutions."
 date: 2023-10-27
 author: "Courtesy Plumbing & Heating"
@@ -55,4 +55,4 @@ When your furnace isn't heating as it should, it's essential to troubleshoot and
 - Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
 - Phone: (303) 688-0597.
 
-Note: The source HTML's closing paragraph contains an inline outbound hyperlink on the phrase "plumbing and heating company" pointing to a third-party competitor domain (marvsplumbing.com) rather than Courtesy Plumbing & Heating's own site. This appears to be a stray/erroneous link in the original content and should NOT be carried into the new site — flagged for review rather than reproduced. Also thematically overlaps with "why-is-my-furnace-blowing-cold-air-troubleshooting-common-issues.html" and "understanding-why-your-furnace-fan-keeps-running.html" in this batch (similar furnace-troubleshooting subject matter).
+Note: The source HTML's closing paragraph contains an inline outbound hyperlink on the phrase "plumbing and heating company" pointing to a third-party competitor domain (marvsplumbing.com) rather than Courtesy Plumbing & Heating's own site. This appears to be a stray/erroneous link in the original content and should NOT be carried into the new site - flagged for review rather than reproduced. Also thematically overlaps with "why-is-my-furnace-blowing-cold-air-troubleshooting-common-issues.html" and "understanding-why-your-furnace-fan-keeps-running.html" in this batch (similar furnace-troubleshooting subject matter).

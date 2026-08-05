@@ -1,5 +1,5 @@
 ---
-title: How to Prepare Your Plumbing for Winter — Courtesy Plumbing & Heating
+title: How to Prepare Your Plumbing for Winter - Courtesy Plumbing & Heating
 description: "As the days grow shorter and the temperatures start to drop, it's time to start thinking about preparing your home for winter. While you may be focused on cozying up your living spaces and checking your heating system, don't forget that your plumbing system also needs attention. Cold weather can wreak havoc on your pipes, leading to frozen pipes, leaks, and costly repairs. To avoid these issues, follow these essential steps to winterize your plumbing."
 date: 2024-08-19
 author: "Courtesy Plumbing & Heating"
@@ -58,4 +58,4 @@ None with meaningful alt text.
 - No phone number or pricing mentioned in body text.
 
 ## Note on duplication
-Thematically overlaps with "seasonal-plumbing-tips-for-colorado-winters-ykbb2-dl26j.html" (both cover pipe insulation, draining outdoor hoses, sealing drafts, shutting off water, dripping faucets) — different wording/structure, not verbatim duplicate, but significant topical redundancy between the two posts.
+Thematically overlaps with "seasonal-plumbing-tips-for-colorado-winters-ykbb2-dl26j.html" (both cover pipe insulation, draining outdoor hoses, sealing drafts, shutting off water, dripping faucets) - different wording/structure, not verbatim duplicate, but significant topical redundancy between the two posts.

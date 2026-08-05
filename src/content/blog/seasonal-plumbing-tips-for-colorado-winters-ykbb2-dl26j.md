@@ -1,5 +1,5 @@
 ---
-title: Seasonal Plumbing Tips for Colorado Winters — Courtesy Plumbing & Heating
+title: Seasonal Plumbing Tips for Colorado Winters - Courtesy Plumbing & Heating
 description: "'Winter in Colorado can be breathtaking, but it also brings freezing temperatures that can wreak havoc on your home's plumbing. At Courtesy Plumbing & Heating, we understand how essential it is to keep your plumbing in top shape to avoid the headaches of unexpected repairs. As your trusted plumber in Castle Rock, we've compiled these key seasonal plumbing tips to help you safeguard your home during the harsh winter months.'"
 date: 2024-11-18
 author: "Courtesy Plumbing & Heating"
@@ -49,4 +49,4 @@ None with meaningful alt text.
 - No phone number or pricing mentioned in body text.
 
 ## Note on duplication
-Thematically overlaps significantly with "how-to-prepare-your-plumbing-for-winter.html" — both cover pipe insulation, disconnecting hoses, sealing drafts, cabinet doors, dripping faucets, and knowing the water shutoff. Different wording/structure and different tip counts (7 vs 10), not verbatim duplicate, but high topical redundancy between the two winter-plumbing posts.
+Thematically overlaps significantly with "how-to-prepare-your-plumbing-for-winter.html" - both cover pipe insulation, disconnecting hoses, sealing drafts, cabinet doors, dripping faucets, and knowing the water shutoff. Different wording/structure and different tip counts (7 vs 10), not verbatim duplicate, but high topical redundancy between the two winter-plumbing posts.

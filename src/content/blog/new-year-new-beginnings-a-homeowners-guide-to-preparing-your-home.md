@@ -1,5 +1,5 @@
 ---
-title: "\"New Year, New Beginnings: A Homeowner's Guide to Preparing Your Home — Courtesy Plumbing & Heating\""
+title: "\"New Year, New Beginnings: A Homeowner's Guide to Preparing Your Home - Courtesy Plumbing & Heating\""
 description: "'As the clock ticks down to welcome the New Year, it's the perfect time to give your Castle Rock home the attention it deserves. At Courtesy Plumbing and Heating, we believe that a well-prepared home sets the stage for a year of comfort and peace of mind. Join us on a journey to ensure your residence is ready to embrace 2024 with open arms.'"
 date: 2023-12-29
 author: "Courtesy Plumbing & Heating"
@@ -14,7 +14,7 @@ Begin your home preparation by scheduling a thorough plumbing inspection with ou
 
 ## 2. Heating System Tune-Up
 
-Castle Rock winters can be chilly, and the last thing you want is a malfunctioning heating system. Our skilled technicians will conduct a comprehensive heating system tune-up, ensuring your home stays warm and cozy throughout the winter months. Don't wait until the cold sets in—prepare in advance for a toasty, stress-free season.
+Castle Rock winters can be chilly, and the last thing you want is a malfunctioning heating system. Our skilled technicians will conduct a comprehensive heating system tune-up, ensuring your home stays warm and cozy throughout the winter months. Don't wait until the cold sets in - prepare in advance for a toasty, stress-free season.
 
 ## 3. Energy-Efficient Upgrades
 
@@ -45,4 +45,4 @@ As you embark on this journey of home preparation, Courtesy Plumbing and Heating
 - Location: Castle Rock
 - Phone number: **303-688-0597** (matches site-wide primary number)
 - Category tags on post: new year, castle rock, home
-- Article is dated/seasonal (references "2024" specifically) — note for migration: may need generalizing if reused as evergreen content.
+- Article is dated/seasonal (references "2024" specifically) - note for migration: may need generalizing if reused as evergreen content.

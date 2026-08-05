@@ -1,5 +1,5 @@
 ---
-title: "When to Call a Plumber: DIY Fixes vs. Professional Repairs — Courtesy Plumbing & Heating"
+title: "When to Call a Plumber: DIY Fixes vs. Professional Repairs - Courtesy Plumbing & Heating"
 description: "Owning a home comes with a long list of maintenance tasks, and plumbing issues are among the most common challenges homeowners face. From a leaky faucet to a clogged drain, it's tempting to grab a wrench and handle the problem yourself. But while some minor fixes are perfect for a DIY approach, others require the expertise of a professional plumber."
 date: 2024-10-14
 author: "Courtesy Plumbing & Heating"
@@ -69,7 +69,7 @@ While DIY plumbing can be a great way to save money, it's easy to make mistakes 
 
 While DIY plumbing can be rewarding and cost-effective, it's important to know your limits. If you're ever in doubt, it's always better to call a licensed plumber to avoid turning a small problem into a big (and expensive) disaster.
 
-At Courtesy Plumbing & Heating in Castle Rock, Colorado, we're here to help with all your plumbing needs—whether it's an emergency repair, routine maintenance, or a complex installation. Contact us today for professional, reliable service that you can trust.
+At Courtesy Plumbing & Heating in Castle Rock, Colorado, we're here to help with all your plumbing needs - whether it's an emergency repair, routine maintenance, or a complex installation. Contact us today for professional, reliable service that you can trust.
 
 ## Images
 - One decorative header image (no meaningful alt text).

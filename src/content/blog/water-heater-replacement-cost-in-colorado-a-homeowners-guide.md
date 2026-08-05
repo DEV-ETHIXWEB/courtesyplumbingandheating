@@ -1,5 +1,5 @@
 ---
-title: "Water Heater Replacement Cost in Colorado: A Homeowner's Guide — Courtesy Plumbing & Heating"
+title: "Water Heater Replacement Cost in Colorado: A Homeowner's Guide - Courtesy Plumbing & Heating"
 description: "A properly functioning water heater is essential for every home, providing the hot water we rely on daily for showers, laundry, and dishwashing. But like all home appliances, water heaters have a limited lifespan, and replacing them can be a significant expense. If you're a homeowner in Castle Rock or elsewhere in Colorado, understanding the costs and factors involved in water heater replacement can help you make an informed decision."
 date: 2024-09-09
 author: "Courtesy Plumbing & Heating"
@@ -91,4 +91,4 @@ Replacing a water heater in your Castle Rock home is a significant investment, b
 - Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
 - Phone: (303) 688-0597.
 
-Note: The source HTML repeats the "Reasons for Variations in the Average Cost(s)" section content twice (once as section 3, once folded into section 4) — this appears to be a content/authoring duplication in the original page itself. Both occurrences were nearly identical (one mentions "Some plumbers include disposal," the other says "Courtesy Plumbing & Heating includes disposal") and both are preserved above for completeness, but this is flagged as an internal near-duplicate within this single article.
+Note: The source HTML repeats the "Reasons for Variations in the Average Cost(s)" section content twice (once as section 3, once folded into section 4) - this appears to be a content/authoring duplication in the original page itself. Both occurrences were nearly identical (one mentions "Some plumbers include disposal," the other says "Courtesy Plumbing & Heating includes disposal") and both are preserved above for completeness, but this is flagged as an internal near-duplicate within this single article.

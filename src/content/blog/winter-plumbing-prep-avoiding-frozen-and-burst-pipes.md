@@ -1,5 +1,5 @@
 ---
-title: "Winter Plumbing Prep: Avoiding Frozen and Burst Pipes — Courtesy Plumbing & Heating"
+title: "Winter Plumbing Prep: Avoiding Frozen and Burst Pipes - Courtesy Plumbing & Heating"
 description: Winter in Castle Rock, Colorado, brings its fair share of chilly temperatures, and while the snow may be picturesque, the freezing weather can wreak havoc on your plumbing. Frozen pipes are a common winter problem that can lead to burst pipes, water damage, and costly repairs.
 date: 2025-01-27
 author: "Courtesy Plumbing & Heating"
@@ -108,4 +108,4 @@ Stay warm, stay prepared, and keep your plumbing system running smoothly this wi
 - Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
 - Phone: (303) 688-0597.
 
-Note: Strong topical overlap with two other articles in this batch — "tackling-frozen-pipes-unveiling-the-dangers-prevention-tactics-and-remedies.html" and "winter-warriors-a-guide-to-staying-ahead-of-freezing-temperatures-in-colorado.html" — all three cover pipe insulation, dripping faucets, sealing drafts, and disconnecting outdoor hoses as frozen-pipe prevention measures. This is the most detailed/comprehensive of the three (includes specific 55°F guidance and a numbered thaw-safely procedure).
+Note: Strong topical overlap with two other articles in this batch - "tackling-frozen-pipes-unveiling-the-dangers-prevention-tactics-and-remedies.html" and "winter-warriors-a-guide-to-staying-ahead-of-freezing-temperatures-in-colorado.html" - all three cover pipe insulation, dripping faucets, sealing drafts, and disconnecting outdoor hoses as frozen-pipe prevention measures. This is the most detailed/comprehensive of the three (includes specific 55°F guidance and a numbered thaw-safely procedure).

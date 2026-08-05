@@ -1,5 +1,5 @@
 ---
-title: How to Choose the Right Furnace for Your Home — Courtesy Plumbing & Heating
+title: How to Choose the Right Furnace for Your Home - Courtesy Plumbing & Heating
 description: When it comes to keeping your home warm and comfortable during the colder months, choosing the right furnace is crucial. A well-chosen furnace not only ensures reliable heating but also helps in maintaining energy efficiency and reducing utility bills. However, with so many options available on the market, selecting the perfect furnace for your home can feel overwhelming. This guide will walk you through the key factors to consider when choosing a furnace, helping you make an informed decision that suits your specific needs.
 date: 2024-08-26
 author: "Courtesy Plumbing & Heating"

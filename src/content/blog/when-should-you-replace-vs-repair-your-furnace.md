@@ -1,5 +1,5 @@
 ---
-title: When Should You Replace vs. Repair Your Furnace? — Courtesy Plumbing & Heating
+title: When Should You Replace vs. Repair Your Furnace? - Courtesy Plumbing & Heating
 description: "As a homeowner in Castle Rock, Colorado, you rely on your furnace to keep your home warm and comfortable during the long, cold winters. But as your furnace ages, you may find yourself facing more frequent repairs and wondering whether it's time to replace the system altogether."
 date: 2024-10-21
 author: "Courtesy Plumbing & Heating"
@@ -54,6 +54,6 @@ If you're unsure about the best course of action for your furnace, contact Court
 - "50% rule": if repair cost exceeds 50% of a new furnace's price, replacement is recommended.
 - Older furnaces: AFUE rating of 60-70%; modern high-efficiency furnaces: AFUE ratings of 90%+.
 - Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating (referenced once in text as "Courtesy Plumbing & Heat" — likely a typo in source).
+- Business name: Courtesy Plumbing & Heating (referenced once in text as "Courtesy Plumbing & Heat" - likely a typo in source).
 - Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
 - Phone: (303) 688-0597.

@@ -1,5 +1,5 @@
 ---
-title: "\"Signs of a Failing Air Conditioning System: What Castle Rock Residents Should Look Out For — Courtesy Plumbing & Heating\""
+title: "\"Signs of a Failing Air Conditioning System: What Castle Rock Residents Should Look Out For - Courtesy Plumbing & Heating\""
 description: "As the warmer months approach, ensuring that your home's air conditioning system is in optimal condition becomes increasingly important. In Castle Rock, where summers can be scorching, having a functioning air conditioning system is essential for maintaining comfort and well-being indoors. However, like any mechanical system, air conditioners can experience wear and tear over time, leading to potential malfunctions or failures."
 date: 2024-04-15
 author: "Courtesy Plumbing & Heating"

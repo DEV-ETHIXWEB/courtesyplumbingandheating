@@ -1,6 +1,6 @@
 ---
-title: "\"Pre-Winter Furnace Preparation in Colorado: What You Need to Know — Courtesy Plumbing & Heating\""
-description: "'As the winter months approach in Colorado, ensuring your furnace is in top condition is essential for keeping your home warm and comfortable. With Colorado's unpredictable weather, your heating system will be working overtime to combat the chilly nights and sudden temperature drops. The last thing you want is a furnace breakdown when you need it the most. Preparing your furnace for winter isn't just about avoiding inconvenience—it's about improving efficiency, reducing energy costs, and extending the life of your system. Here's what you need to know about pre-winter furnace preparation in Colorado.'"
+title: "\"Pre-Winter Furnace Preparation in Colorado: What You Need to Know - Courtesy Plumbing & Heating\""
+description: "'As the winter months approach in Colorado, ensuring your furnace is in top condition is essential for keeping your home warm and comfortable. With Colorado's unpredictable weather, your heating system will be working overtime to combat the chilly nights and sudden temperature drops. The last thing you want is a furnace breakdown when you need it the most. Preparing your furnace for winter isn't just about avoiding inconvenience - it's about improving efficiency, reducing energy costs, and extending the life of your system. Here's what you need to know about pre-winter furnace preparation in Colorado.'"
 date: 2024-09-23
 author: "Courtesy Plumbing & Heating"
 category: Heating
@@ -8,7 +8,7 @@ draft: false
 ---
 As the winter months approach in Colorado, ensuring your furnace is in top condition is essential for keeping your home warm and comfortable. With Colorado's unpredictable weather, your heating system will be working overtime to combat the chilly nights and sudden temperature drops. The last thing you want is a furnace breakdown when you need it the most.
 
-Preparing your furnace for winter isn't just about avoiding inconvenience—it's about improving efficiency, reducing energy costs, and extending the life of your system. Here's what you need to know about pre-winter furnace preparation in Colorado.
+Preparing your furnace for winter isn't just about avoiding inconvenience - it's about improving efficiency, reducing energy costs, and extending the life of your system. Here's what you need to know about pre-winter furnace preparation in Colorado.
 
 ## 1. Schedule a Professional Furnace Inspection
 
@@ -68,7 +68,7 @@ Look for any signs of damage, such as cracks or corrosion, and make sure no obje
 
 ## 8. Test the Furnace Before Cold Weather Hits
 
-One of the worst times to discover your furnace isn't working is during the first cold snap of winter. Instead, turn your furnace on early—before the freezing weather arrives—to test if it's operating correctly. Listen for any strange noises, check that the air coming from vents is warm, and watch for signs of malfunction.
+One of the worst times to discover your furnace isn't working is during the first cold snap of winter. Instead, turn your furnace on early - before the freezing weather arrives - to test if it's operating correctly. Listen for any strange noises, check that the air coming from vents is warm, and watch for signs of malfunction.
 
 Catching issues early gives you time to schedule repairs and ensures you're not left in the cold when winter strikes.
 
@@ -86,4 +86,4 @@ None with meaningful alt text.
 - No phone number or pricing mentioned in body text.
 
 ## Note on duplication
-Thematically overlaps with "how-to-choose-the-right-furnace-for-your-home.html" and other furnace-maintenance posts, but content/structure here is distinct (an 8-step pre-winter checklist vs. a furnace-buying guide) — not a duplicate.
+Thematically overlaps with "how-to-choose-the-right-furnace-for-your-home.html" and other furnace-maintenance posts, but content/structure here is distinct (an 8-step pre-winter checklist vs. a furnace-buying guide) - not a duplicate.

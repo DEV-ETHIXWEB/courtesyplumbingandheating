@@ -1,5 +1,5 @@
 ---
-title: Tips for Reducing Heating Costs During the Winter Months — Courtesy Plumbing & Heating
+title: Tips for Reducing Heating Costs During the Winter Months - Courtesy Plumbing & Heating
 description: As winter approaches, homeowners often brace themselves for the inevitable rise in heating costs. The chill in the air can lead to hefty energy bills, making it essential to find ways to keep your home warm without straining your budget. Fortunately, there are numerous strategies you can implement to ensure your home remains cozy while minimizing costs.
 date: 2024-10-07
 author: "Courtesy Plumbing & Heating"
@@ -18,7 +18,7 @@ Drafts can be a major source of heat loss, so it's crucial to identify and seal 
 
 ## 3. Maintain Your Heating System
 
-Regular maintenance of your heating system is key to ensuring optimal efficiency and performance. Schedule an annual inspection and tune-up with a qualified technician to catch any potential issues before they become costly repairs. Additionally, make it a habit to replace air filters regularly—every one to three months—depending on the type of filter you use and how often your system runs. A clean air filter ensures proper airflow, reduces strain on the system, and promotes better indoor air quality. By investing time in maintaining your heating system, you'll not only enhance its longevity but also enjoy lower energy bills throughout the winter months.
+Regular maintenance of your heating system is key to ensuring optimal efficiency and performance. Schedule an annual inspection and tune-up with a qualified technician to catch any potential issues before they become costly repairs. Additionally, make it a habit to replace air filters regularly - every one to three months - depending on the type of filter you use and how often your system runs. A clean air filter ensures proper airflow, reduces strain on the system, and promotes better indoor air quality. By investing time in maintaining your heating system, you'll not only enhance its longevity but also enjoy lower energy bills throughout the winter months.
 
 ## 4. Use Ceiling Fans Wisely
 
@@ -34,7 +34,7 @@ If you have rooms in your home that aren't used frequently, it makes sense to cl
 
 ## 7. Use Space Heaters Wisely
 
-Space heaters can be a cost-effective way to provide warmth in small areas without raising the temperature for the entire house. They are particularly useful in rooms that you occupy frequently, such as a home office or bedroom. However, it's important to use them wisely—only in rooms you're occupying—and ensure they are energy-efficient models. Always follow safety guidelines to prevent any hazards, such as keeping flammable materials away and never leaving them unattended. When used properly, space heaters can provide targeted warmth and help reduce your overall heating costs.
+Space heaters can be a cost-effective way to provide warmth in small areas without raising the temperature for the entire house. They are particularly useful in rooms that you occupy frequently, such as a home office or bedroom. However, it's important to use them wisely - only in rooms you're occupying - and ensure they are energy-efficient models. Always follow safety guidelines to prevent any hazards, such as keeping flammable materials away and never leaving them unattended. When used properly, space heaters can provide targeted warmth and help reduce your overall heating costs.
 
 ## 8. Consider Energy-Efficient Upgrades
 

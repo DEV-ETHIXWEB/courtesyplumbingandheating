@@ -1,5 +1,5 @@
 ---
-title: "Tackling Frozen Pipes: Unveiling the Dangers, Prevention Tactics, and Remedies — Courtesy Plumbing & Heating"
+title: "Tackling Frozen Pipes: Unveiling the Dangers, Prevention Tactics, and Remedies - Courtesy Plumbing & Heating"
 description: "With winter's chill settling in, one of the primary challenges for Castle Rock, Colorado residents is the potential menace of frozen pipes. In this post, we'll explore the risks associated with frozen pipes, effective strategies for prevention, and the steps to take if you find yourself dealing with this icy dilemma in the picturesque town of Castle Rock."
 date: 2024-01-05
 author: "Courtesy Plumbing & Heating"
@@ -40,4 +40,4 @@ As temperatures dip, protecting your home from the perils of frozen pipes become
 - Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
 - Phone: (303) 688-0597.
 
-Note: This article covers similar subject matter (frozen/burst pipe prevention) to "winter-plumbing-prep-avoiding-frozen-and-burst-pipes.html" and "winter-warriors-a-guide-to-staying-ahead-of-freezing-temperatures-in-colorado.html" in this batch — see final report for duplication flag.
+Note: This article covers similar subject matter (frozen/burst pipe prevention) to "winter-plumbing-prep-avoiding-frozen-and-burst-pipes.html" and "winter-warriors-a-guide-to-staying-ahead-of-freezing-temperatures-in-colorado.html" in this batch - see final report for duplication flag.

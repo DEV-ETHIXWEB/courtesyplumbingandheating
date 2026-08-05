@@ -41,7 +41,7 @@ const loopedTestimonials = [...testimonials, ...testimonials];
         {loopedTestimonials.map((t, i) => (
           <figure class="review-card" aria-hidden={i >= testimonials.length ? 'true' : undefined}>
             {t.rating && (
-              <div class="flex gap-0.5 text-brand-red-500" aria-label={`${t.rating} out of 5 stars`}>
+              <div class="flex gap-0.5 text-brand-red-500" role="img" aria-label={`${t.rating} out of 5 stars`}>
                 {Array.from({ length: t.rating }).map(() => (
                   <Star aria-hidden="true" class="size-4 fill-current" />
                 ))}

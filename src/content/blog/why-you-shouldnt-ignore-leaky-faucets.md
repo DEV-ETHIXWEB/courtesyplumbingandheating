@@ -1,5 +1,5 @@
 ---
-title: "Why You Shouldn't Ignore Leaky Faucets — Courtesy Plumbing & Heating"
+title: "Why You Shouldn't Ignore Leaky Faucets - Courtesy Plumbing & Heating"
 description: "A leaky faucet might seem like a minor annoyance, a simple drip-drip sound in the background of your home. However, ignoring that seemingly insignificant problem can lead to much bigger issues down the line. Here's why you shouldn't ignore leaky faucets and the potential consequences of doing so."
 date: 2024-06-24
 author: "Courtesy Plumbing & Heating"

@@ -262,7 +262,7 @@
   color: rgb(255 255 255 / 0.8);
 }
 
-.sam-popup-cta {
+.sam-popup .sam-popup-cta {
   display: block;
   margin-top: 0.75rem;
   padding: 0.55rem 0.75rem;
@@ -276,7 +276,7 @@
   transition: background-color 160ms var(--ease-out-quart);
 }
 
-.sam-popup-cta:hover {
+.sam-popup .sam-popup-cta:hover {
   background: var(--color-brand-red-700);
 }
 

@@ -1,5 +1,5 @@
 ---
-title: Why Your Air Conditioner is Blowing Warm Air and How to Address It — Courtesy Plumbing & Heating
+title: Why Your Air Conditioner is Blowing Warm Air and How to Address It - Courtesy Plumbing & Heating
 description: When the summer heat is at its peak, the last thing you want is for your air conditioner to start blowing warm air. Not only is it uncomfortable, but it can also be a sign of underlying issues that need immediate attention.
 date: 2024-07-01
 author: "Courtesy Plumbing & Heating"

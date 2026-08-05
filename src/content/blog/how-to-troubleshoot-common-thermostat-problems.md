@@ -1,5 +1,5 @@
 ---
-title: How to Troubleshoot Common Thermostat Problems — Courtesy Plumbing & Heating
+title: How to Troubleshoot Common Thermostat Problems - Courtesy Plumbing & Heating
 description: "'Your thermostat plays a critical role in keeping your home comfortable and energy-efficient, especially during Castle Rock's cold winters and warm summers. When your thermostat isn't working properly, your HVAC system can struggle to maintain the right temperature, leading to discomfort and higher energy bills.'"
 date: 2025-02-03
 author: "Courtesy Plumbing & Heating"

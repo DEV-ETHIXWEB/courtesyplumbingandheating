@@ -1,5 +1,5 @@
 ---
-title: What Colorado Homeowners Need to Know About New Water Heater Regulations — Courtesy Plumbing & Heating
+title: What Colorado Homeowners Need to Know About New Water Heater Regulations - Courtesy Plumbing & Heating
 description: "If you're a homeowner in Colorado, you may have heard some buzz about updated regulations surrounding water heaters. These changes can seem confusing at first, but understanding the new guidelines is essential, especially if you're planning a water heater installation or upgrade in the near future."
 date: 2024-11-11
 author: "Courtesy Plumbing & Heating"

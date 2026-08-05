@@ -1,5 +1,5 @@
 ---
-title: "\"Keeping Your Sewer Lines Root-Free: Tips from Courtesy Plumbing & Heating — Courtesy Plumbing & Heating\""
+title: "\"Keeping Your Sewer Lines Root-Free: Tips from Courtesy Plumbing & Heating - Courtesy Plumbing & Heating\""
 description: Tree roots invading your sewer line can quickly turn into a messy and costly problem for homeowners. But with the right preventative measures, you can keep those roots at bay and ensure your plumbing system stays in top shape. Here are some expert tips from Courtesy Plumbing & Heating on how to prevent tree roots from wreaking havoc on your sewer line.
 date: 2024-04-22
 author: "Courtesy Plumbing & Heating"
@@ -38,4 +38,4 @@ None with meaningful alt text.
 - No phone number or pricing mentioned in body text.
 
 ## Note on duplication
-Thematically overlaps significantly with "preventing-tree-root-intrusion-in-sewer-lines-a-comprehensive-guide.html" — both cover why tree roots invade sewer lines and prevention/removal methods. Not verbatim duplicate text, but the two articles are near-duplicate in subject and could likely be consolidated in the new site (this one is shorter and Castle Rock/Courtesy-specific in tone; the other is a more generic "comprehensive guide" listing 5 removal methods vs. this one's cursory mention of chemicals + hydro-jetting).
+Thematically overlaps significantly with "preventing-tree-root-intrusion-in-sewer-lines-a-comprehensive-guide.html" - both cover why tree roots invade sewer lines and prevention/removal methods. Not verbatim duplicate text, but the two articles are near-duplicate in subject and could likely be consolidated in the new site (this one is shorter and Castle Rock/Courtesy-specific in tone; the other is a more generic "comprehensive guide" listing 5 removal methods vs. this one's cursory mention of chemicals + hydro-jetting).

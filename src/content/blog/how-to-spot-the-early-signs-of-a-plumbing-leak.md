@@ -1,5 +1,5 @@
 ---
-title: How to Spot the Early Signs of a Plumbing Leak — Courtesy Plumbing & Heating
+title: How to Spot the Early Signs of a Plumbing Leak - Courtesy Plumbing & Heating
 description: "'Plumbing leaks can cause significant damage if left unchecked, and they often start small, making them easy to miss. Spotting the early signs of a plumbing leak can save you from costly repairs and preserve the integrity of your home. At Courtesy Plumbing & Heating in Castle Rock, Colorado, we've seen how catching these leaks early can make all the difference. Here's what to watch for to keep your home safe and dry.'"
 date: 2024-12-09
 author: "Courtesy Plumbing & Heating"
@@ -22,7 +22,7 @@ Look for yellow or brown stains on walls, ceilings, or floors. These often indic
 
 ## 4. Unusual Sounds
 
-Do you hear dripping, hissing, or running water when no taps are on? These noises could signal a leak within your walls or under your floors. Don't ignore these sounds—leaks can worsen quickly if not addressed.
+Do you hear dripping, hissing, or running water when no taps are on? These noises could signal a leak within your walls or under your floors. Don't ignore these sounds - leaks can worsen quickly if not addressed.
 
 ## 5. Musty or Damp Smells
 

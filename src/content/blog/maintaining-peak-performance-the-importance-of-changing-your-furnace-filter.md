@@ -1,5 +1,5 @@
 ---
-title: "\"Maintaining Peak Performance: The Importance of Changing Your Furnace Filter — Courtesy Plumbing & Heating\""
+title: "\"Maintaining Peak Performance: The Importance of Changing Your Furnace Filter - Courtesy Plumbing & Heating\""
 description: "Courtesy Plumbing & Heating understands the pivotal role a well-maintained furnace plays in your home's comfort. One crucial aspect of furnace care is the regular replacement of the furnace filter. In this blog post, we'll explore how often you should replace your furnace filter and the compelling reasons behind this practice."
 date: 2024-01-19
 author: "Courtesy Plumbing & Heating"

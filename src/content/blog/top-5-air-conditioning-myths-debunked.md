@@ -1,5 +1,5 @@
 ---
-title: Top 5 Air Conditioning Myths Debunked — Courtesy Plumbing & Heating
+title: Top 5 Air Conditioning Myths Debunked - Courtesy Plumbing & Heating
 description: "When it comes to air conditioning, there's no shortage of myths and misconceptions. These misunderstandings can lead to inefficient usage, increased energy bills, and even premature system failures. At Courtesy Plumbing & Heating, we believe in empowering our customers with accurate information. Here, we debunk the top five air conditioning myths to help you make the most of your cooling system."
 date: 2024-06-17
 author: "Courtesy Plumbing & Heating"

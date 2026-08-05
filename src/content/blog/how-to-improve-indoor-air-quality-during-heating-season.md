@@ -1,12 +1,12 @@
 ---
-title: How to Improve Indoor Air Quality During Heating Season — Courtesy Plumbing & Heating
-description: "'NOTE: The <meta name=description> tag on this page is a duplicated/mismatched value from the 'how-to-spot-the-early-signs-of-a-plumbing-leak' post (about plumbing leaks, not air quality) — likely a Squarespace metadata bug. The actual article body content is about indoor air quality, matching the title and og:description below.'"
+title: How to Improve Indoor Air Quality During Heating Season - Courtesy Plumbing & Heating
+description: "'NOTE: The <meta name=description> tag on this page is a duplicated/mismatched value from the 'how-to-spot-the-early-signs-of-a-plumbing-leak' post (about plumbing leaks, not air quality) - likely a Squarespace metadata bug. The actual article body content is about indoor air quality, matching the title and og:description below.'"
 date: 2024-12-16
 author: "Courtesy Plumbing & Heating"
 category: Heating
 draft: false
 ---
-As the temperatures drop in Castle Rock, Colorado, many households rely on their heating systems to stay warm. However, the cozy indoors can sometimes come with an unexpected downside—poor indoor air quality. Dust, allergens, and dry air are just a few of the challenges that can affect your health and comfort during heating season. Fortunately, there are simple steps you can take to ensure your home's air remains fresh and healthy. Courtesy Plumbing & Heating is here to share our top tips for improving indoor air quality during heating season.
+As the temperatures drop in Castle Rock, Colorado, many households rely on their heating systems to stay warm. However, the cozy indoors can sometimes come with an unexpected downside - poor indoor air quality. Dust, allergens, and dry air are just a few of the challenges that can affect your health and comfort during heating season. Fortunately, there are simple steps you can take to ensure your home's air remains fresh and healthy. Courtesy Plumbing & Heating is here to share our top tips for improving indoor air quality during heating season.
 
 ### 1. Change Your HVAC Filters Regularly
 

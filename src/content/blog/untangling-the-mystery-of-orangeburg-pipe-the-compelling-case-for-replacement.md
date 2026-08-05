@@ -1,5 +1,5 @@
 ---
-title: "Untangling the Mystery of Orangeburg Pipe: The Compelling Case for Replacement — Courtesy Plumbing & Heating"
+title: "Untangling the Mystery of Orangeburg Pipe: The Compelling Case for Replacement - Courtesy Plumbing & Heating"
 description: "Beneath the surface of your dwelling lies a pivotal yet often underestimated component – your plumbing system. Lurking within this intricate network of pipes could be Orangeburg pipe, quietly posing potential threats to your home's infrastructure."
 date: 2023-12-22
 author: "Courtesy Plumbing & Heating"

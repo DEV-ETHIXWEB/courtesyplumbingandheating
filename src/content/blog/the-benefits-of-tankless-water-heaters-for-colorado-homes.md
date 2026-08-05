@@ -1,5 +1,5 @@
 ---
-title: The Benefits of Tankless Water Heaters for Colorado Homes — Courtesy Plumbing & Heating
+title: The Benefits of Tankless Water Heaters for Colorado Homes - Courtesy Plumbing & Heating
 description: In the beautiful state of Colorado, where the weather can be unpredictable and temperatures can fluctuate dramatically, having a reliable and efficient hot water system is essential for the comfort of your home.
 date: 2024-04-22
 author: "Courtesy Plumbing & Heating"
@@ -42,4 +42,4 @@ In conclusion, tankless water heaters offer numerous benefits for Colorado homes
 - Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
 - Phone: (303) 688-0597.
 
-Note: Topically related to "5-benefits-of-a-tankless-water-heater-for-your-castle-rock-home.html" (not in this batch but present in source directory) — flagged as potential overlap, though not directly compared here since that file was outside this task's 27-file list.
+Note: Topically related to "5-benefits-of-a-tankless-water-heater-for-your-castle-rock-home.html" (not in this batch but present in source directory) - flagged as potential overlap, though not directly compared here since that file was outside this task's 27-file list.

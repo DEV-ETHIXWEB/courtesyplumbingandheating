@@ -1,7 +1,7 @@
 /**
  * Sourced from the Courtesy Plumbing & Heating Google Business Profile
  * (screenshots reviewed 2026-08-05). Ratings summary (4.4 avg / 68 reviews
- * / star breakdown) is also from that profile — see ratingSummary below.
+ * / star breakdown) is also from that profile - see ratingSummary below.
  *
  * TODO: VERIFY: re-check counts/quotes periodically against Google, since
  * reviews accrue over time and this is a point-in-time snapshot.

@@ -18,7 +18,7 @@ Understanding your plumbing system is crucial, especially in older homes where t
 Maintaining proper water pressure is vital for the longevity of plumbing systems. I monitor my water pressure regularly because excessive pressure can strain pipes and fixtures, leading to leaks or bursts. If you notice fluctuations in pressure, it might be time to call a [**plumber in Federal Heights**](../federal-heights-plumbing.html) for a thorough evaluation.
 
 ### 4. Address Leaks Immediately
-If I notice any leaks—no matter how small—I take action right away. Even minor leaks can lead to significant damage over time, especially in older homes where water can seep into walls and foundations. I've learned that a quick response can save money and prevent further complications. If you're unsure about how to address a leak, a professional plumber can quickly identify the source and provide a solution.
+If I notice any leaks - no matter how small - I take action right away. Even minor leaks can lead to significant damage over time, especially in older homes where water can seep into walls and foundations. I've learned that a quick response can save money and prevent further complications. If you're unsure about how to address a leak, a professional plumber can quickly identify the source and provide a solution.
 
 ### 5. Maintain Your Water Heater
 Older homes often have traditional water heaters that require regular maintenance. I recommend flushing the tank annually to remove sediment buildup, which can affect efficiency and lifespan. It’s also a good idea to check the temperature setting; I keep mine at 120°F to prevent scalding and reduce energy costs.

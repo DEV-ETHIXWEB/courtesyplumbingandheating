@@ -1,5 +1,5 @@
 ---
-title: Top 5 Signs Your Boiler Needs Maintenance — Courtesy Plumbing & Heating
+title: Top 5 Signs Your Boiler Needs Maintenance - Courtesy Plumbing & Heating
 description: "Your boiler is the heart of your home's heating system, especially during the chilly winters here in Castle Rock, Colorado. Just like any other appliance, boilers require regular maintenance to ensure they're operating efficiently and safely. Neglecting maintenance can lead to costly repairs and even potential safety hazards."
 date: 2024-05-22
 author: "Courtesy Plumbing & Heating"

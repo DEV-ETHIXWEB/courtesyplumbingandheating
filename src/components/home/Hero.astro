@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import { Clock, ShieldCheck, Award } from '@lucide/astro';
 import heroPoster from '../../assets/photos/cappadocia-hero-poster.jpg';
 import Button from '../ui/Button.astro';
@@ -11,6 +11,8 @@ const trustPoints = [
   { icon: Award, label: `${business.yearsInBusiness} Years Serving Colorado` },
   { icon: ShieldCheck, label: 'No Trip Fees' },
 ];
+
+const videoPoster = await getImage({ src: heroPoster, width: 1280, format: 'webp' });
 ---
 
 <section class="relative overflow-hidden bg-neutral-950">
@@ -18,8 +20,8 @@ const trustPoints = [
     <Image
       src={heroPoster}
       alt=""
-      width={1920}
-      height={1013}
+      widths={[640, 960, 1280, 1920]}
+      sizes="100vw"
       class="absolute inset-0 size-full object-cover object-center"
       loading="eager"
       fetchpriority="high"
@@ -32,7 +34,7 @@ const trustPoints = [
       loop
       playsinline
       preload="none"
-      poster={heroPoster.src}
+      poster={videoPoster.src}
       data-hero-video
       aria-hidden="true"
     >

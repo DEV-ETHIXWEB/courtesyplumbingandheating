@@ -1,5 +1,5 @@
 ---
-title: Why Sediment Buildup is Bad for Your Water Heater — Courtesy Plumbing & Heating
+title: Why Sediment Buildup is Bad for Your Water Heater - Courtesy Plumbing & Heating
 description: Your water heater is a vital appliance in your home, providing hot water for everything from showers to laundry. However, over time, sediment buildup can compromise its performance, leading to higher energy bills, reduced efficiency, and even costly repairs.
 date: 2025-01-20
 author: "Courtesy Plumbing & Heating"

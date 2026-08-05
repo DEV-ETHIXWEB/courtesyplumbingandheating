@@ -1,12 +1,12 @@
 ---
-title: "How to Reduce Your Home's Carbon Footprint Through Smart Heating — Courtesy Plumbing & Heating"
-description: "'As more homeowners in Castle Rock and beyond look for ways to live sustainably, reducing your home's carbon footprint has become a top priority. One of the biggest energy consumers in your home is your heating system, especially during Colorado's long, cold winters. Fortunately, by making smart heating choices, you can reduce energy waste, lower utility bills, and minimize your impact on the environment—all without sacrificing comfort.'"
+title: "How to Reduce Your Home's Carbon Footprint Through Smart Heating - Courtesy Plumbing & Heating"
+description: "'As more homeowners in Castle Rock and beyond look for ways to live sustainably, reducing your home's carbon footprint has become a top priority. One of the biggest energy consumers in your home is your heating system, especially during Colorado's long, cold winters. Fortunately, by making smart heating choices, you can reduce energy waste, lower utility bills, and minimize your impact on the environment - all without sacrificing comfort.'"
 date: 2025-02-17
 author: "Courtesy Plumbing & Heating"
 category: Heating
 draft: false
 ---
-As more homeowners in Castle Rock and beyond look for ways to live sustainably, reducing your home's carbon footprint has become a top priority. One of the biggest energy consumers in your home is your heating system, especially during Colorado's long, cold winters. Fortunately, by making smart heating choices, you can reduce energy waste, lower utility bills, and minimize your impact on the environment—all without sacrificing comfort.
+As more homeowners in Castle Rock and beyond look for ways to live sustainably, reducing your home's carbon footprint has become a top priority. One of the biggest energy consumers in your home is your heating system, especially during Colorado's long, cold winters. Fortunately, by making smart heating choices, you can reduce energy waste, lower utility bills, and minimize your impact on the environment - all without sacrificing comfort.
 
 At Courtesy Plumbing & Heating, we believe in providing eco-friendly solutions to keep your home warm while helping the planet. Here's how you can make your heating system smarter and greener.
 
@@ -93,7 +93,7 @@ At Courtesy Plumbing & Heating, we're committed to helping Castle Rock homeowner
 
 Call us today or schedule a consultation online to start making your home greener and more energy-efficient!
 
-Stay warm, save energy, and protect the planet—one smart heating choice at a time!
+Stay warm, save energy, and protect the planet - one smart heating choice at a time!
 
 ## Images
 None with meaningful alt text.

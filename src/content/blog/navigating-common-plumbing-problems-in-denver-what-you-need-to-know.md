@@ -1,5 +1,5 @@
 ---
-title: "\"Navigating Common Plumbing Problems in Denver: What You Need to Know — Courtesy Plumbing & Heating\""
+title: "\"Navigating Common Plumbing Problems in Denver: What You Need to Know - Courtesy Plumbing & Heating\""
 description: "'Denver, Colorado, with its picturesque Rocky Mountain backdrop, vibrant culture, and rapidly growing population, is a city that many are proud to call home. However, like any thriving urban area, Denver residents are not immune to the plumbing issues that can plague homes and businesses. In this blo[g post...]' # source og:description/meta truncated mid-sentence in original HTML"
 date: 2023-09-15
 author: "Courtesy Plumbing & Heating"

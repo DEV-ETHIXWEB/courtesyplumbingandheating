@@ -1,5 +1,5 @@
 ---
-title: Summer Tips for Plumbing and Heating Systems — Courtesy Plumbing & Heating
+title: Summer Tips for Plumbing and Heating Systems - Courtesy Plumbing & Heating
 description: "As the days grow longer and temperatures rise, it's easy to forget about the plumbing and heating systems in your home. However, summer presents unique challenges and opportunities for maintenance that can save you from headaches down the road. Here are some essential summer tips to keep your plumbing and heating systems running smoothly all season long."
 date: 2024-07-22
 author: "Courtesy Plumbing & Heating"

@@ -1,12 +1,12 @@
 ---
 title: "Denver's Climate and Your HVAC System: A Match Made in Comfort"
-description: "When it comes to living in Denver, there's a lot to love. The Mile High City boasts stunning mountain views, a thriving cultural scene, and abundant outdoor activities. However, there's one aspect of Denver living that can't be ignored—the climate."
+description: "When it comes to living in Denver, there's a lot to love. The Mile High City boasts stunning mountain views, a thriving cultural scene, and abundant outdoor activities. However, there's one aspect of Denver living that can't be ignored - the climate."
 date: 2023-09-29
 author: "Courtesy Plumbing & Heating"
 category: Home Tips
 draft: false
 ---
-When it comes to living in Denver, there's a lot to love. The Mile High City boasts stunning mountain views, a thriving cultural scene, and abundant outdoor activities. However, there's one aspect of Denver living that can't be ignored—the climate. Denver's climate can be quite challenging, with its dramatic temperature swings, high elevation, and dry air. To maintain indoor comfort year-round, Denverites rely heavily on their HVAC (Heating, Ventilation, and Air Conditioning) systems. In this blog, we'll explore how Denver's climate affects HVAC systems and how investing in an efficient HVAC system can make all the difference in your comfort.
+When it comes to living in Denver, there's a lot to love. The Mile High City boasts stunning mountain views, a thriving cultural scene, and abundant outdoor activities. However, there's one aspect of Denver living that can't be ignored - the climate. Denver's climate can be quite challenging, with its dramatic temperature swings, high elevation, and dry air. To maintain indoor comfort year-round, Denverites rely heavily on their HVAC (Heating, Ventilation, and Air Conditioning) systems. In this blog, we'll explore how Denver's climate affects HVAC systems and how investing in an efficient HVAC system can make all the difference in your comfort.
 
 ## The Denver Climate: A Unique Challenge
 

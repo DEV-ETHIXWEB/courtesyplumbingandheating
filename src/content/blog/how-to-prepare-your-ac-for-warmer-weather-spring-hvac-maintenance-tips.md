@@ -1,5 +1,5 @@
 ---
-title: "\"How to Prepare Your AC for Warmer Weather: Spring HVAC Maintenance Tips — Courtesy Plumbing & Heating\""
+title: "\"How to Prepare Your AC for Warmer Weather: Spring HVAC Maintenance Tips - Courtesy Plumbing & Heating\""
 description: "Spring is here, and that means warmer weather is just around the corner in Castle Rock! After months of relying on your heating system, it's time to shift your focus to your air conditioner to ensure it's ready for the heat. Proper spring HVAC maintenance can improve efficiency, extend the lifespan of your system, and help you avoid costly breakdowns in the peak of summer."
 date: 2025-03-10
 author: "Courtesy Plumbing & Heating"

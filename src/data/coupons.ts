@@ -1,7 +1,7 @@
 /**
  * Verified offers. Sourced from the Affordable Plumbing, Heat & Electrical coupons
  * page (affordableplumbingandheat.com/coupons), the confirmed DBA/sister brand of
- * Courtesy Plumbing & Heating (see business.dba in ./business.ts) — screenshot
+ * Courtesy Plumbing & Heating (see business.dba in ./business.ts) - screenshot
  * reviewed 2026-08-05. Same underlying company, same license, same offer terms.
  *
  * Expiration on the source page reads 8/31/2026; kept as-is since that is the

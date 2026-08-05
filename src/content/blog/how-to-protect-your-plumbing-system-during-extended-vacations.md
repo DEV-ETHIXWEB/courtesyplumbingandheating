@@ -1,5 +1,5 @@
 ---
-title: How to Protect Your Plumbing System During Extended Vacations — Courtesy Plumbing & Heating
+title: How to Protect Your Plumbing System During Extended Vacations - Courtesy Plumbing & Heating
 description: "'Planning an extended vacation? Whether you're escaping the cold Colorado winter or heading out for a long summer getaway, preparing your home's plumbing system before you leave is essential. Without proper precautions, you could return to unpleasant surprises like frozen pipes, leaks, or water damage.'"
 date: 2025-03-03
 author: "Courtesy Plumbing & Heating"
@@ -45,7 +45,7 @@ Inspect your home for dripping faucets, running toilets, or hidden leaks before 
 
 - Check under sinks and behind appliances for moisture.
 - Listen for running water sounds when no fixtures are in use.
-- Monitor your water meter—if it's still running with everything off, there could be a hidden leak.
+- Monitor your water meter - if it's still running with everything off, there could be a hidden leak.
 
 If you notice any issues, schedule a plumbing repair before your trip.
 

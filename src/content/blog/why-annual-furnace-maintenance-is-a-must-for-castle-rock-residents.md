@@ -1,5 +1,5 @@
 ---
-title: Why Annual Furnace Maintenance is a Must for Castle Rock Residents — Courtesy Plumbing & Heating
+title: Why Annual Furnace Maintenance is a Must for Castle Rock Residents - Courtesy Plumbing & Heating
 description: "As the temperatures drop in Castle Rock, Colorado, your furnace becomes the heart of your home's comfort system. However, like any hardworking machine, your furnace needs regular care to perform at its best. Annual furnace maintenance is a small investment that can have a big impact on your comfort, safety, and wallet."
 date: 2025-01-06
 author: "Courtesy Plumbing & Heating"
@@ -71,7 +71,7 @@ For Castle Rock residents, staying warm and cozy during winter starts with a wel
 
 ## Schedule Your Furnace Maintenance Today
 
-Don't wait for a breakdown to take action—ensure your furnace is ready to keep you warm all winter long. Call Courtesy Plumbing & Heating to schedule your annual furnace maintenance and experience the difference professional care can make.
+Don't wait for a breakdown to take action - ensure your furnace is ready to keep you warm all winter long. Call Courtesy Plumbing & Heating to schedule your annual furnace maintenance and experience the difference professional care can make.
 
 Stay comfortable and stress-free this winter with a furnace that's ready to handle Castle Rock's coldest days!
 

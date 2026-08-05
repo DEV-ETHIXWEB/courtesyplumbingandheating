@@ -1,5 +1,5 @@
 ---
-title: "How Heat Pumps Work: Your Comprehensive Guide — Courtesy Plumbing & Heating"
+title: "How Heat Pumps Work: Your Comprehensive Guide - Courtesy Plumbing & Heating"
 description: "In the world of heating and cooling, heat pumps have become increasingly popular due to their energy-efficient and environmentally friendly nature. If you're looking for an efficient way to heat and cool your home, a heat pump might be the perfect solution. In this blog post, we'll explore how heat pumps work and why they're a great choice for your home's HVAC needs."
 date: 2023-10-20
 author: "Courtesy Plumbing & Heating"

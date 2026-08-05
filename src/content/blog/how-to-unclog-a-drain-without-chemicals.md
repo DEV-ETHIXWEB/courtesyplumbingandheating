@@ -1,5 +1,5 @@
 ---
-title: How to Unclog a Drain Without Chemicals — Courtesy Plumbing & Heating
+title: How to Unclog a Drain Without Chemicals - Courtesy Plumbing & Heating
 description: "'Clogged drains are one of the most common household issues, and they can quickly turn from a minor inconvenience into a major headache if not addressed promptly. While chemical drain cleaners might seem like an easy fix, they can be harsh on your plumbing, harmful to the environment, and even dangerous if used improperly. Luckily, there are several effective, eco-friendly methods you can try to unclog your drain without resorting to chemicals. Here's how to do it.'"
 date: 2024-08-12
 author: "Courtesy Plumbing & Heating"
@@ -21,7 +21,7 @@ One of the simplest and most effective ways to clear a clogged drain is by using
 
 ## 2. The Plunger Method
 
-A plunger isn't just for toilets—it's also a great tool for unclogging drains. It works by creating a vacuum that helps dislodge the blockage.
+A plunger isn't just for toilets - it's also a great tool for unclogging drains. It works by creating a vacuum that helps dislodge the blockage.
 
 ### Steps:
 - Fill the sink or tub with enough water to cover the plunger's cup.

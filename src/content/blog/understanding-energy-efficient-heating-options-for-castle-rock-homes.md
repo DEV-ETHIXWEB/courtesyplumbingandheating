@@ -1,5 +1,5 @@
 ---
-title: Understanding Energy-Efficient Heating Options for Castle Rock Homes — Courtesy Plumbing & Heating
+title: Understanding Energy-Efficient Heating Options for Castle Rock Homes - Courtesy Plumbing & Heating
 description: "Castle Rock, Colorado, is known for its breathtaking scenery and chilly winters. As a homeowner in this beautiful region, keeping your home warm during the colder months is essential. But heating your home can also lead to significant energy expenses if you're not using an efficient system."
 date: 2024-12-02
 author: "Courtesy Plumbing & Heating"

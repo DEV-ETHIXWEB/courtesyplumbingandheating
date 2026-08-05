@@ -1,5 +1,5 @@
 ---
-title: "Winter Warriors: A Guide to Staying Ahead of Freezing Temperatures in Colorado — Courtesy Plumbing & Heating"
+title: "Winter Warriors: A Guide to Staying Ahead of Freezing Temperatures in Colorado - Courtesy Plumbing & Heating"
 description: "As temperatures plummet and winter blankets Colorado in its icy embrace, Courtesy Plumbing & Heating is here to help you stay ahead of the freeze. Our expert team understands the challenges that come with winter weather, and in this blog post, we'll share valuable tips to prepare your home and keep you warm and comfortable during the chilly weekends ahead."
 date: 2024-01-12
 author: "Courtesy Plumbing & Heating"
@@ -51,4 +51,4 @@ As winter tightens its grip on Colorado, taking proactive steps to protect your 
 - Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
 - Phone: (303) 688-0597.
 
-Note: Strong topical overlap with two other articles in this batch — "tackling-frozen-pipes-unveiling-the-dangers-prevention-tactics-and-remedies.html" and "winter-plumbing-prep-avoiding-frozen-and-burst-pipes.html" — all three cover pipe insulation, dripping faucets, sealing drafts/gaps, and disconnecting outdoor hoses as winter prep measures. This article is broader in scope (also covers heating system service, thermostat settings, and general emergency preparedness) rather than being frozen-pipe-specific.
+Note: Strong topical overlap with two other articles in this batch - "tackling-frozen-pipes-unveiling-the-dangers-prevention-tactics-and-remedies.html" and "winter-plumbing-prep-avoiding-frozen-and-burst-pipes.html" - all three cover pipe insulation, dripping faucets, sealing drafts/gaps, and disconnecting outdoor hoses as winter prep measures. This article is broader in scope (also covers heating system service, thermostat settings, and general emergency preparedness) rather than being frozen-pipe-specific.

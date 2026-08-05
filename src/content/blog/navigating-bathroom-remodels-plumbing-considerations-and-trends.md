@@ -1,5 +1,5 @@
 ---
-title: "\"Navigating Bathroom Remodels: Plumbing Considerations and Trends — Courtesy Plumbing & Heating\""
+title: "\"Navigating Bathroom Remodels: Plumbing Considerations and Trends - Courtesy Plumbing & Heating\""
 description: "It's a chance to transform one of the most used spaces in your home into a sanctuary of comfort and style. However, amidst the flurry of tile samples and paint swatches, it's crucial not to overlook the plumbing aspects of your project. Proper planning and consideration of plumbing needs can make all the difference in the success and functionality of your remodel. In this guide, we'll explore essential plumbing considerations and trending ideas to help you navigate your bathroom renovation with confidence."
 date: 2024-05-06
 author: "Courtesy Plumbing & Heating"

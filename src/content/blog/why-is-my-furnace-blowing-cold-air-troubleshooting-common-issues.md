@@ -1,5 +1,5 @@
 ---
-title: Why Is My Furnace Blowing Cold Air? Troubleshooting Common Issues — Courtesy Plumbing & Heating
+title: Why Is My Furnace Blowing Cold Air? Troubleshooting Common Issues - Courtesy Plumbing & Heating
 description: When the Colorado winter hits, a well-functioning furnace is essential for staying warm. So, what do you do when your furnace suddenly starts blowing cold air instead of the cozy heat you expect? There are several potential reasons for this problem, ranging from minor issues you can fix yourself to problems that require professional attention.
 date: 2024-09-02
 author: "Courtesy Plumbing & Heating"
@@ -64,4 +64,4 @@ For expert furnace repair and maintenance services in Castle Rock, give Courtesy
 - Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
 - Phone: (303) 688-0597.
 
-Note: Thematically overlaps with "understanding-why-your-furnace-fan-keeps-running.html" and "why-isnt-my-furnace-heating-troubleshooting-tips-and-solutions.html" in this batch (similar furnace-troubleshooting subject matter, some overlapping thermostat/filter/pilot-light advice) — flagged as near-duplicate topic cluster, though each article's specific angle (cold air vs. fan running vs. no heat) differs.
+Note: Thematically overlaps with "understanding-why-your-furnace-fan-keeps-running.html" and "why-isnt-my-furnace-heating-troubleshooting-tips-and-solutions.html" in this batch (similar furnace-troubleshooting subject matter, some overlapping thermostat/filter/pilot-light advice) - flagged as near-duplicate topic cluster, though each article's specific angle (cold air vs. fan running vs. no heat) differs.
