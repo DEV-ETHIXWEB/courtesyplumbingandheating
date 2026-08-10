@@ -7,6 +7,7 @@ import MegaMenu from './MegaMenu.astro';
 import MobileMenu from './MobileMenu.astro';
 import PhoneButton from '../ui/PhoneButton.astro';
 import Button from '../ui/Button.astro';
+import { business } from '../../data/business';
 ---
 
 <header class="sticky top-0 z-(--z-header) bg-white/95 backdrop-blur-sm border-b border-border">
@@ -43,7 +44,7 @@ import Button from '../ui/Button.astro';
     <div class="flex shrink-0 items-center gap-2">
       <PhoneButton variant="secondary" location="header" class="hidden xl:inline-flex whitespace-nowrap" />
       <a
-        href={`tel:+17196795479`}
+        href={business.phone.href}
         aria-label="Call Courtesy Plumbing & Heating"
         class="hidden lg:flex xl:hidden size-11 items-center justify-center rounded-(--radius-md) border-2 border-brand-blue-600 text-brand-blue-700 hover:bg-brand-blue-50"
         data-analytics-event="phone_click"

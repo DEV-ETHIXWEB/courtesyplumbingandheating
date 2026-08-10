@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/ui/Container.astro';
+import Section from '../components/ui/Section.astro';
+import Button from '../components/ui/Button.astro';
+import PhoneButton from '../components/ui/PhoneButton.astro';
+import IconBadge from '../components/ui/IconBadge.astro';
+import { AlertTriangle } from '@lucide/astro';
+
+const title = 'Something Went Wrong';
+const description = 'We hit an unexpected error loading this page.';
+---
+
+<BaseLayout title={title} description={description} noindex>
+  <Section spacing="default">
+    <Container>
+      <div class="mx-auto flex max-w-xl flex-col items-center gap-5 text-center" data-reveal>
+        <IconBadge icon={AlertTriangle} tone="red" size="lg" />
+        <p class="font-display text-sm font-bold uppercase tracking-widest text-brand-red-600">500</p>
+        <h1 class="text-balance font-display text-3xl font-extrabold tracking-tight text-text sm:text-4xl">
+          Something Went Wrong On Our End
+        </h1>
+        <p class="text-balance leading-relaxed text-text-muted">
+          That's on us, not you. Try refreshing the page, or reach out directly if you need help right away.
+        </p>
+        <div class="mt-2 flex flex-col gap-3 sm:flex-row">
+          <Button href="/" variant="primary" showArrow>Back to Homepage</Button>
+          <PhoneButton variant="secondary" location="500_page" />
+        </div>
+      </div>
+    </Container>
+  </Section>
+</BaseLayout>

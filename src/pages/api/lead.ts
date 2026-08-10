@@ -1,10 +1,15 @@
 import type { APIRoute } from 'astro';
 import { quickLeadSchema, escapeHtml } from '../../lib/schema';
 import { business } from '../../data/business';
+import { isRateLimited, getClientKey } from '../../lib/rate-limit';
 
 export const prerender = false;
 
 export const POST: APIRoute = async ({ request }) => {
+  if (isRateLimited(getClientKey(request))) {
+    return json({ ok: false, error: 'Too many requests. Please try again in a minute.' }, 429);
+  }
+
   let payload: unknown;
   try {
     payload = await request.json();
