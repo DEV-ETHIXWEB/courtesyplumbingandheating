@@ -43,16 +43,3 @@ Sometimes, the age of your furnace can be a factor in its performance. Older uni
 ## Conclusion
 
 When your furnace isn't heating as it should, it's essential to troubleshoot and address the issue promptly. In many cases, simple maintenance and troubleshooting steps can restore your furnace's performance. However, for more complex issues or if your furnace is aging, it's best to consult a professional plumbing and heating company. They can diagnose the problem, provide expert solutions, and help you stay warm and comfortable during the winter months. Don't let a malfunctioning furnace leave you in the cold – take action and enjoy a cozy, well-heated home once again.
-
-## Images
-- Header image with alt text "furnace" (filename: furnace_iStock_1276358762-scaled.jpg.optimal.jpg).
-
-## Key Facts
-- Recommended air filter replacement: every 1-3 months.
-- Typical furnace lifespan: ~15-20 years.
-- Tags: hvac, furnace, tips.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.
-
-Note: The source HTML's closing paragraph contains an inline outbound hyperlink on the phrase "plumbing and heating company" pointing to a third-party competitor domain (marvsplumbing.com) rather than Courtesy Plumbing & Heating's own site. This appears to be a stray/erroneous link in the original content and should NOT be carried into the new site - flagged for review rather than reproduced. Also thematically overlaps with "why-is-my-furnace-blowing-cold-air-troubleshooting-common-issues.html" and "understanding-why-your-furnace-fan-keeps-running.html" in this batch (similar furnace-troubleshooting subject matter).

@@ -1,43 +1,72 @@
-# Astro Starter Kit: Minimal
+# Courtesy Plumbing & Heating
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Marketing site for Courtesy Plumbing & Heating (Castle Rock & Denver Metro, CO) — plumbing, HVAC, and sewer service pages, a blog, and lead-capture forms. Built with [Astro](https://astro.build), deployed on [Vercel](https://vercel.com).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Stack
 
-## 🚀 Project Structure
+- **Astro 7** (server islands, `output: 'server'` via the Vercel adapter) with **React 19** for interactive components (contact form, chatbot, service-area map)
+- **Tailwind CSS v4** for styling, design tokens in `src/styles/global.css`
+- **Content Collections** for the blog (`src/content/blog/*.md`)
+- **Resend** for transactional email (lead delivery)
+- **Google Tag Manager** for analytics (GA4/Ads/Meta Pixel are configured inside the GTM container, not in this codebase)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Project structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── assets/            Images processed by Astro's image pipeline
+├── components/
+│   ├── a11y/           Accessibility controls panel
+│   ├── analytics/       GTM + event tracking
+│   ├── chat/            Chatbot widget
+│   ├── forms/           Contact / lead forms (React)
+│   ├── home/            Homepage sections
+│   ├── layout/           Header, Footer, sticky bars
+│   ├── location/         Service-area map (Leaflet)
+│   ├── seo/              Structured data (JSON-LD) components
+│   ├── services/          Service card / grid components
+│   └── ui/                Shared primitives (Button, Container, Section, ...)
+├── content/blog/       Blog posts (Markdown, Content Collections)
+├── data/                Single source of truth for business info, services,
+│                         locations, coupons, testimonials — see below
+├── layouts/BaseLayout.astro   Wraps every page: SEO head, header, footer,
+│                               sitewide LocalBusiness schema
+├── lib/                 Zod schemas, rate limiting, chat logic
+└── pages/
+    ├── api/               Lead-capture endpoints (POST, server-rendered)
+    ├── [family]/[service].astro   Dynamic per-service pages (35 services)
+    ├── service-area/[location].astro   Dynamic per-city pages (24 cities)
+    └── ...                 Static top-level pages
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+**`src/data/business.ts` is the single source of truth** for the business name, phone, address, license, and hours — every component should import from here rather than hardcoding contact info.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Commands
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Command             | Action                                      |
+| :------------------- | :------------------------------------------- |
+| `npm install`         | Install dependencies                          |
+| `npm run dev`          | Start the dev server at `localhost:4321`      |
+| `npm run build`        | Build the production site to `./dist/`         |
+| `npm run preview`      | Preview the production build locally           |
+| `npm run astro check`  | Type-check the project                         |
 
-## 🧞 Commands
+## Environment variables
 
-All commands are run from the root of the project, from a terminal:
+Copy `.env.example` to `.env` and fill in:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Variable                  | Required | Purpose                                                        |
+| :------------------------- | :------- | :--------------------------------------------------------------- |
+| `RESEND_API_KEY`            | Yes       | Sends lead emails from the contact form, quick-lead form, and chatbot |
+| `LEAD_FROM_EMAIL`            | Yes       | Verified sender address in Resend                                 |
+| `LEAD_NOTIFICATION_EMAIL`     | No        | Where leads are delivered; falls back to `business.email.display` |
+| `PUBLIC_GTM_ID`               | No        | Google Tag Manager container ID; if unset, no analytics loads at all |
 
-## 👀 Want to learn more?
+**If `RESEND_API_KEY` or `LEAD_FROM_EMAIL` is missing, the lead API routes still return a success response to the visitor but silently drop the email** (see `src/pages/api/*.ts`) — confirm both are set in the Vercel project before relying on lead delivery.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Deploy notes
+
+- Adapter: `@astrojs/vercel`. Production `site:` URL is set in `astro.config.mjs`.
+- `vercel.json` sets baseline security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy). No CSP is configured yet — see the inline comment in `vercel.json` before adding one, since it needs to allowlist GTM, the Google Maps embed on `/contact`, and the Leaflet tile CDN used by the service-area map.
+- Legacy URL redirects (from the previous Squarespace site) live in the `redirects` map in `astro.config.mjs`.
+- The three lead API routes (`src/pages/api/{contact,lead,chatbot-lead}.ts`) have basic in-memory rate limiting (`src/lib/rate-limit.ts`, 5 requests/minute per IP). This resets per serverless instance, so it caps abuse per warm function rather than globally — swap for a shared store (Redis/Upstash) if traffic justifies it.

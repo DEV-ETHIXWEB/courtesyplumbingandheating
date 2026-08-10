@@ -54,14 +54,3 @@ While some furnace issues can be easily resolved with a little DIY troubleshooti
 A furnace blowing cold air is not only uncomfortable but can be a sign of deeper issues that need attention. From simple thermostat settings to more complex mechanical problems, knowing how to troubleshoot can save you time and stress. If in doubt, contact a professional to ensure your home stays warm and cozy all winter long.
 
 For expert furnace repair and maintenance services in Castle Rock, give Courtesy Plumbing & Heating a call today. We're here to keep your home comfortable no matter how cold it gets outside!
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.
-
-Note: Thematically overlaps with "understanding-why-your-furnace-fan-keeps-running.html" and "why-isnt-my-furnace-heating-troubleshooting-tips-and-solutions.html" in this batch (similar furnace-troubleshooting subject matter, some overlapping thermostat/filter/pilot-light advice) - flagged as near-duplicate topic cluster, though each article's specific angle (cold air vs. fan running vs. no heat) differs.

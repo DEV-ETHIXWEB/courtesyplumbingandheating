@@ -27,15 +27,3 @@ If you suspect that tree roots have already infiltrated your sewer line, don't p
 ## Conclusion
 
 Don't let tree roots disrupt your sewer line and cause headaches for you and your family. With proactive measures and the help of Courtesy Plumbing & Heating, you can keep your sewer lines root-free and your plumbing system running smoothly for years to come. If you have any questions or concerns about root intrusion or need assistance with sewer line maintenance, don't hesitate to reach out to our experienced team. We're here to help you keep your home's plumbing in top condition!
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service offered: sewer line camera inspections, hydro-jetting root removal
-- Aggressive-root tree species named as risks: willows, maples, oaks
-- Category tags on post: Plumbing, Sewer, Hydro Jetting
-- No phone number or pricing mentioned in body text.
-
-## Note on duplication
-Thematically overlaps significantly with "preventing-tree-root-intrusion-in-sewer-lines-a-comprehensive-guide.html" - both cover why tree roots invade sewer lines and prevention/removal methods. Not verbatim duplicate text, but the two articles are near-duplicate in subject and could likely be consolidated in the new site (this one is shorter and Castle Rock/Courtesy-specific in tone; the other is a more generic "comprehensive guide" listing 5 removal methods vs. this one's cursory mention of chemicals + hydro-jetting).

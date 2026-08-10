@@ -52,11 +52,3 @@ An integrated HVAC system can provide seamless climate control throughout your h
 Integrating smart technology into your heating and plumbing systems can transform your home into a more efficient, comfortable, and safe environment. Whether it's through smart thermostats, water heaters, leak detectors, or connected HVAC systems, the benefits of these advancements are clear. At Courtesy Plumbing & Heating, we're here to help you navigate and implement these smart solutions, ensuring your home is equipped with the latest technology for optimal performance and peace of mind.
 
 For more information on how to make your home smarter and more efficient, contact us today. Let's take the first step towards a smarter, more comfortable home together.
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

@@ -80,12 +80,3 @@ Spring is the perfect time to prepare your AC for the warmer months ahead. By fo
 For a professional AC tune-up or repairs, Courtesy Plumbing & Heating is here to help!
 
 Stay cool and enjoy the warm weather stress-free!
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service area: Castle Rock
-- Recommended filter replacement: every 1-3 months
-- Recommended clearance around outdoor AC unit: at least 2 feet from plants/bushes
-- No phone number or pricing mentioned in body text.

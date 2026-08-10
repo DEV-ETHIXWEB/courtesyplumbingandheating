@@ -23,11 +23,3 @@ If you notice any of these signs in your air conditioning system, it's crucial t
 ## Conclusion
 
 Don't let a failing air conditioner ruin your summer comfort. Contact Courtesy Plumbing & Heating today to schedule an inspection and ensure that your home stays cool and comfortable all season long.
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service area: Castle Rock
-- Category tags on post: HVAC Maintenance, Air Conditioning
-- No phone number or pricing mentioned in body text.

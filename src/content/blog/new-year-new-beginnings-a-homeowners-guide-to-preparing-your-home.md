@@ -36,13 +36,4 @@ If you've been putting off any home repairs, now is the time to tackle them. Whe
 
 Preventive maintenance is the key to a well-functioning home. Schedule regular check-ups with Courtesy Plumbing and Heating to keep your plumbing and heating systems in top shape throughout the year. Our maintenance plans are designed to provide peace of mind and save you from unexpected headaches.
 
-As you embark on this journey of home preparation, Courtesy Plumbing and Heating is here to support you every step of the way. Contact us at **303-688-0597** to schedule your New Year home assessment and let's ensure your Castle Rock residence is ready for a year of comfort and worry-free living. Here's to a happy and well-prepared New Year!
-
-## Images
-- Image with alt text "new years" (decorative/hero image).
-
-## Key Facts
-- Location: Castle Rock
-- Phone number: **303-688-0597** (matches site-wide primary number)
-- Category tags on post: new year, castle rock, home
-- Article is dated/seasonal (references "2024" specifically) - note for migration: may need generalizing if reused as evergreen content.
+As you embark on this journey of home preparation, Courtesy Plumbing and Heating is here to support you every step of the way. Contact us at **(719) 679-5479** to schedule your New Year home assessment and let's ensure your Castle Rock residence is ready for a year of comfort and worry-free living. Here's to a happy and well-prepared New Year!

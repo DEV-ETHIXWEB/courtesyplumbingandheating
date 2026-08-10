@@ -27,12 +27,3 @@ Leaks or drips around your boiler should never be ignored. Even small leaks can 
 ### Conclusion:
 
 Regular maintenance is essential for keeping your boiler operating safely and efficiently. If you've noticed any of the signs mentioned above, don't wait until it's too late. Contact Courtesy Plumbing & Heating in Castle Rock, Colorado, to schedule a professional inspection and maintenance service for your boiler. Our experienced technicians will ensure that your boiler is in top condition, keeping your home warm and comfortable throughout the winter months. Don't risk the safety and comfort of your family – schedule your boiler maintenance today!
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

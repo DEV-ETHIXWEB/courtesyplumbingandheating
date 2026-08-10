@@ -55,13 +55,3 @@ If you notice any of these signs, don't wait to address the issue. A small leak 
 At Courtesy Plumbing & Heating, we're proud to serve Castle Rock and surrounding areas with reliable plumbing services. If you suspect a leak or want to schedule a preventative inspection, our skilled team is here to help. Contact us today for fast, professional service!
 
 By being vigilant and addressing leaks early, you can protect your home and enjoy peace of mind. Trust Courtesy Plumbing & Heating to keep your plumbing in top shape, no matter the season!
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service area: Castle Rock and surrounding areas
-- No phone number or pricing mentioned in body text.
-
-## Note
-The meta description for "how-to-improve-indoor-air-quality-during-heating-season.html" is a verbatim duplicate of this article's meta description (a Squarespace metadata mismatch on that other page), even though the two articles' actual body content is unrelated.

@@ -84,13 +84,3 @@ Whether you're building a new home or upgrading your current heating system, zon
 As Castle Rock's trusted heating experts, we specialize in installing, repairing, and maintaining zoned heating systems. Our team will customize a solution that fits your home's layout, heating needs, and budget.
 
 Experience better comfort, lower energy bills, and a more efficient heating system with zoned heating today!
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Per the U.S. Department of Energy, zoned heating can improve efficiency and reduce heating costs by up to 30%.
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

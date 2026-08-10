@@ -74,14 +74,3 @@ For Castle Rock residents, staying warm and cozy during winter starts with a wel
 Don't wait for a breakdown to take action - ensure your furnace is ready to keep you warm all winter long. Call Courtesy Plumbing & Heating to schedule your annual furnace maintenance and experience the difference professional care can make.
 
 Stay comfortable and stress-free this winter with a furnace that's ready to handle Castle Rock's coldest days!
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Recommended furnace maintenance timing: fall, before heating season.
-- Skipping annual maintenance can void manufacturer warranty.
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

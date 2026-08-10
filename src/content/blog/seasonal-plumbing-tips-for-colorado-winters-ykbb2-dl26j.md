@@ -39,14 +39,3 @@ In the event of a plumbing emergency, knowing how to shut off your main water va
 ### Stay Protected This Winter
 
 Taking proactive steps now can help you avoid plumbing disasters during Colorado's frigid winter months. For professional help and peace of mind, Courtesy Plumbing & Heating is here to assist. As the go-to plumber in Castle Rock, we offer expert winterization services, emergency repairs, and preventative maintenance. Don't wait until it's too late, contact us today to schedule an inspection or learn more about how we can help keep your home safe all winter long.
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service area: Castle Rock ("your trusted plumber in Castle Rock")
-- Services mentioned: winterization services, emergency repairs, preventative maintenance
-- No phone number or pricing mentioned in body text.
-
-## Note on duplication
-Thematically overlaps significantly with "how-to-prepare-your-plumbing-for-winter.html" - both cover pipe insulation, disconnecting hoses, sealing drafts, cabinet doors, dripping faucets, and knowing the water shutoff. Different wording/structure and different tip counts (7 vs 10), not verbatim duplicate, but high topical redundancy between the two winter-plumbing posts.

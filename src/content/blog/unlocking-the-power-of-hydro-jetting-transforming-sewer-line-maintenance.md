@@ -31,13 +31,3 @@ Hydro Jetting is a cutting-edge method used to clean and clear sewer lines by em
 At Courtesy Plumbing & Heating, we are committed to delivering superior plumbing solutions that exceed our customers' expectations. With our expertise in Hydro Jetting technology, we provide efficient, reliable, and environmentally conscious sewer line maintenance services tailored to your needs.
 
 Don't let stubborn clogs and backups disrupt your plumbing system's performance. Contact Courtesy Plumbing & Heating today to schedule a Hydro Jetting service and experience the transformative power of clean, clear sewer lines.
-
-## Images
-- Header image (no descriptive alt text; filename: hydro-1024x768.jpg).
-
-## Key Facts
-- Hydro jetting water pressure can reach up to 4,000 PSI.
-- Tags: HydroJetting, Plumbing, Drains.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

@@ -37,14 +37,3 @@ If your current water heater is nearing the end of its life or you're planning a
 Navigating new water heater regulations may seem daunting, but it's ultimately a step in the right direction for energy conservation and efficiency. By staying informed and working with trusted professionals, you can make the transition smoothly and enjoy the benefits of a more efficient home.
 
 At Courtesy Plumbing & Heating, we're here to guide you every step of the way. If you have questions about the new regulations or need assistance with a water heater installation in Colorado, don't hesitate to reach out. Our team is dedicated to providing top-notch service and ensuring your home is equipped with the best solutions for your comfort and efficiency needs.
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Newer water heaters must meet stricter energy efficiency standards; may require more space due to added insulation.
-- Rebates/incentives may be available for energy-efficient water heater upgrades.
-- Service area: Colorado (Castle Rock referenced via internal link anchor text).
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

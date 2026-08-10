@@ -76,19 +76,3 @@ While water heater replacement can be a significant expense, there are ways to s
 - **Promotions**: Keep an eye out for seasonal promotions or discounts from local plumbing companies, like Courtesy Plumbing & Heating, who may offer deals during slower months.
 
 Replacing a water heater in your Castle Rock home is a significant investment, but with the right information, you can make a decision that suits both your needs and your budget. Understanding the various factors that affect the cost, from the type of unit to the complexity of installation, will help you prepare financially and avoid surprises. At Courtesy Plumbing & Heating, we're committed to providing reliable, cost-effective water heater replacement services. Contact us today for a free estimate and professional advice on the best water heater for your home.
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Traditional tank water heaters typically last 8-12 years.
-- Standard tank sizes: 30-80 gallons; typical family home needs 40-50 gallon tank.
-- Average Colorado water heater replacement cost: $2,800 to $7,600 (covers unit + professional installation, from standard 40-gallon tank to tankless).
-- Castle Rock and other Colorado municipalities require permits for water heater installation.
-- Free estimates offered.
-- Service area: Castle Rock and elsewhere in Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.
-
-Note: The source HTML repeats the "Reasons for Variations in the Average Cost(s)" section content twice (once as section 3, once folded into section 4) - this appears to be a content/authoring duplication in the original page itself. Both occurrences were nearly identical (one mentions "Some plumbers include disposal," the other says "Courtesy Plumbing & Heating includes disposal") and both are preserved above for completeness, but this is flagged as an internal near-duplicate within this single article.

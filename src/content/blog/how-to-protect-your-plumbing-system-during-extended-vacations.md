@@ -93,12 +93,3 @@ Taking these simple precautions before your trip can help you avoid returning to
 Call us today or schedule an appointment online to ensure your home is protected before you leave.
 
 Enjoy your vacation worry-free, knowing your plumbing system is in great shape!
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service area: Castle Rock
-- Recommended thermostat setting while away in winter: at least 55°F
-- Recommended tank water heater vacation-mode temperature: ~50°F
-- No phone number explicitly printed in body text (says "Call us today").
