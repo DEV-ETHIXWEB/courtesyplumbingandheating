@@ -47,10 +47,3 @@ Persistent strange smells, such as burning, musty, or gas odors, coming from you
 Regular maintenance and attention to these warning signs can help you avoid a complete furnace breakdown during the coldest months. If you're experiencing any of these issues, it's best to consult with a professional HVAC technician who can diagnose the problem and recommend the best course of action. Whether it's a repair or a replacement, addressing furnace issues promptly ensures your home stays warm and safe all winter long.
 
 For expert advice and reliable service, contact Courtesy Plumbing & Heating. Our experienced technicians are here to help you keep your home comfortable and your furnace running efficiently.
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Average furnace lifespan cited: 15-20 years
-- No phone number, service area, or pricing mentioned in body text.

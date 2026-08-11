@@ -1,7 +1,8 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const DIST = 'A:\\courtesyplumbingandheating\\courtesy-plumbing\\dist\\client';
+const DIST = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'dist', 'client');
 
 function walk(dir) {
   let out = [];

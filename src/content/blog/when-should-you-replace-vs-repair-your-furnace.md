@@ -45,15 +45,3 @@ Safety is paramount when it comes to your home's heating system. If your furnace
 Deciding whether to repair or replace your furnace depends on several factors, including the system's age, the frequency of repairs, its energy efficiency, and overall performance. If your furnace is relatively new, performing well, and repair costs are minimal, then a furnace repair in Castle Rock might be all you need to get through another winter. However, if your furnace is old, inefficient, and requires frequent fixes, replacing it with a new, energy-efficient model could save you money in the long term and ensure reliable heating during those cold Castle Rock winters.
 
 If you're unsure about the best course of action for your furnace, contact Courtesy Plumbing & Heat. Our experienced technicians can help you determine whether a repair or replacement is the best option for your home, ensuring your family stays warm and comfortable all winter long.
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Average furnace lifespan: 15-20 years (well-maintained).
-- "50% rule": if repair cost exceeds 50% of a new furnace's price, replacement is recommended.
-- Older furnaces: AFUE rating of 60-70%; modern high-efficiency furnaces: AFUE ratings of 90%+.
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating (referenced once in text as "Courtesy Plumbing & Heat" - likely a typo in source).
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

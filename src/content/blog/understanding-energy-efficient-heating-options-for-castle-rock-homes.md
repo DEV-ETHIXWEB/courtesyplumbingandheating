@@ -92,14 +92,3 @@ With fluctuating temperatures and rising energy costs, investing in an energy-ef
 Ready to upgrade your heating system? Contact Courtesy Plumbing & Heating today for a personalized assessment of your home's heating needs. Our team of experts will help you find the perfect energy-efficient solution to keep your Castle Rock home warm and cozy all winter long.
 
 Stay warm, save energy, and enjoy peace of mind with the right heating system for your Castle Rock home!
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- High-efficiency furnaces: look for AFUE rating of 90% or higher; consider upgrading if furnace is over 15 years old.
-- Heat pumps can reduce energy consumption by up to 50% compared to traditional heating systems.
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

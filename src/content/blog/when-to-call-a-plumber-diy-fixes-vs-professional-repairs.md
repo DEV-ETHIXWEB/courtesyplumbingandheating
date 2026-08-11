@@ -70,12 +70,3 @@ While DIY plumbing can be a great way to save money, it's easy to make mistakes 
 While DIY plumbing can be rewarding and cost-effective, it's important to know your limits. If you're ever in doubt, it's always better to call a licensed plumber to avoid turning a small problem into a big (and expensive) disaster.
 
 At Courtesy Plumbing & Heating in Castle Rock, Colorado, we're here to help with all your plumbing needs - whether it's an emergency repair, routine maintenance, or a complex installation. Contact us today for professional, reliable service that you can trust.
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

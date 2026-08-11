@@ -45,13 +45,3 @@ Poor water quality, including strange tastes or odors, can indicate problems wit
 Unexplained increases in your water bills can be a sign of hidden leaks or inefficient plumbing fixtures. If you've noticed a spike in your water costs without any obvious reason, it may be time to inspect your plumbing system for issues. Upgrading to water-efficient fixtures and repairing leaks can help reduce your water consumption and lower your bills.
 
 Upgrading your plumbing system is a significant investment, but it's one that can save you from costly repairs and improve your home's overall efficiency and safety. If you've noticed any of these signs, it's time to consider a plumbing upgrade. At Courtesy Plumbing & Heating, we specialize in comprehensive plumbing services, from inspections and repairs to complete system upgrades. Contact us today to schedule an assessment and ensure your plumbing system is in top condition for years to come.
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Plumbing systems have a typical lifespan of 20-50 years depending on materials used.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.
-- Email: Contact@courtesyinc.net.

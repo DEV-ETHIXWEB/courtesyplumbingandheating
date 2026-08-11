@@ -1,5 +1,8 @@
 ---
 import '@fontsource-variable/inter';
+// Preloaded below: without it the latin subset is only discovered after the CSS
+// parses, so the whole page paints in the fallback face first (visible FOUT).
+import interLatin from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import '../styles/global.css';
 import SEOHead from '../components/seo/SEOHead.astro';
 import StructuredData from '../components/seo/StructuredData.astro';
@@ -8,6 +11,7 @@ import Footer from '../components/layout/Footer.astro';
 import MobileActionBar from '../components/layout/MobileActionBar.astro';
 import StickyCouponRail from '../components/layout/StickyCouponRail.astro';
 import Analytics from '../components/analytics/Analytics.astro';
+import ConsentBanner from '../components/analytics/ConsentBanner.astro';
 import AccessibilityControls from '../components/a11y/AccessibilityControls.astro';
 import Chatbot from '../components/chat/Chatbot.tsx';
 import { business } from '../data/business';
@@ -35,9 +39,13 @@ const { title, description, canonical, ogImage, noindex, hideMobileBar = false }
       // JS disabled (this script never runs) simply keeps full visibility.
       document.documentElement.classList.add('js');
     </script>
+    <link rel="preload" as="font" type="font/woff2" href={interLatin} crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0f5fa8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <SEOHead title={title} description={description} canonical={canonical} ogImage={ogImage} noindex={noindex} />
     <StructuredData />
     <Analytics />
@@ -57,6 +65,7 @@ const { title, description, canonical, ogImage, noindex, hideMobileBar = false }
     <StickyCouponRail />
     {!hideMobileBar && <MobileActionBar />}
 
+    <ConsentBanner />
     <AccessibilityControls />
     <Chatbot
       client:idle

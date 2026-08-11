@@ -9,7 +9,14 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "check:links": "node scripts/check-links.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
+    "check:assets": "node scripts/check-assets.mjs",
+    "check:perf": "node scripts/check-perf.mjs",
+    "check:a11y": "node scripts/check-a11y.mjs",
+    "check:csp": "node scripts/check-csp.mjs",
+    "check:browsers": "node scripts/qa-browsers.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.2",

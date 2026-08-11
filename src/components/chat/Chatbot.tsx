@@ -179,6 +179,14 @@ function ActionButton({ label, onClick, disabled }: { label: string; onClick: ()
   );
 }
 
+/** Push a GTM dataLayer event. Mirrors the helper in the two lead forms. */
+function track(event: string, payload: Record<string, unknown> = {}) {
+  if (typeof window === 'undefined') return;
+  const w = window as unknown as { dataLayer?: Record<string, unknown>[] };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({ event, ...payload });
+}
+
 function buildLeadPayload(lead: LeadState, ctx: ChatContext, transcript: TranscriptLine[]) {
   const urgent = Boolean(lead.wizardUrgent || ctx.urgent);
   const topics = ctx.topicsDiscussed.map(topicLabel).join(', ') || 'General chat';
@@ -365,7 +373,11 @@ export default function Chatbot({ business: businessProp }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error('Request failed');
+      // Success is only claimed when the server confirms the lead was actually delivered.
+      const data = (await res.json().catch(() => null)) as { delivered?: boolean } | null;
+      if (!res.ok || data?.delivered !== true) throw new Error('Request failed');
+      // Conversion event fires only here, after the server confirms delivery.
+      track('contact_form_submit', { form: 'chatbot', service_needed: payload.intent });
       setLead((prev) => ({ ...prev, step: 'done' }));
       setCtx((c) => ({ ...c, leadSubmitted: true }));
       pushBotReply(
@@ -380,15 +392,17 @@ export default function Chatbot({ business: businessProp }: Props) {
         'Lead submitted successfully to the office'
       );
     } catch {
-      setLead((prev) => ({ ...prev, step: 'done' }));
-      setCtx((c) => ({ ...c, leadSubmitted: true }));
+      // The lead was never delivered, so it stays unsubmitted and the visitor is put
+      // back on the confirm step, where "yes" retries the send.
+      setLead((prev) => ({ ...prev, step: 'confirm' }));
       pushBotReply(
         <>
           <p className="flex items-center gap-1.5 font-semibold text-brand-red-700">
             <AlertTriangle className="h-4 w-4" /> That didn&rsquo;t go through.
           </p>
           <p className="mt-1 text-text-muted">
-            Please call us directly at {businessProp.phoneDisplay} and we&rsquo;ll get you taken care of.
+            Please call us directly at {businessProp.phoneDisplay} and we&rsquo;ll get you taken care of, or say
+            &ldquo;yes&rdquo; to try sending again.
           </p>
         </>,
         'Lead API unreachable'
@@ -850,6 +864,7 @@ export default function Chatbot({ business: businessProp }: Props) {
                 setOpen(true);
                 setTeaser(false);
                 setUnread(0);
+                track('chatbot_open', { link_location: 'chat_launcher' });
               }}
               aria-label="Open chat"
               aria-expanded={open}

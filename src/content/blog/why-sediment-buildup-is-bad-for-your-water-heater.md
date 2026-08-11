@@ -93,14 +93,3 @@ At Courtesy Plumbing & Heating, we're committed to helping Castle Rock homeowner
 Don't let sediment buildup reduce your water heater's efficiency or lifespan. Call Courtesy Plumbing & Heating to schedule a professional water heater flush or inspection today.
 
 Keep your water heater running efficiently and your home supplied with reliable hot water year-round!
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Recommended water heater flush frequency: at least once a year (more often with hard water).
-- Castle Rock homes commonly have hard water, contributing to sediment buildup.
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

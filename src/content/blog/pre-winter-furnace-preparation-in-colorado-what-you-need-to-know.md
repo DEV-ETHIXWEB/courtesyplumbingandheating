@@ -76,14 +76,5 @@ Preparing your furnace before winter in Colorado is essential for maintaining a 
 
 At Courtesy Plumbing & Heating, we're here to help you get your furnace winter-ready. Our experienced technicians provide comprehensive tune-ups, ensuring your system is safe and efficient for the cold months ahead. Contact us today to schedule your pre-winter furnace inspection and enjoy peace of mind all season long.
 
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Recommended furnace filter replacement: every 1-3 months
-- Recommended furnace clearance: at least three feet
-- CO detector lifespan: approximately 5-7 years
-- No phone number or pricing mentioned in body text.
-
 ## Note on duplication
 Thematically overlaps with "how-to-choose-the-right-furnace-for-your-home.html" and other furnace-maintenance posts, but content/structure here is distinct (an 8-step pre-winter checklist vs. a furnace-buying guide) - not a duplicate.

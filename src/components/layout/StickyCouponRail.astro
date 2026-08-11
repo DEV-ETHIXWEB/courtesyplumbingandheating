@@ -64,7 +64,11 @@ const headline = coupons.find((c) => c.featured) ?? coupons[0];
   /* Authoritative here (not via a Tailwind "hidden lg:block" utility pair) so this
      component's own scoped stylesheet can't lose a cascade/specificity tie against
      itself once Astro attaches its scoping attribute to .scr-root. */
-  @media (min-width: 1024px) {
+  /* 1440px, not the lg breakpoint: the rail is ~61px wide and fixed to the viewport
+     edge, so anything narrower than (container 1280 + its 32px padding + rail) puts
+     it on top of page copy. Below this width the offers stay reachable through the
+     "Specials" nav item, the offers section, and the footer. */
+  @media (min-width: 1440px) {
     .scr-root {
       display: block;
       position: fixed;

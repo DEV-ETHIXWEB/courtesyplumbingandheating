@@ -61,12 +61,3 @@ Inspect your electrical panel for tripped breakers and ensure your AC unit is re
 If your evaporator coils are frozen, turn off your AC unit to allow the coils to thaw. Check for dirty filters or blocked vents that might have caused the freezing. If the issue continues, seek professional help to diagnose and fix the underlying problem.
 
 A well-functioning air conditioner is essential for maintaining comfort during the hot summer months. By understanding the common reasons for warm air output and knowing how to address them, you can ensure your AC system operates efficiently and effectively. Regular maintenance and prompt repairs are key to preventing issues and keeping your home cool and comfortable. If you're experiencing persistent problems with your air conditioner, don't hesitate to contact Courtesy Plumbing & Heating for expert assistance and reliable solutions.
-
-## Images
-- Header image (no descriptive alt text; filename: Warm air.png).
-
-## Key Facts
-- Recommended air filter replacement: every 1-3 months.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

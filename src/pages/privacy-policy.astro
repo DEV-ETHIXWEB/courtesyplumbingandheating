@@ -12,7 +12,9 @@ const title = 'Privacy Policy';
 const description = 'Privacy policy for Courtesy Plumbing & Heating, covering how we collect, use, and protect your personal information.';
 ---
 
-<BaseLayout title={title} description={description} canonical="/privacy-policy" noindex>
+{/* Indexable on purpose: it is real, unique content, it is listed in the sitemap,
+    and the consent banner links to it - noindex here contradicted all three. */}
+<BaseLayout title={title} description={description} canonical="/privacy-policy">
   <BreadcrumbSchema items={breadcrumbItems} />
 
   <Section spacing="compact">

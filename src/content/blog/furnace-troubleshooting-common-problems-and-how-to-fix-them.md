@@ -6,7 +6,7 @@ author: "Courtesy Plumbing & Heating"
 category: Heating
 draft: false
 ---
-As the temperatures drop in Castle Rock, the last thing any homeowner wants is a malfunctioning furnace. Unfortunately, furnace issues can arise at the most inconvenient times, leaving you cold and frustrated. Before you panic, it’s worth knowing that some common furnace problems can be resolved with a little troubleshooting. In this blog, we’ll walk you through a few furnace issues and how to fix them, as well as when it’s time to call for [**furnace repair in Castle Rock**.](../furnace-repair-castle-rock-colorado.html)
+As the temperatures drop in Castle Rock, the last thing any homeowner wants is a malfunctioning furnace. Unfortunately, furnace issues can arise at the most inconvenient times, leaving you cold and frustrated. Before you panic, it’s worth knowing that some common furnace problems can be resolved with a little troubleshooting. In this blog, we’ll walk you through a few furnace issues and how to fix them, as well as when it’s time to call for [**furnace repair in Castle Rock**.](/hvac/furnace-repair)
 
 ### 1. **Furnace Won’t Turn On**
 One of the most common issues homeowners face is a furnace that simply won’t start. This can be caused by several factors, but the good news is that many are easy to address.
@@ -18,7 +18,7 @@ One of the most common issues homeowners face is a furnace that simply won’t s
 
 - **Inspect the Pilot Light**: For older gas furnaces, a blown-out pilot light can prevent the furnace from igniting. Relight the pilot following the manufacturer's instructions.
 
-If none of these steps solve the issue, it’s time to call a professional for [**furnace repair in Castle Rock**.](../furnace-repair-castle-rock-colorado.html)
+If none of these steps solve the issue, it’s time to call a professional for [**furnace repair in Castle Rock**.](/hvac/furnace-repair)
 
 ### 2. **Furnace Blowing Cold Air**
 If your furnace is running but only blowing cold air, there could be a few causes for this frustrating problem.
@@ -67,5 +67,5 @@ If your furnace seems to be running non-stop, it can lead to higher energy bills
 - **Inspect the Limit Switch**: A malfunctioning limit switch could cause the furnace to run constantly. While this requires a professional repair, it’s important to address it quickly to avoid further strain on the system.
 
 ### When to Call for Professional Furnace Repair
-While many of these furnace problems can be solved with basic troubleshooting, some issues require the expertise of a licensed technician. If you’ve tried the above steps and your furnace still isn’t working properly, it’s time to call a professional for [**furnace repair in Castle Rock**](../furnace-repair-castle-rock-colorado.html).
+While many of these furnace problems can be solved with basic troubleshooting, some issues require the expertise of a licensed technician. If you’ve tried the above steps and your furnace still isn’t working properly, it’s time to call a professional for [**furnace repair in Castle Rock**](/hvac/furnace-repair).
 At **Courtesy Plumbing & Heating**, we specialize in diagnosing and repairing all types of furnace issues. Our experienced technicians can quickly identify the problem and provide reliable, affordable repairs to ensure your home stays warm and comfortable all winter long. Don’t wait until it’s too late - contact us today to schedule your furnace repair!

@@ -33,10 +33,3 @@ While DIY projects can be rewarding, bathroom remodels involving plumbing modifi
 At Courtesy Plumbing & Heating, we understand the intricacies of bathroom remodels and are here to assist you every step of the way. Our team of skilled plumbers is dedicated to delivering quality workmanship and exceptional service to homeowners in Castle Rock and the surrounding areas.
 
 With careful planning and the right guidance, your bathroom remodel can be a smooth and rewarding experience, resulting in a space that not only meets your practical needs but also reflects your personal style and enhances your daily routine. Happy remodeling!
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service area: Castle Rock and surrounding areas
-- No phone number or pricing mentioned in body text.

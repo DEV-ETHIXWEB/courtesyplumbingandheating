@@ -96,16 +96,3 @@ Don't let frozen pipes turn into a winter disaster. Call Courtesy Plumbing & Hea
 Contact Courtesy Plumbing & Heating Today!
 
 Stay warm, stay prepared, and keep your plumbing system running smoothly this winter!
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Recommended minimum thermostat setting when away in winter: 55°F.
-- Services offered: pipe inspections, winterization services, emergency repairs.
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.
-
-Note: Strong topical overlap with two other articles in this batch - "tackling-frozen-pipes-unveiling-the-dangers-prevention-tactics-and-remedies.html" and "winter-warriors-a-guide-to-staying-ahead-of-freezing-temperatures-in-colorado.html" - all three cover pipe insulation, dripping faucets, sealing drafts, and disconnecting outdoor hoses as frozen-pipe prevention measures. This is the most detailed/comprehensive of the three (includes specific 55°F guidance and a numbered thaw-safely procedure).

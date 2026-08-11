@@ -1,11 +1,22 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { loadEnv } from 'vite';
 
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 import vercel from '@astrojs/vercel';
+
+// Server code reads secrets from process.env at runtime (see src/lib/env.ts), but
+// Vite only loads .env into import.meta.env. Copying the values here - at config
+// time, never into the bundle - means one code path works in dev and in
+// production, where the host populates process.env itself. Existing values win,
+// so a real environment variable is never overwritten by a stray local .env.
+const fileEnv = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), '');
+for (const [key, value] of Object.entries(fileEnv)) {
+  if (process.env[key] === undefined) process.env[key] = value;
+}
 
 // 301 redirects from legacy Squarespace URLs (courtesyplumbingandheating.com) to the
 // new site architecture. Old site used clean URLs (no .html) at the root; city-variant
@@ -86,12 +97,28 @@ const redirects = {
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: VERIFY final production domain before launch
+  // Drives canonicals, sitemap, and OG URLs. Final domain confirmation is tracked in
+  // docs/PENDING-CLIENT-CONFIRMATIONS.md.
   site: 'https://www.courtesyplumbingandheating.com',
 
   redirects,
 
-  integrations: [react(), sitemap()],
+  // Canonical tags and every internal link are written without a trailing slash, so
+  // the sitemap has to agree - otherwise the two disagree about which URL is the
+  // real one for the same page.
+  trailingSlash: 'never',
+
+  integrations: [
+    react(),
+    sitemap({
+      // Strip the trailing slash everywhere except the root, whose canonical is "/".
+      serialize: (item) => {
+        const url = new URL(item.url);
+        if (url.pathname !== '/') url.pathname = url.pathname.replace(/\/$/, '');
+        return { ...item, url: url.href };
+      },
+    }),
+  ],
 
   image: {
     responsiveStyles: true,

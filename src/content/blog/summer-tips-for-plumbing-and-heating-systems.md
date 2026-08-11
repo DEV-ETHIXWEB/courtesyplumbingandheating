@@ -67,12 +67,3 @@ Set your thermostat to a higher temperature while you're away to save on cooling
 Taking a few proactive steps during the summer can keep your plumbing and heating systems in top condition, preventing unexpected issues and saving you money. Regular maintenance and simple inspections can go a long way in ensuring your home remains comfortable and efficient all year round.
 
 For more personalized advice or professional assistance, don't hesitate to contact Courtesy Plumbing & Heating. Our experts are here to help you with all your plumbing and HVAC needs, ensuring your systems are ready for whatever the season brings.
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Recommended water heater temperature setting in summer: 120°F.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

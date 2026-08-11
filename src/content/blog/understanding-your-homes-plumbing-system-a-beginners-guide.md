@@ -104,13 +104,3 @@ As Castle Rock's trusted plumbing experts, we're here to ensure your home's plum
 Understanding your plumbing system is the first step toward a safer, more efficient home. If you need assistance or want to schedule an inspection, call Courtesy Plumbing & Heating today.
 
 Stay informed, stay prepared, and enjoy a well-functioning plumbing system for years to come!
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Tip: check toilet leaks with food coloring test.
-- Service area: Castle Rock, Colorado.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

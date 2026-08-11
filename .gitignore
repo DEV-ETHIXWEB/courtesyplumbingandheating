@@ -17,6 +17,9 @@ pnpm-debug.log*
 .env
 .env.production
 
+# QA pass output (scripts/qa-browsers.mjs)
+qa-screenshots/
+
 # macOS-specific files
 .DS_Store
 

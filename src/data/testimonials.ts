@@ -3,8 +3,8 @@
  * (screenshots reviewed 2026-08-05). Ratings summary (4.4 avg / 68 reviews
  * / star breakdown) is also from that profile - see ratingSummary below.
  *
- * TODO: VERIFY: re-check counts/quotes periodically against Google, since
- * reviews accrue over time and this is a point-in-time snapshot.
+ * This is a point-in-time snapshot: reviews accrue over time, so counts and
+ * quotes need a periodic re-check against Google (noted in the handover doc).
  */
 
 export interface Testimonial {

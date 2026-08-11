@@ -39,12 +39,3 @@ Many homeowners neglect routine maintenance, thinking it's unnecessary if their 
 **Fact:** Scheduling annual maintenance check-ups with a professional HVAC technician can extend the life of your air conditioner, improve its efficiency, and save you money on repairs and energy bills.
 
 Understanding the truths behind these common air conditioning myths can help you use your system more efficiently, reduce energy consumption, and prolong its lifespan. At Courtesy Plumbing & Heating, we're here to provide expert advice and services to keep your home comfortable all year round. If you have any questions or need assistance with your air conditioning system, don't hesitate to contact us. Stay cool and informed!
-
-## Images
-- One decorative header image (no meaningful alt text).
-
-## Key Facts
-- Recommended air filter change frequency: every 1-3 months.
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.

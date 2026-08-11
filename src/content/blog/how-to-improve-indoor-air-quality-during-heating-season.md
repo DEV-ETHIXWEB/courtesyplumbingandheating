@@ -97,12 +97,3 @@ Running heating systems or fuel-burning appliances can increase the risk of carb
 Your comfort and health are our top priorities. At Courtesy Plumbing & Heating, we offer expert HVAC maintenance and air quality solutions tailored to Castle Rock's unique climate. Whether you need a humidifier, duct cleaning, or help with your heating system, our team is here to help.
 
 **Contact us today to schedule an appointment and make your home a healthier place this heating season!**
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service area: Castle Rock, Colorado
-- Recommended filter replacement: every 1-3 months
-- Ideal indoor humidity: 30-50%
-- No phone number or pricing mentioned in body text.

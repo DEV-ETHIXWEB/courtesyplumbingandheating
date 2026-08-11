@@ -96,11 +96,3 @@ Considering an upgrade? Smart thermostats offer advanced features like remote ac
 Don't let thermostat troubles disrupt your home's comfort. Call the experts at Courtesy Plumbing & Heating for fast, reliable service. Whether you need a quick fix or a full replacement, we've got you covered.
 
 Stay comfortable year-round with a thermostat that works as it should!
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service area: Castle Rock
-- Rule of thumb: replace thermostat if over 10 years old
-- No phone number or pricing mentioned in body text.

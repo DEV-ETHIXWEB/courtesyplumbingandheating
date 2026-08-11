@@ -1,5 +1,5 @@
 ---
-import { Image, getImage } from 'astro:assets';
+import { Image } from 'astro:assets';
 import { Clock, ShieldCheck, Award } from '@lucide/astro';
 import heroPoster from '../../assets/photos/cappadocia-hero-poster.jpg';
 import Button from '../ui/Button.astro';
@@ -12,7 +12,6 @@ const trustPoints = [
   { icon: ShieldCheck, label: 'No Trip Fees' },
 ];
 
-const videoPoster = await getImage({ src: heroPoster, width: 1280, format: 'webp' });
 ---
 
 <section class="relative overflow-hidden bg-neutral-950">
@@ -20,8 +19,11 @@ const videoPoster = await getImage({ src: heroPoster, width: 1280, format: 'webp
     <Image
       src={heroPoster}
       alt=""
-      widths={[640, 960, 1280, 1920]}
+      widths={[480, 640, 960, 1280, 1920]}
       sizes="100vw"
+      {/* This image is the LCP element on the homepage. It sits behind a dark overlay
+          and a video that fades in over it, so it carries compression well. */}
+      quality={68}
       class="absolute inset-0 size-full object-cover object-center"
       loading="eager"
       fetchpriority="high"
@@ -34,7 +36,6 @@ const videoPoster = await getImage({ src: heroPoster, width: 1280, format: 'webp
       loop
       playsinline
       preload="none"
-      poster={videoPoster.src}
       data-hero-video
       aria-hidden="true"
     >
@@ -92,22 +93,39 @@ const videoPoster = await getImage({ src: heroPoster, width: 1280, format: 'webp
     const slowLink = connection?.effectiveType ? /^2g|slow-2g$/.test(connection.effectiveType) : false;
 
     if (!reduceMotion && !saveData && !slowLink) {
-      for (const source of video.querySelectorAll<HTMLSourceElement>('source[data-src]')) {
-        source.src = source.dataset.src as string;
-      }
+      // Deferred deliberately. The video is ~1.4MB and, once it paints, becomes the
+      // LCP element - starting it during load pushed mobile LCP to 6.0s. Waiting for
+      // load + idle leaves the poster image as LCP (~2.2s) and the video fades in
+      // afterwards, which looks identical to a visitor.
+      const startVideo = () => {
+        for (const source of video.querySelectorAll<HTMLSourceElement>('source[data-src]')) {
+          source.src = source.dataset.src as string;
+        }
 
-      video.addEventListener(
-        'canplay',
-        () => {
-          video.classList.remove('opacity-0');
-        },
-        { once: true },
-      );
+        video.addEventListener(
+          'canplay',
+          () => {
+            video.classList.remove('opacity-0');
+          },
+          { once: true },
+        );
 
-      video.load();
-      video.play().catch(() => {
-        // Autoplay blocked or load failed: poster image underneath stays visible.
-      });
+        video.load();
+        video.play().catch(() => {
+          // Autoplay blocked or load failed: poster image underneath stays visible.
+        });
+      };
+
+      const schedule = () => {
+        const idle = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void })
+          .requestIdleCallback;
+        // Safari has no requestIdleCallback; a short timeout is close enough.
+        if (idle) idle(startVideo, { timeout: 2000 });
+        else setTimeout(startVideo, 600);
+      };
+
+      if (document.readyState === 'complete') schedule();
+      else window.addEventListener('load', schedule, { once: true });
     }
   }
 </script>

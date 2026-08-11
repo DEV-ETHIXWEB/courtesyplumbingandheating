@@ -1,12 +1,12 @@
 ---
 title: Understanding Why Your Furnace Fan Keeps Running - Courtesy Plumbing & Heating
-description: "Are you noticing that your furnace fan seems to be running constantly, even when your home has reached the desired temperature? It can be concerning when your HVAC system doesn't behave as expected, especially during colder months. At Courtesy Plumbing and Heating in Castle Rock, Colorado, we understand the importance of a properly functioning furnace."
+description: "Are you noticing that your furnace fan seems to be running constantly, even when your home has reached the desired temperature? It can be concerning when your HVAC system doesn't behave as expected, especially during colder months. At Courtesy Plumbing & Heating in Castle Rock, Colorado, we understand the importance of a properly functioning furnace."
 date: 2024-03-11
 author: "Courtesy Plumbing & Heating"
 category: Heating
 draft: false
 ---
-Are you noticing that your furnace fan seems to be running constantly, even when your home has reached the desired temperature? It can be concerning when your HVAC system doesn't behave as expected, especially during colder months. At Courtesy Plumbing and Heating in Castle Rock, Colorado, we understand the importance of a properly functioning furnace. Let's delve into some common reasons why your furnace fan might be running continuously and what you can do about it.
+Are you noticing that your furnace fan seems to be running constantly, even when your home has reached the desired temperature? It can be concerning when your HVAC system doesn't behave as expected, especially during colder months. At Courtesy Plumbing & Heating in Castle Rock, Colorado, we understand the importance of a properly functioning furnace. Let's delve into some common reasons why your furnace fan might be running continuously and what you can do about it.
 
 ## Thermostat Settings:
 
@@ -39,14 +39,4 @@ If you're experiencing issues with your furnace fan running continuously, there 
 
 ## Conclusion:
 
-A continuously running furnace fan can be indicative of various issues within your HVAC system, ranging from simple thermostat settings to more complex mechanical problems. At Courtesy Plumbing and Heating in Castle Rock, Colorado, our team of experienced technicians is here to help diagnose and resolve any furnace-related issues you may encounter. Don't hesitate to reach out to us for reliable HVAC services and solutions to keep your home comfortable and energy-efficient year-round.
-
-## Images
-- Header image with alt text "furance blower fan" [sic] (filename: furnace-blower-motor-replacement-cost-1-1.png).
-
-## Key Facts
-- Tags: HVAC, Homeowner's Guide, Denver.
-- Service area: Castle Rock, Colorado (also tagged Denver).
-- Business name: Courtesy Plumbing & Heating.
-- Address: 1410 Park Street, Castle Rock, CO, 80109, United States.
-- Phone: (303) 688-0597.
+A continuously running furnace fan can be indicative of various issues within your HVAC system, ranging from simple thermostat settings to more complex mechanical problems. At Courtesy Plumbing & Heating in Castle Rock, Colorado, our team of experienced technicians is here to help diagnose and resolve any furnace-related issues you may encounter. Don't hesitate to reach out to us for reliable HVAC services and solutions to keep your home comfortable and energy-efficient year-round.

@@ -1,0 +1,141 @@
+---
+// Cookie consent for analytics/advertising tags. GTM is not loaded until the visitor
+// accepts (see Analytics.astro) - declining leaves the site entirely tag-free, which
+// is the behaviour the launch checklist expects wherever ad tracking is in use.
+//
+// Rendered only when a container ID is configured: with no tags to gate, a consent
+// banner would be asking permission for nothing.
+const gtmId = import.meta.env.PUBLIC_GTM_ID;
+---
+
+{
+  gtmId && (
+    <div
+      id="consent-banner"
+      class="consent-banner"
+      role="dialog"
+      aria-modal="false"
+      aria-label="Cookie consent"
+      hidden
+    >
+      <div class="consent-banner__inner">
+        <p class="consent-banner__text">
+          We use cookies to understand how visitors use our site and to measure our advertising. You can
+          accept or decline &mdash; declining loads no tracking at all. See our{' '}
+          <a href="/privacy-policy">Privacy Policy</a>.
+        </p>
+        <div class="consent-banner__actions">
+          <button type="button" data-consent="declined" class="consent-banner__btn consent-banner__btn--ghost">
+            Decline
+          </button>
+          <button type="button" data-consent="granted" class="consent-banner__btn consent-banner__btn--primary">
+            Accept
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .consent-banner {
+    position: fixed;
+    z-index: 60;
+    left: 1rem;
+    right: 1rem;
+    /* Clears the mobile action bar; the lg offset drops back to the viewport edge. */
+    bottom: calc(4.5rem + env(safe-area-inset-bottom));
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-elevated);
+  }
+
+  @media (min-width: 1024px) {
+    .consent-banner {
+      left: auto;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      max-width: 26rem;
+    }
+  }
+
+  .consent-banner__inner {
+    padding: 1.125rem 1.25rem;
+  }
+
+  .consent-banner__text {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--color-text-muted);
+  }
+
+  .consent-banner__text a {
+    font-weight: 600;
+    color: var(--color-brand-blue-700);
+    text-decoration: underline;
+  }
+
+  .consent-banner__actions {
+    margin-top: 0.875rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  .consent-banner__btn {
+    min-height: 44px;
+    padding: 0 1.125rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    transition: background-color 160ms var(--ease-out-quart);
+  }
+
+  .consent-banner__btn--ghost {
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+  }
+
+  .consent-banner__btn--ghost:hover {
+    background: var(--color-surface-muted);
+  }
+
+  .consent-banner__btn--primary {
+    background: var(--color-brand-blue-600);
+    color: white;
+  }
+
+  .consent-banner__btn--primary:hover {
+    background: var(--color-brand-blue-700);
+  }
+</style>
+
+<script>
+  import { CONSENT_KEY, readConsent, loadGtm } from '../../scripts/consent';
+
+  function initConsentBanner() {
+    const banner = document.getElementById('consent-banner');
+    if (!banner || banner.dataset.bound === 'true') return;
+    banner.dataset.bound = 'true';
+
+    // An existing decision is honoured silently; the banner only appears the first time.
+    if (readConsent() === null) banner.hidden = false;
+
+    for (const button of banner.querySelectorAll<HTMLButtonElement>('[data-consent]')) {
+      button.addEventListener('click', () => {
+        const choice = button.dataset.consent === 'granted' ? 'granted' : 'declined';
+        try {
+          localStorage.setItem(CONSENT_KEY, choice);
+        } catch {
+          // Private mode or storage disabled: the choice applies to this page view only.
+        }
+        banner.hidden = true;
+        if (choice === 'granted') loadGtm();
+      });
+    }
+  }
+
+  initConsentBanner();
+  document.addEventListener('astro:page-load', initConsentBanner);
+</script>

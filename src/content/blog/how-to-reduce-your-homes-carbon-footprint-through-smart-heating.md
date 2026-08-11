@@ -94,15 +94,3 @@ At Courtesy Plumbing & Heating, we're committed to helping Castle Rock homeowner
 Call us today or schedule a consultation online to start making your home greener and more energy-efficient!
 
 Stay warm, save energy, and protect the planet - one smart heating choice at a time!
-
-## Images
-None with meaningful alt text.
-
-## Key Facts
-- Service area: Castle Rock
-- High-efficiency furnace AFUE rating benchmark: 90%+ (ENERGY STAR)
-- Air-source/geothermal heat pumps can cut heating energy use by up to 50%
-- Smart thermostats can reduce heating costs by 10-15% annually (per U.S. DOE)
-- Recommended daytime thermostat setting: 68°F
-- Recommended filter replacement: every 1-3 months
-- No phone number explicitly printed (says "Call us today").

@@ -38,7 +38,8 @@ const financingPoints = [
                   </span>
                   <span class="min-w-0">
                     <p class="truncate font-bold text-text">{c.title}</p>
-                    <p class="mt-0.5 truncate text-sm text-text-muted">{c.description}</p>
+                    {/* two lines, not truncate: on a phone a single line cuts most of the offer */}
+                    <p class="mt-0.5 line-clamp-2 text-sm text-text-muted sm:line-clamp-1">{c.description}</p>
                   </span>
                 </li>
               ))}
