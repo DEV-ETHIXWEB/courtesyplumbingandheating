@@ -30,3 +30,8 @@ qa-screenshots/
 # Unused raw stock/3D asset dump (~400MB, not referenced anywhere in src/) -
 # kept on disk but excluded from version control.
 public/You can use this assets things too where ever it will look good/
+
+# Raw stock masters dropped into public/ for encoding. Anything under public/ is
+# deployed verbatim, so a 47MB master left here ships to every visitor. Keep the
+# masters outside the repo and commit only the encoded hero-*.mp4 files.
+public/videos/*-utc.mp4

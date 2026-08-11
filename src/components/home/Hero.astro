@@ -34,12 +34,12 @@ const trustPoints = [
       data-hero-poster
     />
     {/* Two clips that cross-fade into each other and loop: downtown Denver first,
-        then Castle Rock. Neither element uses `loop` - the script hands playback from
-        one to the other, and the pair repeats. The poster above is a frame from the
-        first clip, so the still and the opening frame match. */}
+        then the cliffs outside Colorado Springs. Neither element uses `loop` - the
+        script hands playback from one to the other, and the pair repeats. The poster
+        above is frame 0 of the first clip, so the still and the opening frame match. */}
     {[
       { key: 'denver', file: 'hero-denver' },
-      { key: 'castle-rock', file: 'hero-castle-rock' },
+      { key: 'colorado', file: 'hero-colorado' },
     ].map(({ key, file }, index) => (
       <video
         class="absolute inset-0 size-full object-cover object-center opacity-0 transition-opacity duration-1000 ease-out"
@@ -50,9 +50,18 @@ const trustPoints = [
         data-hero-index={index}
         aria-hidden="true"
       >
-        {/* H.264 only, no WebM: VP9 encodes of this aerial footage came out larger
-            than the H.264 (2.1MB vs 1.1MB), and every target browser plays mp4. */}
+        {/* AV1 first, H.264 second: the browser takes the first source it can play.
+            Measured with VMAF against the master, AV1 scored 84.5 where H.264 scored
+            71.8 at the same file size, so AV1 buys real quality rather than bytes.
+            The H.264 files are not redundant - Safari below 17 and older Android
+            have no AV1 decoder, and they download only the source they pick.
+
+            Sizes are deliberate. See docs/LAUNCH-READINESS.md: the hero video was
+            once the LCP element at 6.0s, and these clips only stay out of that
+            metric by being small and deferred. Re-measure before raising them. */}
+        <source data-src={`/videos/${file}-mobile-av1.mp4`} type='video/mp4; codecs="av01.0.05M.08"' media="(max-width: 767px)" />
         <source data-src={`/videos/${file}-mobile.mp4`} type="video/mp4" media="(max-width: 767px)" />
+        <source data-src={`/videos/${file}-av1.mp4`} type='video/mp4; codecs="av01.0.08M.08"' media="(min-width: 768px)" />
         <source data-src={`/videos/${file}.mp4`} type="video/mp4" media="(min-width: 768px)" />
       </video>
     ))}
