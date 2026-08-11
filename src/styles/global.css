@@ -148,6 +148,15 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /* Decorative bleeds and the pre-reveal translateX on [data-reveal='left'|'right']
+     stick out past the viewport edge and would otherwise open a horizontal scrollbar.
+     `clip` (not `hidden`) because `hidden` would turn these into scroll containers
+     and break every position: sticky descendant. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;

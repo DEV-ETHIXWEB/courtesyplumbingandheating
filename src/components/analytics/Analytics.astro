@@ -2,23 +2,34 @@
 // Google Tag Manager container. GTM then manages GA4, Google Ads, Meta, and
 // CallRail from within the container, so no other vendor scripts belong here.
 // Set PUBLIC_GTM_ID in the environment to activate; absent it, nothing loads.
+//
+// The container is NOT injected on page load. It loads only once the visitor has
+// accepted in the consent banner (see ConsentBanner.astro), and on later visits
+// only if that acceptance is still stored. Declining leaves the site tag-free.
 const gtmId = import.meta.env.PUBLIC_GTM_ID;
 ---
 
 {
   gtmId && (
     <script is:inline define:vars={{ gtmId }}>
+      // Stashed on <html> so the consent module can read it without re-templating.
+      document.documentElement.dataset.gtmId = gtmId;
       window.dataLayer = window.dataLayer || [];
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', gtmId);
+    </script>
+  )
+}
+
+{
+  gtmId && (
+    <script>
+      import { readConsent, loadGtm } from '../../scripts/consent';
+
+      function applyStoredConsent() {
+        if (readConsent() === 'granted') loadGtm();
+      }
+
+      applyStoredConsent();
+      document.addEventListener('astro:page-load', applyStoredConsent);
     </script>
   )
 }
@@ -26,6 +37,8 @@ const gtmId = import.meta.env.PUBLIC_GTM_ID;
 <script>
   // Delegated tracking for declaratively-marked elements. Any element with
   // data-analytics-event pushes that event on click, with its location label.
+  // Events are pushed to dataLayer regardless of consent; without consent the
+  // container is never loaded, so nothing consumes or transmits them.
   function initAnalytics() {
     if (document.body.dataset.analyticsBound === 'true') return;
     document.body.dataset.analyticsBound = 'true';

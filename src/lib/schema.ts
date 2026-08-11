@@ -1,7 +1,16 @@
 import { z } from 'zod';
 
+/**
+ * Honeypot. The forms render a visually-hidden "company" field that a human never
+ * fills; the browser also drops submissions locally when it is set. Carrying it in
+ * the payload lets the server catch bots that post to the API directly, where the
+ * client-side check does not exist.
+ */
+const honeypot = z.string().max(200).optional().default('');
+
 /** Shared validation for lead capture (chatbot + contact form). */
 export const leadSchema = z.object({
+  company: honeypot,
   intent: z.string().min(1).max(60),
   name: z.string().min(2).max(120),
   phone: z
@@ -19,6 +28,7 @@ export type Lead = z.infer<typeof leadSchema>;
 
 /** Shorter schema for the homepage quick-lead form: name, phone, service only. */
 export const quickLeadSchema = z.object({
+  company: honeypot,
   source: z.string().max(60),
   name: z.string().min(2).max(120),
   phone: z

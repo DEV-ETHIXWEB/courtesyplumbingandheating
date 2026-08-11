@@ -1,7 +1,8 @@
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, resolve, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const DIST = 'A:\\courtesyplumbingandheating\\courtesy-plumbing\\dist\\client';
+const DIST = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'dist', 'client');
 
 function walk(dir) {
   let out = [];
@@ -14,7 +15,11 @@ function walk(dir) {
 }
 
 const htmlFiles = walk(DIST);
-const hrefRe = /href="(\/[^"#?]*)/g;
+// Every href that is not external, and not a non-http scheme. Relative hrefs count:
+// the migrated blog posts shipped links like "../coupons.html" and "tag/Denver.html"
+// that an absolute-only pattern silently skipped, and every one of them was a 404.
+const hrefRe = /href="([^"#][^"]*)"/g;
+const EXTERNAL = /^(https?:|mailto:|tel:|sms:|javascript:|data:|#)/i;
 const brokenByPage = {};
 const allTargets = new Set();
 
@@ -36,12 +41,19 @@ for (const file of htmlFiles) {
   let m;
   const seen = new Set();
   while ((m = hrefRe.exec(html))) {
-    const href = m[1];
-    if (seen.has(href)) continue;
-    seen.add(href);
-    allTargets.add(href);
-    if (!routeExists(href)) {
-      (brokenByPage[pageRoute] ||= []).push(href);
+    const raw = m[1];
+    if (EXTERNAL.test(raw)) continue;
+    if (seen.has(raw)) continue;
+    seen.add(raw);
+
+    // Resolve relative hrefs against the page they appear on before checking.
+    const resolved = raw.startsWith('/')
+      ? raw.split('#')[0].split('?')[0]
+      : new URL(raw, `http://x${pageRoute}`).pathname;
+
+    allTargets.add(resolved);
+    if (!routeExists(resolved)) {
+      (brokenByPage[pageRoute] ||= []).push(`${raw} -> ${resolved}`);
     }
   }
 }

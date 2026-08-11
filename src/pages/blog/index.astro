@@ -15,6 +15,10 @@ const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const categories = [...new Set(posts.map((p) => p.data.category).filter(Boolean))].sort();
 
+// Cards are all rendered server-side (so every post stays crawlable and the category
+// filter can work across the full set); the client only toggles visibility.
+const PAGE_SIZE = 12;
+
 const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
 const title = 'Plumbing & HVAC Tips Blog';
@@ -43,18 +47,37 @@ const description = 'Practical plumbing, heating, and cooling tips for Castle Ro
   <Section>
     <Container>
       {categories.length > 0 && (
-        <div class="mb-10 flex flex-wrap gap-2" data-reveal>
+        <div class="mb-10 flex flex-wrap gap-2" data-reveal role="group" aria-label="Filter posts by category">
+          <button
+            type="button"
+            data-category-filter="all"
+            aria-pressed="true"
+            class="category-chip inline-flex items-center rounded-full border border-border bg-surface-subtle px-3.5 py-1.5 text-sm font-medium text-text-muted transition-colors hover:border-brand-blue-300 hover:text-brand-blue-700 aria-pressed:border-brand-blue-600 aria-pressed:bg-brand-blue-600 aria-pressed:text-white"
+          >
+            All
+          </button>
           {categories.map((cat) => (
-            <span class="inline-flex items-center rounded-full border border-border bg-surface-subtle px-3.5 py-1.5 text-sm font-medium text-text-muted">
+            <button
+              type="button"
+              data-category-filter={cat}
+              aria-pressed="false"
+              class="category-chip inline-flex items-center rounded-full border border-border bg-surface-subtle px-3.5 py-1.5 text-sm font-medium text-text-muted transition-colors hover:border-brand-blue-300 hover:text-brand-blue-700 aria-pressed:border-brand-blue-600 aria-pressed:bg-brand-blue-600 aria-pressed:text-white"
+            >
               {cat}
-            </span>
+            </button>
           ))}
         </div>
       )}
 
-      <Reveal as="div" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" step={50}>
+      <Reveal as="div" class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" step={50} data-post-grid>
         {posts.map((post) => (
-          <a href={`/blog/${post.id}`} data-reveal class="card-elevated group flex flex-col p-6">
+          <a
+            href={`/blog/${post.id}`}
+            data-reveal
+            data-post-card
+            data-category={post.data.category ?? ''}
+            class="card-elevated group flex flex-col p-6"
+          >
             {post.data.category && (
               <span class="w-fit rounded-full bg-brand-blue-50 px-2.5 py-0.5 text-xs font-semibold text-brand-blue-700">
                 {post.data.category}
@@ -71,6 +94,86 @@ const description = 'Practical plumbing, heating, and cooling tips for Castle Ro
           </a>
         ))}
       </Reveal>
+
+      <p
+        data-post-empty
+        hidden
+        class="rounded-2xl border border-border bg-surface-subtle px-6 py-12 text-center text-text-muted"
+      >
+        No posts in this category yet. Try another one, or view all posts.
+      </p>
+
+      {/* Paging controls only make sense once the script is running: without JS every
+          post stays rendered and visible, so these stay hidden. */}
+      <div class="mt-10 flex flex-col items-center gap-3">
+        <button
+          type="button"
+          data-post-more
+          hidden
+          class="inline-flex items-center rounded-(--radius-md) border border-border bg-surface px-6 py-3 text-sm font-bold text-text transition-colors hover:border-brand-blue-300 hover:bg-brand-blue-50 hover:text-brand-blue-700"
+        >
+          Show More Posts
+        </button>
+        <p class="text-xs text-text-muted" data-post-count aria-live="polite" hidden></p>
+      </div>
+
+      <script is:inline define:vars={{ PAGE_SIZE }}>
+        (function () {
+          const grid = document.querySelector('[data-post-grid]');
+          if (!grid) return;
+
+          const cards = Array.from(grid.querySelectorAll('[data-post-card]'));
+          const chips = Array.from(document.querySelectorAll('[data-category-filter]'));
+          const moreBtn = document.querySelector('[data-post-more]');
+          const emptyState = document.querySelector('[data-post-empty]');
+          const countEl = document.querySelector('[data-post-count]');
+
+          let activeCategory = 'all';
+          let shown = PAGE_SIZE;
+
+          function render() {
+            const matches = cards.filter(
+              (card) => activeCategory === 'all' || card.dataset.category === activeCategory
+            );
+            const visible = matches.slice(0, shown);
+            const visibleSet = new Set(visible);
+
+            cards.forEach((card) => {
+              card.hidden = !visibleSet.has(card);
+            });
+
+            if (emptyState) emptyState.hidden = matches.length > 0;
+            if (moreBtn) moreBtn.hidden = matches.length <= shown;
+            if (countEl) {
+              countEl.hidden = matches.length === 0;
+              countEl.textContent = `Showing ${visible.length} of ${matches.length} post${
+                matches.length === 1 ? '' : 's'
+              }`;
+            }
+
+            // Cards shown for the first time need the shared observer to pick them up.
+            document.dispatchEvent(new Event('reveal:refresh'));
+          }
+
+          chips.forEach((chip) => {
+            chip.addEventListener('click', () => {
+              activeCategory = chip.dataset.categoryFilter || 'all';
+              shown = PAGE_SIZE;
+              chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+              render();
+            });
+          });
+
+          if (moreBtn) {
+            moreBtn.addEventListener('click', () => {
+              shown += PAGE_SIZE;
+              render();
+            });
+          }
+
+          render();
+        })();
+      </script>
     </Container>
   </Section>
 </BaseLayout>

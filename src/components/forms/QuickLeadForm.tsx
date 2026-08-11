@@ -49,7 +49,6 @@ export default function QuickLeadForm({ business }: Props) {
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (values.company) return; // honeypot tripped, silently drop
     if (!validate()) return;
     setStatus('sending');
     try {
@@ -57,6 +56,9 @@ export default function QuickLeadForm({ business }: Props) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          // Honeypot travels with the payload so the server can reject bots that
+          // skip this form entirely and post at the API.
+          company: values.company,
           source: 'quick-lead-form',
           name: values.name,
           phone: values.phone,
@@ -64,7 +66,9 @@ export default function QuickLeadForm({ business }: Props) {
           message: values.message,
         }),
       });
-      if (!res.ok) throw new Error('Request failed');
+      // Success is only claimed when the server confirms the lead was actually delivered.
+      const data = (await res.json().catch(() => null)) as { delivered?: boolean } | null;
+      if (!res.ok || data?.delivered !== true) throw new Error('Request failed');
       setStatus('sent');
       track('contact_form_submit', { form: 'quick_lead', service_needed: values.service });
     } catch {

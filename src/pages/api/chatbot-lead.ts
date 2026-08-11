@@ -1,13 +1,25 @@
 import type { APIRoute } from 'astro';
 import { leadSchema, escapeHtml } from '../../lib/schema';
+import { isRateLimited, getClientKey, isAllowedOrigin } from '../../lib/rate-limit';
+import { getMailConfig } from '../../lib/env';
+import { sendMail } from '../../lib/mail';
+import { reportLeadFailure } from '../../lib/alerting';
 import { business } from '../../data/business';
-import { isRateLimited, getClientKey } from '../../lib/rate-limit';
 
 export const prerender = false;
 
-export const POST: APIRoute = async ({ request }) => {
-  if (isRateLimited(getClientKey(request))) {
-    return json({ ok: false, error: 'Too many requests. Please try again in a minute.' }, 429);
+export const POST: APIRoute = async ({ request, site }) => {
+  if (!isAllowedOrigin(request, site?.href)) {
+    return json({ ok: false, delivered: false, error: 'Request blocked.' }, 403);
+  }
+
+  const limit = isRateLimited(getClientKey(request), 'chatbot-lead');
+  if (limit.limited) {
+    return json(
+      { ok: false, delivered: false, error: 'Too many requests. Please call us.' },
+      429,
+      { 'Retry-After': String(limit.retryAfter) }
+    );
   }
 
   let payload: unknown;
@@ -23,6 +35,12 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const lead = parsed.data;
+
+  // Honeypot filled: a bot posting straight at the API. Report the same shape a
+  // real send does, so it learns nothing, and send no mail.
+  if (lead.company) {
+    return json({ ok: true, delivered: true });
+  }
 
   // All values are escaped before being interpolated into the HTML email body.
   const rows: [string, string][] = [
@@ -48,41 +66,40 @@ export const POST: APIRoute = async ({ request }) => {
     </table>
   `;
 
-  const apiKey = import.meta.env.RESEND_API_KEY;
-  const to = import.meta.env.LEAD_NOTIFICATION_EMAIL || business.email.display;
-  const from = import.meta.env.LEAD_FROM_EMAIL;
+  const mail = getMailConfig(business.email.display);
 
-  // Without mail credentials configured we still accept the lead and log it,
-  // rather than showing the visitor a failure for a server-side config gap.
-  if (!apiKey || !from) {
-    console.warn('[chatbot-lead] RESEND_API_KEY or LEAD_FROM_EMAIL not set; lead not emailed.', {
+  // Missing mail credentials must fail loudly. Reporting success here would show the
+  // visitor a confirmation for a lead that was never delivered anywhere.
+  if (!mail) {
+    await reportLeadFailure({ route: '/api/chatbot-lead', reason: 'mail credentials missing' }, null);
+    console.error('[chatbot-lead] SMTP2GO_API_KEY or LEAD_FROM_EMAIL not set; lead NOT delivered.', {
       intent: lead.intent,
       zip: lead.zip,
     });
-    return json({ ok: true, delivered: false });
+    return json({ ok: false, delivered: false, error: 'Could not send your request. Please call us.' }, 500);
   }
 
   try {
-    const { Resend } = await import('resend');
-    const resend = new Resend(apiKey);
-    const { error } = await resend.emails.send({
-      from,
-      to,
-      ...(lead.email ? { replyTo: lead.email } : {}),
+    const sent = await sendMail(mail, {
       subject: `New ${lead.intent} lead: ${lead.name}`,
       html,
+      replyTo: lead.email || undefined,
     });
-    if (error) throw new Error(error.message);
+    if (!sent.ok) throw new Error(sent.error);
     return json({ ok: true, delivered: true });
   } catch (err) {
+    await reportLeadFailure(
+      { route: '/api/chatbot-lead', reason: 'send failed', detail: err instanceof Error ? err.message : String(err) },
+      mail
+    );
     console.error('[chatbot-lead] send failed', err);
-    return json({ ok: false, error: 'Could not send your request. Please call us.' }, 502);
+    return json({ ok: false, delivered: false, error: 'Could not send your request. Please call us.' }, 502);
   }
 };
 
-function json(body: unknown, status = 200) {
+function json(body: unknown, status = 200, headers: Record<string, string> = {}) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', ...headers },
   });
 }

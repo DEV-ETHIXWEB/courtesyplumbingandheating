@@ -8,7 +8,8 @@
 export const business = {
   name: 'Courtesy Plumbing & Heating',
   legalName: 'Courtesy Plumbing & Heating',
-  // TODO: VERIFY: privacy policy states DBA "Affordable Plumbing, Heat & Electrical"; confirm how/if this should be disclosed on-site
+  // Appears in the legacy privacy policy. Not surfaced anywhere on-site; kept here so the
+  // coupon artwork's branding has a documented source. See docs/PENDING-CLIENT-CONFIRMATIONS.md.
   dba: 'Affordable Plumbing, Heat & Electrical',
 
   phone: {
@@ -17,9 +18,8 @@ export const business = {
     href: 'tel:+17196795479',
   },
 
-  // TODO: VERIFY: (303) 688-0597 appears in the legacy site's JSON-LD/contact settings (not a visible
-  // tel: link), and (303) 429-6990 appears once as a "privacy policy contact" number. Neither is used
-  // on-site here; confirm with the business whether either should replace/supplement the primary line.
+  // Only the primary line above is published. Two other numbers found in the legacy site
+  // are pending client confirmation - see docs/PENDING-CLIENT-CONFIRMATIONS.md.
 
   email: {
     display: 'Contact@courtesyinc.net',
@@ -58,12 +58,14 @@ export const business = {
   // Confirmed verbatim on legacy homepage: "Serving Castle Rock & Denver For More Than 30 Years."
   yearsInBusiness: '30+',
 
+  // Any entry left null is not rendered anywhere. Unconfirmed profile URLs stay null rather
+  // than shipping a generic link - see docs/PENDING-CLIENT-CONFIRMATIONS.md.
   social: {
-    // TODO: VERIFY: exact Google Business Profile URL not confirmed; this is a search-query fallback, not a profile deep link.
-    google: 'https://www.google.com/maps/place/?q=Courtesy+Plumbing+%26+Heating',
-    // TODO: VERIFY: legacy site JSON-LD sameAs listed a specific Facebook page ID; confirm before publishing
-    // (a wrong/generic Facebook link is worse than none, so this stays generic until confirmed).
-    facebook: 'https://www.facebook.com/',
+    // Maps search for the business. Replace with the Google Business Profile deep link
+    // once the client supplies it.
+    google: 'https://www.google.com/maps/search/?api=1&query=Courtesy+Plumbing+%26+Heating+Castle+Rock+CO',
+    // Footer link was removed while this is null; re-add it once a real page URL arrives.
+    facebook: null as string | null,
   },
 
   serviceRegion: 'Castle Rock & the Denver Metro Area',

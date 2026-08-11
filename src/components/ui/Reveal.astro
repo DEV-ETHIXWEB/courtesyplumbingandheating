@@ -8,12 +8,13 @@ interface Props {
   as?: keyof HTMLElementTagNameMap;
   class?: string;
   step?: number;
+  [key: string]: unknown;
 }
 
-const { as: Tag = 'div', class: className, step = 80 }: Props = Astro.props;
+const { as: Tag = 'div', class: className, step = 80, ...rest }: Props = Astro.props;
 ---
 
-<Tag class={className} style={`--reveal-step:${step}ms`} data-reveal-group>
+<Tag class={className} style={`--reveal-step:${step}ms`} data-reveal-group {...rest}>
   <slot />
 </Tag>
 
