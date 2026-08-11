@@ -39,6 +39,3 @@ Preventing tree roots from infiltrating your sewer lines is the best course of a
 ## Conclusion
 
 Tree roots infiltrating sewer lines can be a persistent plumbing issue, causing blockages, leaks, and significant repair costs. While there are methods available to remove roots from pipes, the best approach is to prevent root intrusion from occurring in the first place. By taking proactive measures and seeking expert guidance, you can avoid the inconvenience and expenses associated with tree roots infiltrating your sewer lines.
-
-## Note on duplication
-Thematically overlaps significantly with "keeping-your-sewer-lines-root-free-tips-from-courtesy-plumbing-amp-heating.html" - see that file's note. This is the more detailed/technical of the two ("comprehensive guide" listing 5 removal methods and 5 prevention steps vs. the shorter Courtesy-branded piece).
