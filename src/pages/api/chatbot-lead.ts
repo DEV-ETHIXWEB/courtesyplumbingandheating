@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { leadSchema, escapeHtml } from '../../lib/schema';
 import { isRateLimited, getClientKey, isAllowedOrigin } from '../../lib/rate-limit';
 import { getMailConfig } from '../../lib/env';
+import { sendMail } from '../../lib/mail';
 import { reportLeadFailure } from '../../lib/alerting';
 import { business } from '../../data/business';
 
@@ -71,7 +72,7 @@ export const POST: APIRoute = async ({ request, site }) => {
   // visitor a confirmation for a lead that was never delivered anywhere.
   if (!mail) {
     await reportLeadFailure({ route: '/api/chatbot-lead', reason: 'mail credentials missing' }, null);
-    console.error('[chatbot-lead] RESEND_API_KEY or LEAD_FROM_EMAIL not set; lead NOT delivered.', {
+    console.error('[chatbot-lead] SMTP2GO_API_KEY or LEAD_FROM_EMAIL not set; lead NOT delivered.', {
       intent: lead.intent,
       zip: lead.zip,
     });
@@ -79,16 +80,12 @@ export const POST: APIRoute = async ({ request, site }) => {
   }
 
   try {
-    const { Resend } = await import('resend');
-    const resend = new Resend(mail.apiKey);
-    const { error } = await resend.emails.send({
-      from: mail.from,
-      to: mail.to,
-      ...(lead.email ? { replyTo: lead.email } : {}),
+    const sent = await sendMail(mail, {
       subject: `New ${lead.intent} lead: ${lead.name}`,
       html,
+      replyTo: lead.email || undefined,
     });
-    if (error) throw new Error(error.message);
+    if (!sent.ok) throw new Error(sent.error);
     return json({ ok: true, delivered: true });
   } catch (err) {
     await reportLeadFailure(

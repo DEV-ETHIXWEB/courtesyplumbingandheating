@@ -16,6 +16,7 @@
     "check:perf": "node scripts/check-perf.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
     "check:csp": "node scripts/check-csp.mjs",
+    "check:mail": "node scripts/check-mail.mjs",
     "check:browsers": "node scripts/qa-browsers.mjs"
   },
   "dependencies": {
@@ -34,7 +35,6 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.84.0",
-    "resend": "^6.18.1",
     "tailwindcss": "^4.3.3",
     "zod": "^4.4.3"
   },

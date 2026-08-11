@@ -4,7 +4,7 @@
  * Do NOT read these through `import.meta.env`. Vite statically replaces
  * `import.meta.env.FOO` at build time, so a variable that is unset during the
  * build compiles to `undefined` - and the bundler then dead-code-eliminates
- * every branch behind it. That silently removed the entire Resend send path
+ * every branch behind it. That silently removed the entire mail send path
  * from the deployed function, and no amount of setting the variable in the
  * hosting dashboard could bring it back without a rebuild.
  *
@@ -29,6 +29,8 @@ export interface MailConfig {
   apiKey: string;
   from: string;
   to: string;
+  /** Only set for EU-region or dedicated-IP SMTP2GO accounts; see src/lib/mail.ts. */
+  apiUrl?: string;
 }
 
 /**
@@ -36,7 +38,7 @@ export interface MailConfig {
  * instead of reporting a delivery that never happened.
  */
 export function getMailConfig(fallbackTo: string): MailConfig | null {
-  const apiKey = readEnv('RESEND_API_KEY');
+  const apiKey = readEnv('SMTP2GO_API_KEY');
   const from = readEnv('LEAD_FROM_EMAIL');
   if (!apiKey || !from) return null;
 
@@ -44,5 +46,6 @@ export function getMailConfig(fallbackTo: string): MailConfig | null {
     apiKey,
     from,
     to: readEnv('LEAD_NOTIFICATION_EMAIL') ?? fallbackTo,
+    apiUrl: readEnv('SMTP2GO_API_URL'),
   };
 }

@@ -11,8 +11,8 @@ Owner key: **Client** = Courtesy Plumbing & Heating · **Dev** = EthixWeb.
 
 | Requirement | Needed | Status | Owner |
 |---|---|---|---|
-| **API keys** | Resend API key + a verified sending domain. Without it every lead form returns a "please call us" error — **BLOCKS LAUNCH** | Pending | Client |
-| **Environment variables** | `RESEND_API_KEY`, `LEAD_FROM_EMAIL`, `LEAD_NOTIFICATION_EMAIL`, `PUBLIC_GTM_ID` set in the Vercel dashboard. Documented in `.env.example`, set nowhere yet — **BLOCKS LAUNCH** | Pending | Dev |
+| **API keys** | SMTP2GO API key (with `Email: Send`) + a verified sender. Without it every lead form returns a "please call us" error — **BLOCKS LAUNCH** | Pending | Client |
+| **Environment variables** | `SMTP2GO_API_KEY`, `LEAD_FROM_EMAIL`, `LEAD_NOTIFICATION_EMAIL`, `PUBLIC_GTM_ID` set in the Vercel dashboard. Documented in `.env.example`, set nowhere yet — **BLOCKS LAUNCH** | Pending | Dev |
 | **Domain / DNS access** | Registrar login to point the domain at Vercel. Also confirm www vs apex — it drives canonicals, sitemap and OG URLs — **BLOCKS LAUNCH** | Pending | Client |
 | **Analytics / GTM access** | GTM container ID belonging to this client, plus container access to configure GA4 and any ad tags. No analytics loads at all until this exists | Pending | Client / Dev |
 | **Google Ads conversion ID** | Only if the client runs Google Ads. Map the conversion to the `contact_form_submit` dataLayer event (fires only on confirmed delivery) | Pending — confirm whether Ads is in use | Client |
@@ -21,7 +21,7 @@ Owner key: **Client** = Courtesy Plumbing & Heating · **Dev** = EthixWeb.
 | **CMS / WordPress admin access** | No CMS — content lives in the repo as Markdown. **Squarespace admin access is still needed** to coordinate the cutover and decommission the old site | Pending (Squarespace, not a CMS) | Client |
 | **Call-tracking account** | Not in use. If CallRail or similar is wanted, it needs an account and belongs in the GTM container, not in the codebase | Not requested | Client |
 | **Webhook URLs / secrets** | None. No webhooks exist in this build | N/A | Dev |
-| **Third-party account ownership transfer** | Decide who owns the Vercel project and the Resend account long-term, and hand over anything sitting on an EthixWeb account | Pending | Client / Dev |
+| **Third-party account ownership transfer** | Decide who owns the Vercel project and the SMTP2GO account long-term, and hand over anything sitting on an EthixWeb account | Pending | Client / Dev |
 | **Content / assets still owed** | See the content table below — the hero video is the significant one | Pending | Client |
 | **Other project-specific access** | Google Business Profile access, to verify NAP and the profile URL against the site | Pending | Client |
 

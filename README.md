@@ -7,7 +7,7 @@ Marketing site for Courtesy Plumbing & Heating (Castle Rock & Denver Metro, CO) 
 - **Astro 7** (server islands, `output: 'server'` via the Vercel adapter) with **React 19** for interactive components (contact form, chatbot, service-area map)
 - **Tailwind CSS v4** for styling, design tokens in `src/styles/global.css`
 - **Content Collections** for the blog (`src/content/blog/*.md`)
-- **Resend** for transactional email (lead delivery)
+- **SMTP2GO** for transactional email (lead delivery)
 - **Google Tag Manager** for analytics (GA4/Ads/Meta Pixel are configured inside the GTM container, not in this codebase)
 
 ## Project structure
@@ -57,12 +57,15 @@ Copy `.env.example` to `.env` and fill in:
 
 | Variable                  | Required | Purpose                                                        |
 | :------------------------- | :------- | :--------------------------------------------------------------- |
-| `RESEND_API_KEY`            | Yes       | Sends lead emails from the contact form, quick-lead form, and chatbot |
-| `LEAD_FROM_EMAIL`            | Yes       | Verified sender address in Resend                                 |
+| `SMTP2GO_API_KEY`            | Yes       | Sends lead emails from the contact form, quick-lead form, and chatbot |
+| `LEAD_FROM_EMAIL`            | Yes       | Verified sender address in SMTP2GO                                |
 | `LEAD_NOTIFICATION_EMAIL`     | No        | Where leads are delivered; falls back to `business.email.display` |
+| `SMTP2GO_API_URL`             | No        | Only for EU-region/dedicated-IP SMTP2GO accounts on a different host |
 | `PUBLIC_GTM_ID`               | No        | Google Tag Manager container ID; if unset, no analytics loads at all |
 
-**If `RESEND_API_KEY` or `LEAD_FROM_EMAIL` is missing, the lead API routes still return a success response to the visitor but silently drop the email** (see `src/pages/api/*.ts`) — confirm both are set in the Vercel project before relying on lead delivery.
+**If `SMTP2GO_API_KEY` or `LEAD_FROM_EMAIL` is missing, the lead API routes return HTTP 500 and every form shows its "call us" error** (see `src/pages/api/*.ts`). They never report success for a lead that was not delivered — but that also means no lead arrives until both are set in the Vercel project.
+
+Verify delivery end to end with `npm run check:mail` (see [Mail setup](docs/MAIL-SETUP.md)). It sends one real email through the same API and success test the site uses, and names the failing step when it fails.
 
 ## Deploy notes
 

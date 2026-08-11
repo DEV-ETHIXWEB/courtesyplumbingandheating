@@ -54,11 +54,25 @@ for (const route of ROUTES) {
     const out = [];
 
     // --- contrast -----------------------------------------------------------
+    // Resolve any CSS colour by painting it - Tailwind v4 emits oklab()/color-mix()
+    // values that a plain rgba() regex silently fails to read, which then falls
+    // through to an ancestor's background and reports contrast against the wrong
+    // colour entirely.
+    const probe = document.createElement('canvas');
+    probe.width = 1;
+    probe.height = 1;
+    const ctx = probe.getContext('2d', { willReadFrequently: true });
+
     const toRgb = (value) => {
-      const m = value.match(/rgba?\(([^)]+)\)/);
-      if (!m) return null;
-      const [r, g, b, a = '1'] = m[1].split(',').map((v) => parseFloat(v));
-      return { r, g, b, a: parseFloat(a) };
+      if (!value || value === 'transparent') return null;
+      ctx.clearRect(0, 0, 1, 1);
+      ctx.fillStyle = '#000';
+      ctx.fillStyle = value;
+      // An unparseable value leaves fillStyle at the previous colour.
+      if (ctx.fillStyle === '#000000' && !/^(#000000|black|rgba?\(0, ?0, ?0)/.test(value)) return null;
+      ctx.fillRect(0, 0, 1, 1);
+      const [r, g, b, a] = ctx.getImageData(0, 0, 1, 1).data;
+      return { r, g, b, a: a / 255 };
     };
     const luminance = ({ r, g, b }) => {
       const f = (c) => {

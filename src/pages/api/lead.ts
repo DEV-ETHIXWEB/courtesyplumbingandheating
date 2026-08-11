@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { quickLeadSchema, escapeHtml } from '../../lib/schema';
 import { isRateLimited, getClientKey, isAllowedOrigin } from '../../lib/rate-limit';
 import { getMailConfig } from '../../lib/env';
+import { sendMail } from '../../lib/mail';
 import { reportLeadFailure } from '../../lib/alerting';
 import { business } from '../../data/business';
 
@@ -68,22 +69,18 @@ export const POST: APIRoute = async ({ request, site }) => {
   // visitor a confirmation for a lead that was never delivered anywhere.
   if (!mail) {
     await reportLeadFailure({ route: '/api/lead', reason: 'mail credentials missing' }, null);
-    console.error('[lead] RESEND_API_KEY or LEAD_FROM_EMAIL not set; lead NOT delivered.', {
+    console.error('[lead] SMTP2GO_API_KEY or LEAD_FROM_EMAIL not set; lead NOT delivered.', {
       service: lead.service,
     });
     return json({ ok: false, delivered: false, error: 'Could not send your request. Please call us.' }, 500);
   }
 
   try {
-    const { Resend } = await import('resend');
-    const resend = new Resend(mail.apiKey);
-    const { error } = await resend.emails.send({
-      from: mail.from,
-      to: mail.to,
+    const sent = await sendMail(mail, {
       subject: `New ${lead.service} lead: ${lead.name}`,
       html,
     });
-    if (error) throw new Error(error.message);
+    if (!sent.ok) throw new Error(sent.error);
     return json({ ok: true, delivered: true });
   } catch (err) {
     await reportLeadFailure(

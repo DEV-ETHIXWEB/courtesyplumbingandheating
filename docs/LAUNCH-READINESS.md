@@ -12,7 +12,7 @@ client decision · **Not started** = section not yet worked.
 
 | Item | Status |
 |---|---|
-| Forms actually deliver the lead | **Blocked** — code path verified end to end, real send needs a Resend key |
+| Forms actually deliver the lead | **Blocked** — code path verified end to end, real send needs an SMTP2GO key |
 | All routes work, no dead ends | Done — 143 pages crawled, 0 broken links |
 | All buttons/links/nav/CTAs work | Done |
 | Chatbot delivers through the verified path | Done — full flow driven, 1 API call, 1 conversion event |
@@ -46,7 +46,7 @@ Fixed here: page scrolled sideways on mobile; the coupon rail covered headings b
 
 | Item | Status |
 |---|---|
-| Form/email/CRM verified end to end | **Blocked** — needs the Resend key |
+| Form/email/CRM verified end to end | **Blocked** — needs the SMTP2GO key; `npm run check:mail` verifies it in one command |
 | Analytics firing, confirmed in real time | **Blocked** — needs `PUBLIC_GTM_ID` |
 | Conversions fire only after confirmed success | Done — `contact_form_submit` fires only on `delivered: true`, proven by test |
 | CAPTCHA verified server-side | N/A — none installed; honeypot is checked server-side instead |
@@ -54,7 +54,7 @@ Fixed here: page scrolled sideways on mobile; the coupon rail covered headings b
 | Webhooks tested with signature verification | N/A — no webhooks |
 | Third-party embeds tested on the production domain | **Blocked** — needs the live domain |
 | Legacy integrations fully retired | Done — no stale staging or prior-host URLs in code |
-| Rate limits/quotas checked against real traffic | **Blocked** — Resend free tier is 100/day, 3k/month; confirm the client's plan |
+| Rate limits/quotas checked against real traffic | **Blocked** — SMTP2GO free tier is 1,000/month; confirm the client's plan |
 | No tracking IDs from another client | Done — zero hardcoded IDs of any kind |
 
 Fixed here: chatbot leads pushed no analytics event at all; the honeypot was checked
@@ -74,15 +74,15 @@ only in the browser, so a direct POST to the API bypassed it; no rate limiting e
 
 **The find that mattered here:** secrets were read through `import.meta.env`, which
 Vite replaces at build time. They were unset during the build, so they compiled to
-`undefined` and the bundler dead-code-eliminated the entire Resend send path — the
-`resend` package did not appear in the deployed function at all. Setting the keys in
+`undefined` and the bundler dead-code-eliminated the entire mail send path — the
+mail vendor package did not appear in the deployed function at all. Setting the keys in
 the Vercel dashboard would not have fixed it. Server secrets now come from
 `process.env` at runtime (`src/lib/env.ts`), verified by rebuilding and confirming
-`resend` is present and no key values are baked in.
+the send path is present and no key values are baked in.
 
 ### Secret rotation
 
-Rotating `RESEND_API_KEY` (or either mail address) needs **no rebuild and no
+Rotating `SMTP2GO_API_KEY` (or either mail address) needs **no rebuild and no
 redeploy** — change it in the Vercel dashboard and the next function invocation
 picks it up. This only holds while server code reads `process.env`; if anyone
 reintroduces `import.meta.env.SOMETHING` in a server route, rotation silently starts
@@ -197,7 +197,7 @@ Nothing has been deployed or tested on the production URL. Rollback plan and the
 The assignable punch list lives in `PENDING-CLIENT-CONFIRMATIONS.md`, covering all
 thirteen requirement rows plus eleven project-specific content items.
 
-Four of them block launch outright: **the Resend API key**, **the production
+Four of them block launch outright: **the SMTP2GO API key**, **the production
 environment variables**, **domain/DNS access**, and — for anything to be measurable —
 **the GTM container ID**. Four requirement rows are genuinely N/A for this build
 (reCAPTCHA, webhooks, CMS, call tracking), which is worth stating explicitly rather
@@ -213,8 +213,8 @@ The single most visible open content item is the **Cappadocia hero video**.
 
 ### Blocking launch, needs someone else
 
-1. **Resend API key + verified sending domain** (client) — until then no lead can be
-   delivered and 01/03 cannot be signed off.
+1. **SMTP2GO API key + verified sender** (client) — until then no lead can be
+   delivered and 01/03 cannot be signed off. Setup steps: `docs/MAIL-SETUP.md`.
 2. **`PUBLIC_GTM_ID`** (client) — no analytics loads without it.
 3. **Vercel dashboard access** (dev) — to set and confirm the production variables.
 4. **Production domain decision** (client) — `astro.config.mjs` assumes

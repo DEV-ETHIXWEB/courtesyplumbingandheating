@@ -13,10 +13,10 @@ Three endpoints, all `POST`, all JSON, all server-rendered (`prerender = false`)
 | `/api/lead` | Home page quick-lead form | `quickLeadSchema` |
 | `/api/chatbot-lead` | Chatbot lead capture | `leadSchema` |
 
-All three send through **Resend** to `LEAD_NOTIFICATION_EMAIL`, and all three
-behave identically:
+All three send through **SMTP2GO** to `LEAD_NOTIFICATION_EMAIL` (see
+[MAIL-SETUP.md](MAIL-SETUP.md)), and all three behave identically:
 
-- Missing `RESEND_API_KEY` or `LEAD_FROM_EMAIL` -> **HTTP 500**, `{ok:false, delivered:false}`.
+- Missing `SMTP2GO_API_KEY` or `LEAD_FROM_EMAIL` -> **HTTP 500**, `{ok:false, delivered:false}`.
   There is no silent degrade and no mailto fallback.
 - Send failure -> **HTTP 502**, `{ok:false, delivered:false}`.
 - Success -> **HTTP 200**, `{ok:true, delivered:true}`.
@@ -68,7 +68,7 @@ optional `data-analytics-location`) is picked up by the delegated listener in
 
 | Service | Used for | Key needed | Quota notes |
 |---------|----------|-----------|-------------|
-| Resend | All lead notification email | `RESEND_API_KEY` | Free tier is 100 emails/day, 3k/month. A busy month of leads can pass that — confirm the client's plan. Sending domain must be verified or every send fails. |
+| SMTP2GO | All lead notification email | `SMTP2GO_API_KEY` | Free tier is 1,000 emails/month; paid plans start around 10k. Lead volume plus failure alerts should sit well inside that — confirm the client's plan. The sender must be verified or every send is refused. |
 | Google Tag Manager | Analytics/ads container | `PUBLIC_GTM_ID` | None |
 | CARTO basemap tiles | Service-area map background (`basemaps.cartocdn.com`) | None | Free basemap usage is subject to CARTO's terms; heavy traffic may need a paid plan or a self-hosted tile source. |
 | OpenStreetMap data | Map attribution | None | Attribution rendered in the map component; do not remove. |
@@ -83,9 +83,10 @@ See `.env.example`. Summary:
 
 | Variable | Required | Effect if missing |
 |----------|----------|-------------------|
-| `RESEND_API_KEY` | Yes | All lead endpoints return 500; forms show the "call us" error |
+| `SMTP2GO_API_KEY` | Yes | All lead endpoints return 500; forms show the "call us" error |
 | `LEAD_FROM_EMAIL` | Yes | Same as above |
 | `LEAD_NOTIFICATION_EMAIL` | Recommended | Falls back to the address in `src/data/business.ts` |
+| `SMTP2GO_API_URL` | No | Standard accounts need no override; EU-region keys fail against the default host |
 | `PUBLIC_GTM_ID` | Before launch | No analytics script loads at all |
 
 Server secrets are read from `process.env` at runtime via `src/lib/env.ts`, so

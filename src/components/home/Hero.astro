@@ -16,41 +16,58 @@ const trustPoints = [
 
 <section class="relative overflow-hidden bg-neutral-950">
   <div class="absolute inset-0">
+    {/*
+      This image is the LCP element on the homepage. It sits behind a dark overlay
+      and a video that fades in over it, so it carries compression well - hence
+      quality 68. Widths are capped at the poster's own 1280px; asking for 1920
+      would just upscale.
+    */}
     <Image
       src={heroPoster}
       alt=""
-      widths={[480, 640, 960, 1280, 1920]}
+      widths={[480, 640, 960, 1280]}
       sizes="100vw"
-      {/* This image is the LCP element on the homepage. It sits behind a dark overlay
-          and a video that fades in over it, so it carries compression well. */}
       quality={68}
       class="absolute inset-0 size-full object-cover object-center"
       loading="eager"
       fetchpriority="high"
       data-hero-poster
     />
-    <video
-      class="absolute inset-0 size-full object-cover object-center opacity-0 transition-opacity duration-700"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="none"
-      data-hero-video
-      aria-hidden="true"
-    >
-      <source data-src="/videos/hero-denver-mobile.mp4" type="video/mp4" media="(max-width: 767px)" />
-      <source data-src="/videos/hero-denver.webm" type="video/webm" media="(min-width: 768px)" />
-      <source data-src="/videos/hero-denver.mp4" type="video/mp4" media="(min-width: 768px)" />
-    </video>
+    {/* Two clips that cross-fade into each other and loop: downtown Denver first,
+        then Castle Rock. Neither element uses `loop` - the script hands playback from
+        one to the other, and the pair repeats. The poster above is a frame from the
+        first clip, so the still and the opening frame match. */}
+    {[
+      { key: 'denver', file: 'hero-denver' },
+      { key: 'castle-rock', file: 'hero-castle-rock' },
+    ].map(({ key, file }, index) => (
+      <video
+        class="absolute inset-0 size-full object-cover object-center opacity-0 transition-opacity duration-1000 ease-out"
+        muted
+        playsinline
+        preload="none"
+        data-hero-video={key}
+        data-hero-index={index}
+        aria-hidden="true"
+      >
+        {/* H.264 only, no WebM: VP9 encodes of this aerial footage came out larger
+            than the H.264 (2.1MB vs 1.1MB), and every target browser plays mp4. */}
+        <source data-src={`/videos/${file}-mobile.mp4`} type="video/mp4" media="(max-width: 767px)" />
+        <source data-src={`/videos/${file}.mp4`} type="video/mp4" media="(min-width: 768px)" />
+      </video>
+    ))}
   </div>
 
   <div class="relative mx-auto w-full max-w-(--container-max) px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32">
     <div class="max-w-2xl" data-reveal>
-      <span class="inline-flex items-center gap-2 rounded-full border border-brand-red-400/40 bg-brand-red-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-brand-red-200 backdrop-blur-sm">
+      {/* Solid pill with dark text. The previous light-red-on-10%-red version was
+          unreadable over bright footage, and no tint of red on a moving background can
+          be relied on - only an opaque backing gives a fixed contrast ratio.
+          brand-red-700 on white is 7.4:1, so it holds over any frame. */}
+      <span class="inline-flex items-center gap-2 rounded-full border border-brand-red-200 bg-white/95 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wider text-brand-red-700 shadow-[0_2px_10px_rgba(0,0,0,0.25)]">
         <span class="relative flex size-2">
-          <span class="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-brand-red-400 opacity-75 motion-reduce:hidden"></span>
-          <span class="relative inline-flex size-2 rounded-full bg-brand-red-400"></span>
+          <span class="absolute inline-flex h-full w-full animate-ping-slow rounded-full bg-brand-red-500 opacity-75 motion-reduce:hidden"></span>
+          <span class="relative inline-flex size-2 rounded-full bg-brand-red-600"></span>
         </span>
         24/7 Emergency Service
       </span>
@@ -84,8 +101,14 @@ const trustPoints = [
 </section>
 
 <script>
-  const video = document.querySelector<HTMLVideoElement>('[data-hero-video]');
-  if (video) {
+  /** Length of the CSS opacity transition on the video elements. */
+  const FADE_MS = 1000;
+
+  const videos = [...document.querySelectorAll<HTMLVideoElement>('[data-hero-video]')].sort(
+    (a, b) => Number(a.dataset.heroIndex) - Number(b.dataset.heroIndex)
+  );
+
+  if (videos.length) {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const connection = (navigator as unknown as { connection?: { saveData?: boolean; effectiveType?: string } })
       .connection;
@@ -93,26 +116,105 @@ const trustPoints = [
     const slowLink = connection?.effectiveType ? /^2g|slow-2g$/.test(connection.effectiveType) : false;
 
     if (!reduceMotion && !saveData && !slowLink) {
-      // Deferred deliberately. The video is ~1.4MB and, once it paints, becomes the
-      // LCP element - starting it during load pushed mobile LCP to 6.0s. Waiting for
-      // load + idle leaves the poster image as LCP (~2.2s) and the video fades in
-      // afterwards, which looks identical to a visitor.
-      const startVideo = () => {
+      let current = 0;
+      let handedOff = false;
+
+      const attachSources = (video: HTMLVideoElement) => {
+        if (video.dataset.sourcesAttached === 'true') return;
+        video.dataset.sourcesAttached = 'true';
         for (const source of video.querySelectorAll<HTMLSourceElement>('source[data-src]')) {
           source.src = source.dataset.src as string;
         }
+        video.load();
+      };
 
-        video.addEventListener(
+      const show = (video: HTMLVideoElement) => video.classList.remove('opacity-0');
+      const hide = (video: HTMLVideoElement) => video.classList.add('opacity-0');
+
+      // The outgoing clip keeps playing through the fade and then fires 'ended'. Left
+      // attached, that handler advances a second time and swaps straight back, so a
+      // clip's listeners are always detached as it hands over.
+      const listeners = new WeakMap<HTMLVideoElement, () => void>();
+      const unwatch = (video: HTMLVideoElement) => {
+        listeners.get(video)?.();
+        listeners.delete(video);
+      };
+
+      /**
+       * Cross-fade to the next clip. The outgoing video keeps playing through the
+       * fade and is only reset once it is fully transparent, so the swap is never
+       * visible as a jump or a black frame.
+       */
+      const advance = () => {
+        if (handedOff) return;
+        handedOff = true;
+
+        const outgoing = videos[current];
+        const next = (current + 1) % videos.length;
+        const incoming = videos[next];
+
+        unwatch(outgoing);
+        attachSources(incoming);
+        incoming.currentTime = 0;
+
+        const begin = () => {
+          show(incoming);
+          hide(outgoing);
+          incoming.play().catch(() => show(outgoing));
+          current = next;
+          handedOff = false;
+          window.setTimeout(() => {
+            outgoing.pause();
+            outgoing.currentTime = 0;
+          }, FADE_MS);
+          watch(incoming);
+        };
+
+        if (incoming.readyState >= 3) begin();
+        else incoming.addEventListener('canplay', begin, { once: true });
+      };
+
+      /**
+       * Hand over slightly before the clip ends so the fade completes on moving
+       * footage. 'ended' is kept as a backstop: if timeupdate stops firing, or the
+       * duration is unknown, playback still advances instead of freezing.
+       */
+      const watch = (video: HTMLVideoElement) => {
+        const onTime = () => {
+          if (!Number.isFinite(video.duration)) return;
+          if (video.duration - video.currentTime <= FADE_MS / 1000) advance();
+        };
+        const onEnded = () => advance();
+
+        video.addEventListener('timeupdate', onTime);
+        video.addEventListener('ended', onEnded);
+        listeners.set(video, () => {
+          video.removeEventListener('timeupdate', onTime);
+          video.removeEventListener('ended', onEnded);
+        });
+      };
+
+      // Deferred deliberately. Once a video paints it becomes the LCP element, and
+      // starting playback during load pushed mobile LCP to 6.0s. Waiting for load +
+      // idle leaves the poster image as LCP; the first clip fades in over it.
+      const startPlayback = () => {
+        const first = videos[0];
+        attachSources(first);
+
+        first.addEventListener(
           'canplay',
           () => {
-            video.classList.remove('opacity-0');
+            show(first);
+            watch(first);
+            // Only fetch the second clip once the first is actually playing, so the
+            // two never compete for bandwidth during the initial load.
+            window.setTimeout(() => attachSources(videos[1]), 2000);
           },
-          { once: true },
+          { once: true }
         );
 
-        video.load();
-        video.play().catch(() => {
-          // Autoplay blocked or load failed: poster image underneath stays visible.
+        first.play().catch(() => {
+          // Autoplay blocked or load failed: the poster image underneath stays visible.
         });
       };
 
@@ -120,8 +222,8 @@ const trustPoints = [
         const idle = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void })
           .requestIdleCallback;
         // Safari has no requestIdleCallback; a short timeout is close enough.
-        if (idle) idle(startVideo, { timeout: 2000 });
-        else setTimeout(startVideo, 600);
+        if (idle) idle(startPlayback, { timeout: 2000 });
+        else setTimeout(startPlayback, 600);
       };
 
       if (document.readyState === 'complete') schedule();

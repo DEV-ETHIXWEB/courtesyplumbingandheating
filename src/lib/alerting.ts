@@ -11,6 +11,9 @@
  * answers one question - "are leads still being delivered?" - which is the one that
  * costs the client money.
  */
+import type { MailConfig } from './env';
+import { sendMail } from './mail';
+
 const FAILURE_THRESHOLD = 3;
 const WINDOW_MS = 15 * 60 * 1000;
 /** Never send more than one alert per this interval, whatever happens. */
@@ -31,7 +34,7 @@ export interface AlertContext {
  */
 export async function reportLeadFailure(
   ctx: AlertContext,
-  mail: { apiKey: string; from: string; to: string } | null
+  mail: MailConfig | null
 ): Promise<void> {
   const now = Date.now();
   failures = failures.filter((t) => now - t < WINDOW_MS);
@@ -51,24 +54,22 @@ export async function reportLeadFailure(
 
   lastAlertAt = now;
   try {
-    const { Resend } = await import('resend');
-    const resend = new Resend(mail.apiKey);
-    // Resend returns errors rather than throwing, so the result has to be inspected -
-    // otherwise a silently failing alert looks exactly like a healthy one.
-    const { error } = await resend.emails.send({
-      from: mail.from,
-      to: mail.to,
+    // sendMail reports failures in its return value rather than throwing, so the
+    // result has to be inspected - otherwise a silently failing alert looks exactly
+    // like a healthy one.
+    const sent = await sendMail(mail, {
       subject: `[Courtesy site] Lead delivery failing (${failures.length} in ${WINDOW_MS / 60000}m)`,
       html: `
         <h2>Lead delivery is failing</h2>
         <p><strong>${failures.length}</strong> failed attempts in the last ${WINDOW_MS / 60000} minutes.</p>
         <p>Most recent: <code>${ctx.route}</code> - ${ctx.reason}</p>
         ${ctx.detail ? `<p>Detail: <code>${ctx.detail}</code></p>` : ''}
-        <p>Visitors are seeing the "please call us" fallback. Check RESEND_API_KEY,
-        LEAD_FROM_EMAIL and the Resend dashboard for sending limits or domain issues.</p>
+        <p>Visitors are seeing the "please call us" fallback. Check SMTP2GO_API_KEY,
+        LEAD_FROM_EMAIL and the SMTP2GO dashboard for sending limits or sender
+        verification issues.</p>
       `,
     });
-    if (error) console.error('[alert] failure alert was not delivered:', error.message);
+    if (!sent.ok) console.error('[alert] failure alert was not delivered:', sent.error);
   } catch (err) {
     console.error('[alert] could not send failure alert', err);
   }
