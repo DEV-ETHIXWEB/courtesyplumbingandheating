@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Turnstile } from './Turnstile';
 import {
   Wrench,
   Flame,
@@ -102,9 +103,12 @@ function PickerChips({
   );
 }
 
+const turnstileRequired = Boolean(import.meta.env.PUBLIC_TURNSTILE_SITE_KEY);
+
 export default function ContactForm({ business }: Props) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [values, setValues] = useState({
     name: '',
     phone: '',
@@ -145,6 +149,7 @@ export default function ContactForm({ business }: Props) {
           zip: values.zip,
           timing: values.timing,
           details: values.details,
+          turnstileToken,
         }),
       });
       // Success is only claimed when the server confirms the lead was actually delivered.
@@ -153,6 +158,8 @@ export default function ContactForm({ business }: Props) {
       setStatus('sent');
       track('contact_form_submit', { form: 'contact_page', service_needed: values.intent });
     } catch {
+      // Tokens are single-use; clear it so the widget must re-verify before retrying.
+      setTurnstileToken(null);
       setStatus('error');
     }
   }
@@ -366,9 +373,11 @@ export default function ContactForm({ business }: Props) {
         />
       </div>
 
+      <Turnstile onVerify={setTurnstileToken} onExpire={() => setTurnstileToken(null)} theme="light" />
+
       <motion.button
         type="submit"
-        disabled={status === 'sending'}
+        disabled={status === 'sending' || (turnstileRequired && !turnstileToken)}
         whileHover={{ scale: 1.01 }}
         whileTap={{ scale: 0.98 }}
         className="inline-flex w-full items-center justify-center gap-2 rounded-(--radius-md) bg-[linear-gradient(155deg,var(--color-brand-blue-500)_0%,var(--color-brand-blue-700)_100%)] px-6 py-3.5 text-sm font-bold text-white shadow-[0_10px_24px_-8px_rgba(15,95,168,0.5)] transition-shadow hover:shadow-[0_14px_30px_-8px_rgba(15,95,168,0.6)] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"

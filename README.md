@@ -62,8 +62,12 @@ Copy `.env.example` to `.env` and fill in:
 | `LEAD_NOTIFICATION_EMAIL`     | No        | Where leads are delivered; falls back to `business.email.display` |
 | `SMTP2GO_API_URL`             | No        | Only for EU-region/dedicated-IP SMTP2GO accounts on a different host |
 | `PUBLIC_GTM_ID`               | No        | Google Tag Manager container ID; if unset, no analytics loads at all |
+| `PUBLIC_TURNSTILE_SITE_KEY`   | No        | Cloudflare Turnstile site key (client-exposed); renders the CAPTCHA widget on the contact and quick-lead forms |
+| `TURNSTILE_SECRET_KEY`        | No*       | Cloudflare Turnstile secret key (server-only); verifies tokens before a lead is recorded or emailed |
 
 **If `SMTP2GO_API_KEY` or `LEAD_FROM_EMAIL` is missing, the lead API routes return HTTP 500 and every form shows its "call us" error** (see `src/pages/api/*.ts`). They never report success for a lead that was not delivered — but that also means no lead arrives until both are set in the Vercel project.
+
+**Turnstile fails closed in production**: if `TURNSTILE_SECRET_KEY` is unset (or a submitted token is missing/invalid) while running in production, `verifyTurnstile` (`src/lib/turnstile.ts`) rejects the request with a 503/403 rather than silently skipping verification. The only bypass is local dev or preview deploys with no secret configured, so `TURNSTILE_SECRET_KEY` is marked optional above but is effectively required once you deploy to production — set both keys in the Vercel project. Get both from dash.cloudflare.com -> Turnstile -> Add widget manually.
 
 Verify delivery end to end with `npm run check:mail` (see [Mail setup](docs/MAIL-SETUP.md)). It sends one real email through the same API and success test the site uses, and names the failing step when it fails.
 

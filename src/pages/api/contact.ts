@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { leadSchema, escapeHtml } from '../../lib/schema';
 import { isRateLimited, getClientKey, isAllowedOrigin } from '../../lib/rate-limit';
+import { verifyTurnstile } from '../../lib/turnstile';
 import { getMailConfig } from '../../lib/env';
 import { sendMail } from '../../lib/mail';
 import { reportLeadFailure } from '../../lib/alerting';
@@ -40,6 +41,17 @@ export const POST: APIRoute = async ({ request, site }) => {
   // real send does, so it learns nothing, and send no mail.
   if (lead.company) {
     return json({ ok: true, delivered: true });
+  }
+
+  const turnstile = await verifyTurnstile(lead.turnstileToken, request);
+  if (!turnstile.ok) {
+    if (turnstile.reason === 'not_configured') {
+      return json(
+        { ok: false, delivered: false, error: 'Submissions are temporarily unavailable. Please try again later.' },
+        503
+      );
+    }
+    return json({ ok: false, delivered: false, error: 'Verification failed. Please try again.' }, 403);
   }
 
   const rows: [string, string][] = [

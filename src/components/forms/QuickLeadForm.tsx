@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import { Turnstile } from './Turnstile';
 
 interface BusinessInfo {
   phoneDisplay: string;
@@ -33,9 +34,12 @@ function track(event: string, payload: Record<string, unknown> = {}) {
   w.dataLayer.push({ event, ...payload });
 }
 
+const turnstileRequired = Boolean(import.meta.env.PUBLIC_TURNSTILE_SITE_KEY);
+
 export default function QuickLeadForm({ business }: Props) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [values, setValues] = useState({ name: '', phone: '', service: '', message: '', company: '' });
 
   function validate() {
@@ -64,6 +68,7 @@ export default function QuickLeadForm({ business }: Props) {
           phone: values.phone,
           service: values.service,
           message: values.message,
+          turnstileToken,
         }),
       });
       // Success is only claimed when the server confirms the lead was actually delivered.
@@ -72,6 +77,8 @@ export default function QuickLeadForm({ business }: Props) {
       setStatus('sent');
       track('contact_form_submit', { form: 'quick_lead', service_needed: values.service });
     } catch {
+      // Tokens are single-use; clear it so the widget must re-verify before retrying.
+      setTurnstileToken(null);
       setStatus('error');
     }
   }
@@ -217,9 +224,11 @@ export default function QuickLeadForm({ business }: Props) {
         />
       </div>
 
+      <Turnstile onVerify={setTurnstileToken} onExpire={() => setTurnstileToken(null)} theme="dark" />
+
       <button
         type="submit"
-        disabled={status === 'sending'}
+        disabled={status === 'sending' || (turnstileRequired && !turnstileToken)}
         className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-blue-600 px-6 py-3.5 text-sm font-bold text-white shadow-lg shadow-brand-blue-900/30 transition-transform hover:bg-brand-blue-500 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === 'sending' ? 'Sending...' : 'Request Service'}

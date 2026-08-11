@@ -8,9 +8,18 @@ import { z } from 'zod';
  */
 const honeypot = z.string().max(200).optional().default('');
 
+/**
+ * Cloudflare Turnstile token. Optional at the schema level because
+ * verifyTurnstile (src/lib/turnstile.ts) is what enforces its presence - and
+ * only when a secret key is actually configured, so environments without
+ * Turnstile provisioned aren't forced to send one.
+ */
+const turnstileToken = z.string().max(4000).optional().default('');
+
 /** Shared validation for lead capture (chatbot + contact form). */
 export const leadSchema = z.object({
   company: honeypot,
+  turnstileToken,
   intent: z.string().min(1).max(60),
   name: z.string().min(2).max(120),
   phone: z
@@ -29,6 +38,7 @@ export type Lead = z.infer<typeof leadSchema>;
 /** Shorter schema for the homepage quick-lead form: name, phone, service only. */
 export const quickLeadSchema = z.object({
   company: honeypot,
+  turnstileToken,
   source: z.string().max(60),
   name: z.string().min(2).max(120),
   phone: z
